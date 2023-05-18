@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "ConsoleUI/1.0.0": {
+        "dependencies": {
+          "BankClassLibrary": "1.0.0",
+          "HelperClassLibrary": "1.0.0"
+        },
+        "runtime": {
+          "ConsoleUI.dll": {}
+        }
+      },
+      "BankClassLibrary/1.0.0": {
+        "dependencies": {
+          "HelperClassLibrary": "1.0.0"
+        },
+        "runtime": {
+          "BankClassLibrary.dll": {}
+        }
+      },
+      "HelperClassLibrary/1.0.0": {
+        "runtime": {
+          "HelperClassLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BankClassLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HelperClassLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
