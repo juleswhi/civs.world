@@ -8,26 +8,24 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Jules\\.nuget\\packages\\": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jules\\source\\repos\\CourtOfOwls\\ArmyClassLibrary\\ArmyClassLibrary.csproj",
+      "projectUniqueName": "/workspaces/CourtOfOwls/ArmyClassLibrary/ArmyClassLibrary.csproj",
       "projectName": "ArmyClassLibrary",
-      "projectPath": "C:\\Users\\Jules\\source\\repos\\CourtOfOwls\\ArmyClassLibrary\\ArmyClassLibrary.csproj",
-      "packagesPath": "C:\\Users\\Jules\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jules\\source\\repos\\CourtOfOwls\\ArmyClassLibrary\\obj\\",
+      "projectPath": "/workspaces/CourtOfOwls/ArmyClassLibrary/ArmyClassLibrary.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/CourtOfOwls/ArmyClassLibrary/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Jules\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
       }
     }
   }

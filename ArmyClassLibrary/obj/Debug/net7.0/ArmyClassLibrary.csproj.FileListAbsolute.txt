@@ -1,0 +1,12 @@
+/workspaces/CourtOfOwls/ArmyClassLibrary/bin/Debug/net7.0/ArmyClassLibrary.deps.json
+/workspaces/CourtOfOwls/ArmyClassLibrary/bin/Debug/net7.0/ArmyClassLibrary.dll
+/workspaces/CourtOfOwls/ArmyClassLibrary/bin/Debug/net7.0/ArmyClassLibrary.pdb
+/workspaces/CourtOfOwls/ArmyClassLibrary/obj/Debug/net7.0/ArmyClassLibrary.csproj.AssemblyReference.cache
+/workspaces/CourtOfOwls/ArmyClassLibrary/obj/Debug/net7.0/ArmyClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CourtOfOwls/ArmyClassLibrary/obj/Debug/net7.0/ArmyClassLibrary.AssemblyInfoInputs.cache
+/workspaces/CourtOfOwls/ArmyClassLibrary/obj/Debug/net7.0/ArmyClassLibrary.AssemblyInfo.cs
+/workspaces/CourtOfOwls/ArmyClassLibrary/obj/Debug/net7.0/ArmyClassLibrary.csproj.CoreCompileInputs.cache
+/workspaces/CourtOfOwls/ArmyClassLibrary/obj/Debug/net7.0/ArmyClassLibrary.dll
+/workspaces/CourtOfOwls/ArmyClassLibrary/obj/Debug/net7.0/refint/ArmyClassLibrary.dll
+/workspaces/CourtOfOwls/ArmyClassLibrary/obj/Debug/net7.0/ArmyClassLibrary.pdb
+/workspaces/CourtOfOwls/ArmyClassLibrary/obj/Debug/net7.0/ref/ArmyClassLibrary.dll

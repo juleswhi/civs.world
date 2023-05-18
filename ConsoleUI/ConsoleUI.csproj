@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BankClassLibrary\BankClassLibrary.csproj" />
     <ProjectReference Include="..\HelperClassLibrary\HelperClassLibrary.csproj" />
+    <ProjectReference Include="..\ArmyClassLibrary\ArmyClassLibrary.csproj" />
   </ItemGroup>
 
 </Project>

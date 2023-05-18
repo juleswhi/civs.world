@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cQ2rmeT/RrO7O3Ahdm2s6u3vL9ywnwVlQhdYf8iKXEAtaLGwzn9BY2rO9nz7Ic6cTwjTusTbW7s2WVHlQgh8ZQ==",
+  "dgSpecHash": "Pbcakhyp9hrulQmmvApvPzKN33StsWFNQNNifqxYpNzPAj6lFtgfpikNN2vn4eOp6TWoVWDKbHFYWTLlJHbAWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jules\\source\\repos\\CourtOfOwls\\BankClassLibrary\\BankClassLibrary.csproj",
+  "projectFilePath": "/workspaces/CourtOfOwls/BankClassLibrary/BankClassLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

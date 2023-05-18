@@ -8,11 +8,17 @@
     ".NETCoreApp,Version=v7.0": {
       "ConsoleUI/1.0.0": {
         "dependencies": {
+          "ArmyClassLibrary": "1.0.0",
           "BankClassLibrary": "1.0.0",
           "HelperClassLibrary": "1.0.0"
         },
         "runtime": {
           "ConsoleUI.dll": {}
+        }
+      },
+      "ArmyClassLibrary/1.0.0": {
+        "runtime": {
+          "ArmyClassLibrary.dll": {}
         }
       },
       "BankClassLibrary/1.0.0": {
@@ -32,6 +38,11 @@
   },
   "libraries": {
     "ConsoleUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ArmyClassLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
