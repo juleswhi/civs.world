@@ -1,17 +1,16 @@
-﻿using ArmyClassLibrary.Interfaces;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace ArmyClassLibrary
-{
+namespace Models.ArmyModels;
+
     public class Soldier : ITrainable
     {
-        static Random rng = new Random(420);
 
         public Soldier()
         {   
             Id = Guid.NewGuid();
             Rating = new SoldierRating();
         }
-
 
 
         private Guid Id { get; set; }
@@ -34,7 +33,5 @@ namespace ArmyClassLibrary
                 Strategy = oldRating.Strategy += (int) length.TotalSeconds,
                 Overrall = oldRating.Overrall += (int) length.TotalSeconds
             };
-            System.Console.WriteLine($"Soldier: {Id} has been trained and Now has a Rating of {Rating.Overrall}");
         }
     }
-}

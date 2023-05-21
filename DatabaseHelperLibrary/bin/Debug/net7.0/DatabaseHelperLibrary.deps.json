@@ -8,8 +8,8 @@
     ".NETCoreApp,Version=v7.0": {
       "DatabaseHelperLibrary/1.0.0": {
         "dependencies": {
-          "CourtOfOwlsModels": "1.0.0",
-          "MongoDB.Driver": "2.19.1"
+          "MongoDB.Driver": "2.19.1",
+          "DotNetEnv": "2.5.0"
         },
         "runtime": {
           "DatabaseHelperLibrary.dll": {}
@@ -888,14 +888,6 @@
             "fileVersion": "0.6.2.0"
           }
         }
-      },
-      "CourtOfOwlsModels/1.0.0": {
-        "dependencies": {
-          "DotNetEnv": "2.5.0"
-        },
-        "runtime": {
-          "CourtOfOwlsModels.dll": {}
-        }
       }
     }
   },
@@ -1562,11 +1554,6 @@
       "sha512": "sha512-jPao/LdUNLUz8rn3H1D8W7wQbZsRZM0iayvWI4xGejJg3XJHT56gcmYdgmCGPdJF1UEBqUjucCRrFB+4HbJsbw==",
       "path": "zstdsharp.port/0.6.2",
       "hashPath": "zstdsharp.port.0.6.2.nupkg.sha512"
-    },
-    "CourtOfOwlsModels/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

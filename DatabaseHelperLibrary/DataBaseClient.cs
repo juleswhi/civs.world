@@ -1,53 +1,46 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MongoDB.Driver;
-using Models.HelperModels;
 
-
-namespace DatabaseHelperLibrary
-{
+namespace DatabaseHelperLibrary;
     public static class DataBaseClient
     {
+        static DataBaseClient()
+        {
+            DotNetEnv.Env.Load();
+            dbClient = new MongoClient(Environment.GetEnvironmentVariable("MongoDBConnectionString"));
+            Console.WriteLine("Successfully connected to mongo client");
+            Database = dbClient.GetDatabase("UserDatabase");
+            Console.WriteLine("Connected to mongo database");
+        }
+
 
         public static MongoClient? dbClient = null;
+        public static IMongoDatabase? Database = null;
 
-        public static void InitialiseDatabase()
+
+
+
+        public static async Task<List<T>> FindDocuments<T>(this IMongoCollection<T> collection, FilterDefinition<T> filter)
         {
-            DotEnv.SetEnvironmentVariables();
-            dbClient = new MongoClient(Environment.GetEnvironmentVariable("MongoDBConnectionString"));
+            var results = await collection.FindAsync(filter);
+
+            return results.ToList<T>();
+        
         }
 
 
-        public static async void ShowTables()
+        public static async Task CreateDocuments<T>(this IMongoCollection<T> collection, params T[] documents)
         {
-
-            var dbs = await dbClient.ListDatabaseNamesAsync();
-
-            var collections = await dbClient.GetDatabase("local").ListCollectionsAsync();
-
-            Console.WriteLine(collections);
-
-        } 
-
-        public static async void CreateDatabase()
-        {
-            var db = dbClient.GetDatabase("local");
-            await db.CreateCollectionAsync("CountryData");
-            System.Console.WriteLine("Created Database");
+            await collection.InsertManyAsync(documents);
         }
 
-        public static void FindDocuments()
+        public static async Task CreateDocument<T>(this IMongoCollection<T> collection, T document)
         {
-            
+            await collection.InsertOneAsync(document);
+        }
+
+        public static async Task DeleteAllDocuments<T>(this IMongoCollection<T> collection)
+        {
+            await collection.DeleteAllDocuments<T>();
         }
 
     }
-
-    public class Person
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-    }
-}

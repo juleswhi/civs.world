@@ -1,13 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ArmyClassLibrary.Interfaces;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace ArmyClassLibrary 
-{
+
+namespace Models.ArmyModels;
     public class Army : ITrainable
     {
+
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
         public List<Soldier> Soldiers { get; set; } = new List<Soldier>();
 
         public int Rating { get; set; }
@@ -16,11 +17,11 @@ namespace ArmyClassLibrary
         {
             foreach(var soldier in Soldiers)
             {
-                await soldier.Train(x => x.Rating, length);
+                await soldier.Train(x => x.Rating, length * 1000);
             }
         }
 
-        private void EvaluateRating()
+        public void EvaluateRating()
         {
             var sum = 0;
             foreach(var soldier in Soldiers)
@@ -34,4 +35,3 @@ namespace ArmyClassLibrary
 
 
     }
-}

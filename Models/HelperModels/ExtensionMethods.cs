@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HelperClassLibrary
-{
+namespace Models.HelperModels;
     public static class ParseExtensions
     {
         public static T Parse<T>(this string input, IFormatProvider? formatProvider = null)
@@ -14,4 +13,3 @@ namespace HelperClassLibrary
         }
         
     }
-}

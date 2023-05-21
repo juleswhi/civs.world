@@ -1,29 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HelperClassLibrary;
-
-namespace BankClassLibrary
-{
+﻿using Models.HelperModels;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using DatabaseHelperLibrary;
+using MongoDB.Bson.Serialization.Attributes;
+namespace Models.BankModels;
     public class Account
     {
-        public Account(Guid holder, Name name)
+        public Account(Guid holder, Guid BankGuid, Name? name = null)
         {
-            this.AccountId = holder;
+            this.Id = holder;
+            this.BankGuid = BankGuid; 
             this.Name = name;
         }
-
-        public Name Name { get; set; }
-
+        [BsonElement]
+        public Guid Id { get; set; }
+        [BsonElement]
+        public Name? Name { get; set; }
+        [BsonElement]
         private decimal Balance { get; set; } = 0;
-
-        public Guid AccountId { get; set; }
+        [BsonElement]
+        private Guid BankGuid { get; set; }
 
         public decimal GetBalance() => Balance;
 
-
+        /*
         #region Withdrawl
 
         public static Code Withdrawl(Guid accountGuid, decimal amount)
@@ -61,16 +61,37 @@ namespace BankClassLibrary
             return Code.Ok; 
         }
         #endregion
-
+        */
+        
         #region Deposit
         public static Code Deposit(Guid accountGuid, decimal amount)
         {
-            Bank.SearchAllBankAccounts(() => accountGuid, out Account? foundAccount);
+
+
+            var BankDataCollection = DataBaseClient.dbClient.GetDatabase("UserDatabase").GetCollection<Bank>("BankData");
+
+            Account? foundAccount = null;
+
+            foreach(var bank in BankDataCollection.Find(Builders<Bank>.Filter.Exists(x => x.Id)).ToList())
+            {
+                foreach(var account in bank.Accounts)
+                {
+                    if(account.Id == accountGuid)
+                    {
+                        foundAccount = account;
+                    }
+                }
+            }
+
+
+
 
             if (foundAccount is null) return Code.AccountNotFound;
             
 
             foundAccount.Balance += amount;
+
+
 
             return Code.Ok;
         }
@@ -78,11 +99,4 @@ namespace BankClassLibrary
         #endregion
 
 
-
     }
-
-
-
-
-}
-

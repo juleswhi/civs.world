@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "w4R0r8tYCJ3z9yRtQTqyginJkQSEEmOW94Y79CZr6ZOE/TFLLOxnMy05HhSgUezEtePEsz8LzQgI/8kk1asCDQ==",
+  "dgSpecHash": "WVQMzRdf4BS95daQVxmNjf7cT4B14OI8CxoODjuXh3NiD9q1+8jEQj0FrHCjVgY5oDThgvz4uGQVwGfrL8RzXA==",
   "success": true,
   "projectFilePath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
   "expectedPackageFiles": [

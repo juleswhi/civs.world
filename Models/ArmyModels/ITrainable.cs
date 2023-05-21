@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ArmyClassLibrary.Interfaces
-{
+namespace Models.ArmyModels;
     public interface ITrainable
     {
 
@@ -16,4 +15,3 @@ namespace ArmyClassLibrary.Interfaces
 
         
     }
-}

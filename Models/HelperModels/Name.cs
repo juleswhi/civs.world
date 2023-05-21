@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HelperClassLibrary
-{
+namespace Models.HelperModels;
     public struct Name
     {
         public Name(string FirstName, string Surname, params string[]? Middlenames)
@@ -18,4 +17,3 @@ namespace HelperClassLibrary
         public List<string>? MiddleNames { get; set; }
 
     }
-}

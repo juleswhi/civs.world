@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Models.HelperModels
-{
+namespace Models.HelperModels;
     public static class DotEnv
     {
         public static void SetEnvironmentVariables()
@@ -14,4 +8,3 @@ namespace Models.HelperModels
             System.Console.WriteLine(message);
         }   
     }
-}

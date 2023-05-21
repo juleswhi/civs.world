@@ -85,11 +85,7 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {
-              "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj": {
-                "projectPath": "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -105,6 +101,10 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.19.1, )"
+            },
+            "dotnetenv": {
+              "target": "Package",
+              "version": "[2.5.0, )"
             }
           },
           "imports": [
@@ -148,7 +148,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
+                "projectPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -164,6 +168,10 @@
             "DotNetENv": {
               "target": "Package",
               "version": "[2.5.0, )"
+            },
+            "mongodb.driver": {
+              "target": "Package",
+              "version": "[2.19.1, )"
             }
           },
           "imports": [

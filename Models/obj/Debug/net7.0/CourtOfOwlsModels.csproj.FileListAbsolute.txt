@@ -10,3 +10,6 @@
 /workspaces/CourtOfOwls/Models/obj/Debug/net7.0/refint/CourtOfOwlsModels.dll
 /workspaces/CourtOfOwls/Models/obj/Debug/net7.0/CourtOfOwlsModels.pdb
 /workspaces/CourtOfOwls/Models/obj/Debug/net7.0/ref/CourtOfOwlsModels.dll
+/workspaces/CourtOfOwls/Models/bin/Debug/net7.0/DatabaseHelperLibrary.dll
+/workspaces/CourtOfOwls/Models/bin/Debug/net7.0/DatabaseHelperLibrary.pdb
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/CourtOfOwlsModels.csproj.CopyComplete

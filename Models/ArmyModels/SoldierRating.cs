@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ArmyClassLibrary
-{
+
+namespace Models.ArmyModels;
+
     public struct SoldierRating
     {
         public SoldierRating(Random seed)
@@ -18,4 +15,3 @@ namespace ArmyClassLibrary
         public int Strategy { get; set; } = 5;
         public int Overrall { get; set; } = 5;
     }
-}

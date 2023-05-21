@@ -132,4 +132,9 @@ What is Country of owls?
         Talk to others memebers
     }
 
-- Display 
+
+# TODO:
+
+update all models to use in MongoDB
+
+update databse when transferring funds etc

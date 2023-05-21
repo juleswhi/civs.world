@@ -10,6 +10,3 @@
 /workspaces/CourtOfOwls/DatabaseHelperLibrary/obj/Debug/net7.0/refint/DatabaseHelperLibrary.dll
 /workspaces/CourtOfOwls/DatabaseHelperLibrary/obj/Debug/net7.0/DatabaseHelperLibrary.pdb
 /workspaces/CourtOfOwls/DatabaseHelperLibrary/obj/Debug/net7.0/ref/DatabaseHelperLibrary.dll
-/workspaces/CourtOfOwls/DatabaseHelperLibrary/bin/Debug/net7.0/CourtOfOwlsModels.dll
-/workspaces/CourtOfOwls/DatabaseHelperLibrary/bin/Debug/net7.0/CourtOfOwlsModels.pdb
-/workspaces/CourtOfOwls/DatabaseHelperLibrary/obj/Debug/net7.0/DatabaseHelperLibrary.csproj.CopyComplete

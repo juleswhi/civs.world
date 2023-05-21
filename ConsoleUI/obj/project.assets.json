@@ -1490,7 +1490,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "DotNetENv": "2.5.0"
+          "DatabaseHelperLibrary": "1.0.0",
+          "DotNetENv": "2.5.0",
+          "mongodb.driver": "2.19.1"
         },
         "compile": {
           "bin/placeholder/CourtOfOwlsModels.dll": {}
@@ -1503,8 +1505,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "CourtOfOwlsModels": "1.0.0",
-          "MongoDB.Driver": "2.19.1"
+          "MongoDB.Driver": "2.19.1",
+          "dotnetenv": "2.5.0"
         },
         "compile": {
           "bin/placeholder/DatabaseHelperLibrary.dll": {}

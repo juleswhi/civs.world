@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HelperClassLibrary
-{
+namespace Models.HelperModels;
     public enum Code
     {
         None,
@@ -14,4 +13,3 @@ namespace HelperClassLibrary
         InsufficientFunds
 
     }
-}

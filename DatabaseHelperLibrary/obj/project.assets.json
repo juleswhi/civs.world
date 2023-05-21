@@ -1485,19 +1485,6 @@
         "runtime": {
           "lib/net6.0/ZstdSharp.dll": {}
         }
-      },
-      "CourtOfOwlsModels/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "DotNetENv": "2.5.0"
-        },
-        "compile": {
-          "bin/placeholder/CourtOfOwlsModels.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CourtOfOwlsModels.dll": {}
-        }
       }
     }
   },
@@ -4060,17 +4047,12 @@
         "zstdsharp.port.0.6.2.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
-    },
-    "CourtOfOwlsModels/1.0.0": {
-      "type": "project",
-      "path": "../Models/CourtOfOwlsModels.csproj",
-      "msbuildProject": "../Models/CourtOfOwlsModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "CourtOfOwlsModels >= 1.0.0",
-      "MongoDB.Driver >= 2.19.1"
+      "MongoDB.Driver >= 2.19.1",
+      "dotnetenv >= 2.5.0"
     ]
   },
   "packageFolders": {
@@ -4097,11 +4079,7 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {
-            "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj": {
-              "projectPath": "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -4117,6 +4095,10 @@
           "MongoDB.Driver": {
             "target": "Package",
             "version": "[2.19.1, )"
+          },
+          "dotnetenv": {
+            "target": "Package",
+            "version": "[2.5.0, )"
           }
         },
         "imports": [
