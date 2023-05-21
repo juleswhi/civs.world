@@ -4,116 +4,6 @@
     "/workspaces/CourtOfOwls/ConsoleUI/ConsoleUI.csproj": {}
   },
   "projects": {
-    "/workspaces/CourtOfOwls/ArmyClassLibrary/ArmyClassLibrary.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/workspaces/CourtOfOwls/ArmyClassLibrary/ArmyClassLibrary.csproj",
-        "projectName": "ArmyClassLibrary",
-        "projectPath": "/workspaces/CourtOfOwls/ArmyClassLibrary/ArmyClassLibrary.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/CourtOfOwls/ArmyClassLibrary/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/workspaces/CourtOfOwls/BankClassLibrary/BankClassLibrary.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/workspaces/CourtOfOwls/BankClassLibrary/BankClassLibrary.csproj",
-        "projectName": "BankClassLibrary",
-        "projectPath": "/workspaces/CourtOfOwls/BankClassLibrary/BankClassLibrary.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/CourtOfOwls/BankClassLibrary/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "/workspaces/CourtOfOwls/HelperClassLibrary/HelperClassLibrary.csproj": {
-                "projectPath": "/workspaces/CourtOfOwls/HelperClassLibrary/HelperClassLibrary.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "/workspaces/CourtOfOwls/ConsoleUI/ConsoleUI.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -136,14 +26,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/workspaces/CourtOfOwls/ArmyClassLibrary/ArmyClassLibrary.csproj": {
-                "projectPath": "/workspaces/CourtOfOwls/ArmyClassLibrary/ArmyClassLibrary.csproj"
+              "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
+                "projectPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj"
               },
-              "/workspaces/CourtOfOwls/BankClassLibrary/BankClassLibrary.csproj": {
-                "projectPath": "/workspaces/CourtOfOwls/BankClassLibrary/BankClassLibrary.csproj"
-              },
-              "/workspaces/CourtOfOwls/HelperClassLibrary/HelperClassLibrary.csproj": {
-                "projectPath": "/workspaces/CourtOfOwls/HelperClassLibrary/HelperClassLibrary.csproj"
+              "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj": {
+                "projectPath": "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj"
               }
             }
           }
@@ -177,14 +64,77 @@
         }
       }
     },
-    "/workspaces/CourtOfOwls/HelperClassLibrary/HelperClassLibrary.csproj": {
+    "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/CourtOfOwls/HelperClassLibrary/HelperClassLibrary.csproj",
-        "projectName": "HelperClassLibrary",
-        "projectPath": "/workspaces/CourtOfOwls/HelperClassLibrary/HelperClassLibrary.csproj",
+        "projectUniqueName": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
+        "projectName": "DatabaseHelperLibrary",
+        "projectPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
         "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/CourtOfOwls/HelperClassLibrary/obj/",
+        "outputPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/codespace/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj": {
+                "projectPath": "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.19.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj",
+        "projectName": "CourtOfOwlsModels",
+        "projectPath": "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj",
+        "packagesPath": "/home/codespace/.nuget/packages/",
+        "outputPath": "/workspaces/CourtOfOwls/Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/codespace/.nuget/NuGet/NuGet.Config"
@@ -210,6 +160,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "DotNetENv": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

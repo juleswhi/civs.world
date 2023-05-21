@@ -1,0 +1,12 @@
+/workspaces/CourtOfOwls/Models/bin/Debug/net7.0/CourtOfOwlsModels.deps.json
+/workspaces/CourtOfOwls/Models/bin/Debug/net7.0/CourtOfOwlsModels.dll
+/workspaces/CourtOfOwls/Models/bin/Debug/net7.0/CourtOfOwlsModels.pdb
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/CourtOfOwlsModels.csproj.AssemblyReference.cache
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/CourtOfOwlsModels.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/CourtOfOwlsModels.AssemblyInfoInputs.cache
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/CourtOfOwlsModels.AssemblyInfo.cs
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/CourtOfOwlsModels.csproj.CoreCompileInputs.cache
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/CourtOfOwlsModels.dll
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/refint/CourtOfOwlsModels.dll
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/CourtOfOwlsModels.pdb
+/workspaces/CourtOfOwls/Models/obj/Debug/net7.0/ref/CourtOfOwlsModels.dll

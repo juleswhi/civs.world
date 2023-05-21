@@ -5,12 +5,9 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{DFA3FD23-35BC-4704-9E39-247096C0511B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankClassLibrary", "BankClassLibrary\BankClassLibrary.csproj", "{0DC5EF8D-F698-4905-9FAE-73F73EA451D8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelperClassLibrary", "HelperClassLibrary\HelperClassLibrary.csproj", "{E75D0EAF-D7CC-45A7-BE12-B6E43170F923}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArmyClassLibrary", "ArmyClassLibrary\ArmyClassLibrary.csproj", "{0DFD478C-0C3A-46D4-AFB5-D5E46797A79B}"
-EndProject
+
+
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

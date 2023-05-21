@@ -8,9 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BankClassLibrary\BankClassLibrary.csproj" />
-    <ProjectReference Include="..\HelperClassLibrary\HelperClassLibrary.csproj" />
-    <ProjectReference Include="..\ArmyClassLibrary\ArmyClassLibrary.csproj" />
+    <ProjectReference Include="..\DatabaseHelperLibrary\DatabaseHelperLibrary.csproj" />
+    <ProjectReference Include="..\Models\CourtOfOwlsModels.csproj" />
   </ItemGroup>
 
 </Project>
