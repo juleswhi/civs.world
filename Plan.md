@@ -1,4 +1,4 @@
-# One Project; Country Of Owls
+# Country Of Owls
 
 What is Country of owls?
 
@@ -132,9 +132,13 @@ What is Country of owls?
         Talk to others memebers
     }
 
+<<<<<<< HEAD
 
 # TODO:
 
 update all models to use in MongoDB
 
 update databse when transferring funds etc
+=======
+- Display 
+>>>>>>> e04333304875b0b8a6ae9d1a27b4c17c85955a75
