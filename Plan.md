@@ -1,4 +1,4 @@
-# One Project; Country Of Owls
+# Country Of Owls
 
 What is Country of owls?
 
