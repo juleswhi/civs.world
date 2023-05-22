@@ -8,12 +8,15 @@ namespace Models.BankModels;
     {
         public Account(Guid holder, Guid BankGuid, Name? name = null)
         {
-            this.Id = holder;
+            this.OwnerId = holder;
+            this.AccountId = Guid.NewGuid();
             this.BankGuid = BankGuid; 
             this.Name = name;
         }
         [BsonElement]
-        public Guid Id { get; set; }
+        public Guid AccountId { get; set; }
+        [BsonElement]
+        public Guid OwnerId { get; set; }
         [BsonElement]
         public Name? Name { get; set; }
         [BsonElement]
@@ -76,7 +79,7 @@ namespace Models.BankModels;
             {
                 foreach(var account in bank.Accounts)
                 {
-                    if(account.Id == accountGuid)
+                    if(account.AccountId == accountGuid)
                     {
                         foundAccount = account;
                     }

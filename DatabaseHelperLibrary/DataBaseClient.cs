@@ -1,5 +1,7 @@
 using MongoDB.Driver;
 
+
+
 namespace DatabaseHelperLibrary;
     public static class DataBaseClient
     {
@@ -7,16 +9,12 @@ namespace DatabaseHelperLibrary;
         {
             DotNetEnv.Env.Load();
             dbClient = new MongoClient(Environment.GetEnvironmentVariable("MongoDBConnectionString"));
-            Console.WriteLine("Successfully connected to mongo client");
             Database = dbClient.GetDatabase("UserDatabase");
-            Console.WriteLine("Connected to mongo database");
         }
 
 
         public static MongoClient? dbClient = null;
         public static IMongoDatabase? Database = null;
-
-
 
 
         public static async Task<List<T>> FindDocuments<T>(this IMongoCollection<T> collection, FilterDefinition<T> filter)
