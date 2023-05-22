@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/CourtOfOwls/ConsoleUI/ConsoleUI.csproj": {}
+    "/home/jules/CourtOfOwls/ConsoleUI/ConsoleUI.csproj": {}
   },
   "projects": {
-    "/workspaces/CourtOfOwls/ConsoleUI/ConsoleUI.csproj": {
+    "/home/jules/CourtOfOwls/ConsoleUI/ConsoleUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/CourtOfOwls/ConsoleUI/ConsoleUI.csproj",
+        "projectUniqueName": "/home/jules/CourtOfOwls/ConsoleUI/ConsoleUI.csproj",
         "projectName": "ConsoleUI",
-        "projectPath": "/workspaces/CourtOfOwls/ConsoleUI/ConsoleUI.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/CourtOfOwls/ConsoleUI/obj/",
+        "projectPath": "/home/jules/CourtOfOwls/ConsoleUI/ConsoleUI.csproj",
+        "packagesPath": "/home/jules/.nuget/packages/",
+        "outputPath": "/home/jules/CourtOfOwls/ConsoleUI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "/home/jules/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -26,11 +26,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
-                "projectPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj"
+              "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
+                "projectPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj"
               },
-              "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj": {
-                "projectPath": "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj"
+              "/home/jules/CourtOfOwls/Models/CourtOfOwlsModels.csproj": {
+                "projectPath": "/home/jules/CourtOfOwls/Models/CourtOfOwlsModels.csproj"
               }
             }
           }
@@ -60,21 +60,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
+    "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
+        "projectUniqueName": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
         "projectName": "DatabaseHelperLibrary",
-        "projectPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/obj/",
+        "projectPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
+        "packagesPath": "/home/jules/.nuget/packages/",
+        "outputPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "/home/jules/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -123,21 +123,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj": {
+    "/home/jules/CourtOfOwls/Models/CourtOfOwlsModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj",
+        "projectUniqueName": "/home/jules/CourtOfOwls/Models/CourtOfOwlsModels.csproj",
         "projectName": "CourtOfOwlsModels",
-        "projectPath": "/workspaces/CourtOfOwls/Models/CourtOfOwlsModels.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/CourtOfOwls/Models/obj/",
+        "projectPath": "/home/jules/CourtOfOwls/Models/CourtOfOwlsModels.csproj",
+        "packagesPath": "/home/jules/.nuget/packages/",
+        "outputPath": "/home/jules/CourtOfOwls/Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "/home/jules/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -149,8 +149,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
-                "projectPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj"
+              "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
+                "projectPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj"
               }
             }
           }
@@ -190,7 +190,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
         }
       }
     }

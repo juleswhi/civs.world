@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {}
+    "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {}
   },
   "projects": {
-    "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
+    "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
+        "projectUniqueName": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
         "projectName": "DatabaseHelperLibrary",
-        "projectPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/CourtOfOwls/DatabaseHelperLibrary/obj/",
+        "projectPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
+        "packagesPath": "/home/jules/.nuget/packages/",
+        "outputPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "/home/jules/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -63,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.105/RuntimeIdentifierGraph.json"
         }
       }
     }

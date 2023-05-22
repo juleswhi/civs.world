@@ -10,6 +10,6 @@ IMongoCollection<Bank>? BankCollection = DataBaseClient.Database.GetCollection<B
 var rng = new Random();
 
 
-
+// Delete all Documents in collection
 // await collection.DeleteManyAsync(Builders<Bank>.Filter.Exists(x => x.Id));
 
