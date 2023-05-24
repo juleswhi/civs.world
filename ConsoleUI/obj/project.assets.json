@@ -1486,18 +1486,18 @@
           "lib/net6.0/ZstdSharp.dll": {}
         }
       },
-      "DatabaseHelperLibrary/1.0.0": {
+      "SharedClasses/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "MongoDB.Driver": "2.19.1",
-          "dotnetenv": "2.5.0"
+          "dotnetenv": "2.5.0",
+          "mongodb.driver": "2.19.1"
         },
         "compile": {
-          "bin/placeholder/DatabaseHelperLibrary.dll": {}
+          "bin/placeholder/SharedClasses.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DatabaseHelperLibrary.dll": {}
+          "bin/placeholder/SharedClasses.dll": {}
         }
       }
     }
@@ -4062,15 +4062,15 @@
         "zstdsharp.port.nuspec"
       ]
     },
-    "DatabaseHelperLibrary/1.0.0": {
+    "SharedClasses/1.0.0": {
       "type": "project",
-      "path": "../DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
-      "msbuildProject": "../DatabaseHelperLibrary/DatabaseHelperLibrary.csproj"
+      "path": "../SharedClasses/SharedClasses.csproj",
+      "msbuildProject": "../SharedClasses/SharedClasses.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "DatabaseHelperLibrary >= 1.0.0"
+      "SharedClasses >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4098,8 +4098,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
-              "projectPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj"
+            "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj": {
+              "projectPath": "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj"
             }
           }
         }

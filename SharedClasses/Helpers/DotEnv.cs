@@ -1,10 +1,10 @@
 namespace SharedClasses.Helpers;
-    public static class DotEnv
+public static class DotEnv
+{
+    public static void SetEnvironmentVariables()
     {
-        public static void SetEnvironmentVariables()
-        {
-            DotNetEnv.Env.Load();
-            var message = Environment.GetEnvironmentVariable("Hello");
-            System.Console.WriteLine(message);
-        }   
+        DotNetEnv.Env.Load();
+        var message = Environment.GetEnvironmentVariable("Hello");
+        System.Console.WriteLine(message);
     }
+}

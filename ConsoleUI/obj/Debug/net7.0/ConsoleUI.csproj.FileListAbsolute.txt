@@ -81,10 +81,6 @@ C:/Users/Jules/source/repos/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/HelperClassLi
 /home/jules/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/runtimes/linux/native/libmongocrypt.so
 /home/jules/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/runtimes/osx/native/libmongocrypt.dylib
 /home/jules/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/runtimes/win/native/mongocrypt.dll
-/home/jules/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/CourtOfOwlsModels.dll
-/home/jules/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/DatabaseHelperLibrary.dll
-/home/jules/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/DatabaseHelperLibrary.pdb
-/home/jules/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/CourtOfOwlsModels.pdb
 /home/jules/CourtOfOwls/ConsoleUI/obj/Debug/net7.0/ConsoleUI.csproj.AssemblyReference.cache
 /home/jules/CourtOfOwls/ConsoleUI/obj/Debug/net7.0/ConsoleUI.GeneratedMSBuildEditorConfig.editorconfig
 /home/jules/CourtOfOwls/ConsoleUI/obj/Debug/net7.0/ConsoleUI.AssemblyInfoInputs.cache
@@ -96,3 +92,5 @@ C:/Users/Jules/source/repos/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/HelperClassLi
 /home/jules/CourtOfOwls/ConsoleUI/obj/Debug/net7.0/ConsoleUI.pdb
 /home/jules/CourtOfOwls/ConsoleUI/obj/Debug/net7.0/ConsoleUI.genruntimeconfig.cache
 /home/jules/CourtOfOwls/ConsoleUI/obj/Debug/net7.0/ref/ConsoleUI.dll
+/home/jules/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/SharedClasses.dll
+/home/jules/CourtOfOwls/ConsoleUI/bin/Debug/net7.0/SharedClasses.pdb

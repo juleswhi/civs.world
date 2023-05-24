@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
-                "projectPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj"
+              "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj": {
+                "projectPath": "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj"
               }
             }
           }
@@ -61,14 +61,14 @@
         }
       }
     },
-    "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj": {
+    "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
-        "projectName": "DatabaseHelperLibrary",
-        "projectPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/DatabaseHelperLibrary.csproj",
+        "projectUniqueName": "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj",
+        "projectName": "SharedClasses",
+        "projectPath": "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj",
         "packagesPath": "/home/jules/.nuget/packages/",
-        "outputPath": "/home/jules/CourtOfOwls/DatabaseHelperLibrary/obj/",
+        "outputPath": "/home/jules/CourtOfOwls/SharedClasses/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jules/.nuget/NuGet/NuGet.Config"
@@ -95,13 +95,13 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.19.1, )"
-            },
             "dotnetenv": {
               "target": "Package",
               "version": "[2.5.0, )"
+            },
+            "mongodb.driver": {
+              "target": "Package",
+              "version": "[2.19.1, )"
             }
           },
           "imports": [

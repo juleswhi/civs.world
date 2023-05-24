@@ -6,12 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "ConsoleUI/1.0.0": {
+      "SharedClasses/1.0.0": {
         "dependencies": {
-          "SharedClasses": "1.0.0"
+          "DotNetEnv": "2.5.0",
+          "MongoDB.Driver": "2.19.1"
         },
         "runtime": {
-          "ConsoleUI.dll": {}
+          "SharedClasses.dll": {}
         }
       },
       "AWSSDK.Core/3.7.100.14": {
@@ -887,20 +888,11 @@
             "fileVersion": "0.6.2.0"
           }
         }
-      },
-      "SharedClasses/1.0.0": {
-        "dependencies": {
-          "DotNetEnv": "2.5.0",
-          "MongoDB.Driver": "2.19.1"
-        },
-        "runtime": {
-          "SharedClasses.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "ConsoleUI/1.0.0": {
+    "SharedClasses/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1562,11 +1554,6 @@
       "sha512": "sha512-jPao/LdUNLUz8rn3H1D8W7wQbZsRZM0iayvWI4xGejJg3XJHT56gcmYdgmCGPdJF1UEBqUjucCRrFB+4HbJsbw==",
       "path": "zstdsharp.port/0.6.2",
       "hashPath": "zstdsharp.port.0.6.2.nupkg.sha512"
-    },
-    "SharedClasses/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

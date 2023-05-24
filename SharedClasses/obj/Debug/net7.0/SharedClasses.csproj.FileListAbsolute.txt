@@ -1,0 +1,12 @@
+/home/jules/CourtOfOwls/SharedClasses/obj/Debug/net7.0/SharedClasses.csproj.AssemblyReference.cache
+/home/jules/CourtOfOwls/SharedClasses/obj/Debug/net7.0/SharedClasses.GeneratedMSBuildEditorConfig.editorconfig
+/home/jules/CourtOfOwls/SharedClasses/obj/Debug/net7.0/SharedClasses.AssemblyInfoInputs.cache
+/home/jules/CourtOfOwls/SharedClasses/obj/Debug/net7.0/SharedClasses.AssemblyInfo.cs
+/home/jules/CourtOfOwls/SharedClasses/obj/Debug/net7.0/SharedClasses.csproj.CoreCompileInputs.cache
+/home/jules/CourtOfOwls/SharedClasses/bin/Debug/net7.0/SharedClasses.deps.json
+/home/jules/CourtOfOwls/SharedClasses/bin/Debug/net7.0/SharedClasses.dll
+/home/jules/CourtOfOwls/SharedClasses/bin/Debug/net7.0/SharedClasses.pdb
+/home/jules/CourtOfOwls/SharedClasses/obj/Debug/net7.0/SharedClasses.dll
+/home/jules/CourtOfOwls/SharedClasses/obj/Debug/net7.0/refint/SharedClasses.dll
+/home/jules/CourtOfOwls/SharedClasses/obj/Debug/net7.0/SharedClasses.pdb
+/home/jules/CourtOfOwls/SharedClasses/obj/Debug/net7.0/ref/SharedClasses.dll
