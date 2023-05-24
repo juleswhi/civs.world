@@ -1,4 +1,4 @@
-﻿
+﻿using SharedClasses.Helpers;
 namespace SharedClasses.Models.BankModels;
 
 public class Account
@@ -24,84 +24,56 @@ public class Account
 
 
 
-
-    public decimal GetBalance() => Balance;
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    #region Withdrawl
-
-    public static Code Withdrawl(Guid accountGuid, decimal amount)
+    #region Account Management
+    public static async Task<Code> Withdrawl(Guid accountGuid, decimal amount)
     {
-        Bank.SearchAllBankAccounts(() => accountGuid, out Account? foundAccount);
+        var filter = Builders<Account>.Filter.Eq(x => x.AccountId, accountGuid);
+        var foundAccount = DataBaseClient.AccountCollection.Find(filter).ToEnumerable<Account>().FirstOrDefault();
 
-        if (foundAccount is null) return Code.AccountNotFound;
+        var update = Builders<Account>.Update.Set(x => x.Balance, foundAccount.Balance -= amount);
 
-        if (foundAccount.Balance >= amount) foundAccount.Balance -= amount;
+        await DataBaseClient.AccountCollection.UpdateOneAsync(filter, update);
 
+        return Code.Ok;
+    }
+
+
+    public static async Task<Code> Transfer(Guid WithdrawingAccount, Guid IntendedRecipientAccount, decimal TransferAmount)
+    {
+        var WithdrawingAccountFilter = Builders<Account>.Filter.Eq(x => x.AccountId, WithdrawingAccount);
+        var IntendedRecipientFiter = Builders<Account>.Filter.Eq(x => x.AccountId, IntendedRecipientAccount);
+
+        var WithdrawAccount = DataBaseClient.AccountCollection.Find(WithdrawingAccountFilter).FirstOrDefault();
+        var RecipientAccount = DataBaseClient.AccountCollection.Find(IntendedRecipientFiter).FirstOrDefault();
+
+        if(WithdrawAccount is null) return Code.AccountNotFound;
+        if(RecipientAccount is null) return Code.AccountNotFound;
+
+        if (WithdrawAccount.Balance >= TransferAmount)
+        {
+            var result = await Account.Withdrawl(WithdrawAccount.AccountId, TransferAmount);
+
+            if (result != Code.Ok) return result;
+        }
         else return Code.InsufficientFunds;
 
-        return Code.Ok;
+        return await Account.Deposit(RecipientAccount.AccountId, TransferAmount);
     }
 
-    #endregion
-
-    #region Transfer
-    public static Code Transfer(Func<Name> WithdrawingAccount, decimal TransferAmount, Func<Name> IntendedRecipient)
+    public static async Task<Code> Deposit(Guid accountGuid, decimal amount)
     {
 
-        Bank.SearchAllBankAccounts(WithdrawingAccount, out Account? account);
-        Bank.SearchAllBankAccounts(IntendedRecipient, out Account? recipientAccount);
+        var filter = Builders<Account>.Filter.Eq(x => x.AccountId, accountGuid);
+    
+        var DespositAccount = DataBaseClient.AccountCollection.Find(filter).FirstOrDefault();
 
-        if (account is null) return Code.AccountNotFound;
+        var update = Builders<Account>.Update.Set(x => x.Balance, DespositAccount.Balance += amount);
 
-        if (recipientAccount is null) return Code.AccountNotFound;
-
-        if (TransferAmount > account.Balance) return Code.InsufficientFunds;
-
-        // Deposit(recipientAccount.AccountId, TransferAmount, x => x.Id);
-
-        // account.Withdraw(TransferAmount);
-
-        return Code.Ok; 
-    }
-    #endregion
-
-    #region Deposit
-    public static Code Deposit(Guid accountGuid, decimal amount)
-    {
-        var BankDataCollection = DataBaseClient.Database.GetCollection<Bank>("BankData");
-
-        Account? foundAccount = null;
-
-        foreach (var bank in BankDataCollection.Find(Builders<Bank>.Filter.Exists(x => x.Id)).ToList())
-            foreach (var account in bank.Accounts)
-            {
-                if (account.AccountId == accountGuid)
-                {
-                    foundAccount = account;
-                }
-            }
-
-        if (foundAccount is null) return Code.AccountNotFound;
-
-        foundAccount.Balance += amount;
+        await DataBaseClient.AccountCollection.UpdateOneAsync(filter, update);
 
         return Code.Ok;
     }
 
     #endregion
-*/
 
 }
