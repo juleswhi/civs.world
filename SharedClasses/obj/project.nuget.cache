@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ml6BrARh7MQJOOnSiFOo3jet/tTbGWPWDoo+QX9SYH99wu/6YtjLyocfhE7zVV8x+V0EPX5Au+8kEPg3O6QsDQ==",
+  "dgSpecHash": "H3eIDAW+mpLrw8QiOhhaJIBr4lEoWca7yjtGaOSBXYBWFwAS4KhubnUJMCv9lgjsyvmSas+K6STjdqWhvULCng==",
   "success": true,
-  "projectFilePath": "/home/jules/CourtOfOwls/ConsoleUI/ConsoleUI.csproj",
+  "projectFilePath": "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj",
   "expectedPackageFiles": [
     "/home/jules/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
     "/home/jules/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",
