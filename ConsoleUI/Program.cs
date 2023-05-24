@@ -1,18 +1,23 @@
 ﻿using SharedClasses.Helpers;
 using MongoDB.Driver;
-using SharedClasses.Models.ArmyModels;
 using SharedClasses.Models.BankModels;
 using SharedClasses.Models.CountryModels;
 using SharedClasses.Models.UserModels;
 
-var db = DataBaseClient.Database;
 
 
 
-await DataBaseClient.AccountCollection.DeleteManyAsync(Builders<Account>.Filter.Exists(x => x.Balance));
 
-await DataBaseClient.ArmyCollection.DeleteManyAsync(Builders<Army>.Filter.Exists(x => x.Id));
 
-await DataBaseClient.CountryCollection.DeleteManyAsync(Builders<Country>.Filter.Exists(x => x.Name));
 
-await DataBaseClient.BankCollection.DeleteManyAsync(Builders<Bank>.Filter.Exists(x => x.Accounts));
+var bank = (Bank)DataBaseClient.BankCollection.Find(Builders<Bank>.Filter.Eq(x => x.CountryOfOrigin, 
+    ((Country)DataBaseClient.CountryCollection.Find(Builders<Country>.Filter.Eq(x => x.Name, "Russia"))).Id
+));
+
+var player = DataBaseClient.PlayerCollection.Find(Builders<Player>.Filter.Eq(x => x.Username, "CUrsache123")).FirstOrDefault();
+
+
+bank.CreateAccount(
+);
+
+

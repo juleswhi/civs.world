@@ -20,10 +20,9 @@ public class Bank
     public Guid CountryOfOrigin { get; set; }
 
 
-    public async Task CreateAccount(Guid PlayerId)
+    public void CreateAccount(Guid PlayerId)
     {
         var account = new Account(PlayerId, Id);
-
-        await DataBaseClient.AccountCollection.InsertOneAsync(account);
+        
     }
 }

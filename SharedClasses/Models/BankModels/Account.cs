@@ -1,5 +1,4 @@
-﻿using SharedClasses.Helpers;
-namespace SharedClasses.Models.BankModels;
+﻿namespace SharedClasses.Models.BankModels;
 
 public class Account
 {
@@ -9,8 +8,9 @@ public class Account
         this.AccountId = Guid.NewGuid();
         this.PlayerId = PlayerId;
         this.BankId = BankId;
-    }
 
+        AccountCreation(PlayerId, BankId);
+    }
 
 
     [BsonElement]
@@ -23,12 +23,47 @@ public class Account
     public decimal Balance { get; set; }
 
 
+    public async Task<Code> AccountCreation(Guid PlayerGuid, Guid BankGuid)
+    {
+        // Searches for player and updates their list of accounts before updating account collection
+        var player = (Player)DataBaseClient.PlayerCollection.Find(Builders<Player>.Filter.Eq(x => x.Id, PlayerId));
+
+        if(player is null) return Code.AccountNotFound;
+
+        player.Accounts.Add(AccountId);
+
+        // Updates Player Accounts
+        await DataBaseClient.PlayerCollection.UpdateOneAsync(
+            Builders<Player>.Filter.Eq(x => x.Id, PlayerGuid),
+            Builders<Player>.Update.Set(x => x.Accounts, player.Accounts)
+            );
+        
+        await DataBaseClient.AccountCollection.InsertOneAsync(this);
+
+        // Update Bank List
+
+        var bank = (Bank)DataBaseClient.BankCollection.Find(Builders<Bank>.Filter.Eq(x => x.Id, BankGuid)).FirstOrDefault();
+        
+        if(bank is null) return Code.AccountNotFound;
+
+        bank.Accounts.Add(this.AccountId);
+
+        await DataBaseClient.BankCollection.UpdateOneAsync(
+            Builders<Bank>.Filter.Eq(x => x.Id, bank.Id),
+            Builders<Bank>.Update.Set(x => x.Accounts, bank.Accounts)
+        );
+
+        return Code.Ok;
+    }
+
 
     #region Account Management
     public static async Task<Code> Withdrawl(Guid accountGuid, decimal amount)
     {
         var filter = Builders<Account>.Filter.Eq(x => x.AccountId, accountGuid);
-        var foundAccount = DataBaseClient.AccountCollection.Find(filter).ToEnumerable<Account>().FirstOrDefault();
+        Account? foundAccount = DataBaseClient.AccountCollection.Find(filter).ToEnumerable<Account>().FirstOrDefault();
+
+        if(foundAccount is null) return Code.AccountNotFound;
 
         var update = Builders<Account>.Update.Set(x => x.Balance, foundAccount.Balance -= amount);
 

@@ -1,13 +1,12 @@
 ﻿namespace SharedClasses.Helpers;
-public struct Name
+public class Name
 {
-    public Name(string FirstName, string Surname, params string[]? Middlenames)
+    public Name(string fname, string sname)
     {
-        this.FirstName = FirstName;
-        this.Surname = Surname;
+        FirstName = fname;
+        Surname = sname;
     }
-    public string FirstName { get; set; }
-    public string Surname { get; set; }
-    public List<string>? MiddleNames { get; set; }
+    public string? FirstName { get; set; }
+    public string? Surname { get; set; }
 
 }
