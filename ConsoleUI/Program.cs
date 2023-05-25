@@ -17,7 +17,5 @@ var bank = (Bank)DataBaseClient.BankCollection.Find(Builders<Bank>.Filter.Eq(x =
 var player = DataBaseClient.PlayerCollection.Find(Builders<Player>.Filter.Eq(x => x.Username, "CUrsache123")).FirstOrDefault();
 
 
-bank.CreateAccount(
-);
 
 

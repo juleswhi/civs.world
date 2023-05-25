@@ -8,5 +8,6 @@
         "titleBar.inactiveForeground": "#e7e7e799"
     },
     "peacock.remoteColor": "Black",
-    "peacock.color": "blue"
+    "peacock.color": "blue",
+    "docwriter.style": "Auto-detect"
 }

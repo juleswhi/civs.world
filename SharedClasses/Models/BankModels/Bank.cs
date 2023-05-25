@@ -1,5 +1,4 @@
-﻿using SharedClasses.Helpers;
-
+﻿
 namespace SharedClasses.Models.BankModels;
 
 public class Bank

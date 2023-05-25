@@ -23,11 +23,14 @@ public class Player
     public string Password { get; set; }
     [BsonElement]
     public List<Guid> Accounts { get; set; }
+    [BsonElement]
+    public Guid CountryId { get; set; }
 
 
 
     public async Task<IEnumerable<Account>> GetPlayerAccounts()
     {
+
         var AccountCollection = DataBaseClient.Database.GetCollection<Account>("BankAccountData");
 
         var filter = Builders<Account>.Filter.Eq(x => x.PlayerId, Id);
