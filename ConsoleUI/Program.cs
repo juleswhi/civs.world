@@ -1,24 +1,28 @@
-﻿using SharedClasses.Helpers;
-using MongoDB.Driver;
-using SharedClasses.Models.BankModels;
-using SharedClasses.Models.CountryModels;
-using SharedClasses.Models.UserModels;
+﻿
+var RoyalBank = await "Royal Bank Of Ayr".GetBank();
+
+if(RoyalBank is null) Console.WriteLine(Code.AccountNotFound);
+
+
+// var account = await Cosmin.Id.GetAccountPlayer();
+
+// await Account.Deposit(account.AccountId, 50);
+
+
+var Cosmin = await "CUrsache123".GetPlayer();
+var Jules = await "JWhite123".GetPlayer();
+if(Jules is null) Console.WriteLine(Code.AccountNotFound);
+if(Cosmin is null) Console.WriteLine(Code.AccountNotFound);
+
+
+var CosminAccount = await Cosmin.Id.GetAccountPlayer();
+var JulesAccount = await Jules.Id.GetAccountPlayer();
 
 
 
-
-var AyrBank = DataBaseClient.BankCollection.Find(
-        Builders<Bank>.Filter.Eq(x => x.BankName, "Royal Bank Of Ayr")
-    ).FirstOrDefault();
+Console.WriteLine(await Account.Transfer(CosminAccount, JulesAccount, 4000));
 
 
-
-var Jason = DataBaseClient.PlayerCollection.Find(Builders<Player>.Filter.Eq(x => x.Username, "JChu123")).FirstOrDefault();
-
-var Cosmin = DataBaseClient.PlayerCollection.Find(Builders<Player>.Filter.Eq(x => x.Username, "CUrsache123")).FirstOrDefault();
-
-
-await Account.Deposit(Jason.Id, 20_000);
 
 
 

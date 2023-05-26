@@ -21,6 +21,4 @@ public class Bank
     [BsonElement]
     public Guid CountryOfOrigin { get; set; }
 
-
-    
 }
