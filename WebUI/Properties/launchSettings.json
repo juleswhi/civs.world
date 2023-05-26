@@ -24,7 +24,8 @@
       "launchBrowser": true,
       "applicationUrl": "https://*:7022;http://*:5208",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://*:443"
       }
     },
     "IIS Express": {
