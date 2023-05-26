@@ -1,3 +1,5 @@
 .env
-**/bin
-**/Debug
+SharedClasses/bin
+SharedClasses/obj
+ConsoleUI/bin
+ConsoleUI/obj
