@@ -5435,19 +5435,19 @@
     ]
   },
   "packageFolders": {
-    "/home/jules/.nuget/packages/": {}
+    "/home/ubuntu/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj",
+      "projectUniqueName": "/home/ubuntu/CourtOfOwls/SharedClasses/SharedClasses.csproj",
       "projectName": "SharedClasses",
-      "projectPath": "/home/jules/CourtOfOwls/SharedClasses/SharedClasses.csproj",
-      "packagesPath": "/home/jules/.nuget/packages/",
-      "outputPath": "/home/jules/CourtOfOwls/SharedClasses/obj/",
+      "projectPath": "/home/ubuntu/CourtOfOwls/SharedClasses/SharedClasses.csproj",
+      "packagesPath": "/home/ubuntu/.nuget/packages/",
+      "outputPath": "/home/ubuntu/CourtOfOwls/SharedClasses/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/jules/.nuget/NuGet/NuGet.Config"
+        "/home/ubuntu/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
