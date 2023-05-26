@@ -5,3 +5,5 @@ ConsoleUI/bin
 ConsoleUI/obj
 WebUI/bin
 WebUI/obj
+WebUI/privkey.pem
+WebUI/fullchain.pem
