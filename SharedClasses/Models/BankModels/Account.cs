@@ -8,8 +8,6 @@ public class Account
         this.AccountId = Guid.NewGuid();
         this.PlayerId = PlayerId;
         this.BankId = BankId;
-
-        AccountCreation(PlayerId, BankId);
     }
 
 
@@ -23,7 +21,7 @@ public class Account
     public decimal Balance { get; set; }
 
 
-    public async Task<Code> AccountCreation(Guid PlayerGuid, Guid BankGuid)
+    public static async Task<Code> CreateAccount(Guid PlayerGuid, Guid BankGuid)
     {
 
 
@@ -33,15 +31,17 @@ public class Account
         updates those lists in the database, and inserts the new account into the account collection
         in the database. Finally, it returns a success code. */
 
+        var account = new Account(PlayerGuid, BankGuid);
 
-        var player = (Player)DataBaseClient.PlayerCollection.Find(Builders<Player>.Filter.Eq(x => x.Id, PlayerId));
-        var bank = (Bank)DataBaseClient.BankCollection.Find(Builders<Bank>.Filter.Eq(x => x.Id, BankGuid)).FirstOrDefault();
+
+        var player = DataBaseClient.PlayerCollection.Find(Builders<Player>.Filter.Eq(x => x.Id, PlayerGuid)).FirstOrDefault();
+        var bank = DataBaseClient.BankCollection.Find(Builders<Bank>.Filter.Eq(x => x.Id, BankGuid)).FirstOrDefault();
 
         if (player is null) return Code.AccountNotFound;
         if (bank is null) return Code.AccountNotFound;
 
-        bank.Accounts.Add(this.AccountId);
-        player.Accounts.Add(AccountId);
+        bank.Accounts.Add(account.AccountId);
+        player.Accounts.Add(account.AccountId);
 
         await DataBaseClient.BankCollection.UpdateOneAsync(
             Builders<Bank>.Filter.Eq(x => x.Id, bank.Id),
@@ -53,7 +53,7 @@ public class Account
             Builders<Player>.Update.Set(x => x.Accounts, player.Accounts)
         );
 
-        await DataBaseClient.AccountCollection.InsertOneAsync(this);
+        await DataBaseClient.AccountCollection.InsertOneAsync(account);
 
 
         return Code.Ok;
@@ -115,7 +115,7 @@ public class Account
         return Code.Ok;
     }
 
-    public static async Task Deposit(Guid accountGuid, decimal amount)
+    public static async Task<Code> Deposit(Guid accountGuid, decimal amount)
     {
 
 
@@ -126,13 +126,20 @@ public class Account
         used to deposit funds into an account. */
 
 
-        var filter = Builders<Account>.Filter.Eq(x => x.AccountId, accountGuid);
 
-        var DespositAccount = DataBaseClient.AccountCollection.Find(filter).FirstOrDefault();
+        var DespositAccount = DataBaseClient.AccountCollection.Find(
+            Builders<Account>.Filter.Eq(x => x.AccountId, accountGuid)
+        ).FirstOrDefault();
+
+        if(DespositAccount is null) return Code.AccountNotFound;
 
         var update = Builders<Account>.Update.Set(x => x.Balance, DespositAccount.Balance += amount);
 
-        await DataBaseClient.AccountCollection.UpdateOneAsync(filter, update);
+        await DataBaseClient.AccountCollection.UpdateOneAsync(
+            Builders<Account>.Filter.Eq(x => x.AccountId, accountGuid),
+            update);
+        
+        return Code.Ok;
     }
 
     #endregion
