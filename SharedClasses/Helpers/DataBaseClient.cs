@@ -1,10 +1,5 @@
-using SharedClasses.Models.BankModels;
-using SharedClasses.Models.CountryModels;
-using SharedClasses.Models.ArmyModels;
-
 
 namespace SharedClasses.Helpers;
-
 
 public static class DataBaseClient
 {
@@ -21,7 +16,7 @@ public static class DataBaseClient
         PlayerCollection = Database.GetCollection<Player>("PlayerData");
     }
 
-    public static readonly IMongoDatabase Database { get; set; }
+    public static IMongoDatabase Database { get; set; }
     public static IMongoCollection<Account> AccountCollection { get; set; }
     public static IMongoCollection<Bank> BankCollection { get; set; }
     public static IMongoCollection<Army> ArmyCollection { get; set; }
@@ -34,20 +29,4 @@ public static class DataBaseClient
         var results = await collection.FindAsync(filter);
         return results.ToList<T>();
     }
-
-    public static async Task CreateDocuments<T>(this IMongoCollection<T> collection, params T[] documents)
-    {
-        await collection.InsertManyAsync(documents);
-    }
-
-    public static async Task CreateDocument<T>(this IMongoCollection<T> collection, T document)
-    {
-        await collection.InsertOneAsync(document);
-    }
-
-    public static async Task DeleteAllDocuments<T>(this IMongoCollection<T> collection)
-    {
-        await collection.DeleteAllDocuments<T>();
-    }
-
 }
