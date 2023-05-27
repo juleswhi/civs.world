@@ -1,7 +1,11 @@
 using SharedClasses.Models.BankModels;
 using SharedClasses.Models.CountryModels;
 using SharedClasses.Models.ArmyModels;
+
+
 namespace SharedClasses.Helpers;
+
+
 public static class DataBaseClient
 {
     static DataBaseClient()
@@ -17,7 +21,7 @@ public static class DataBaseClient
         PlayerCollection = Database.GetCollection<Player>("PlayerData");
     }
 
-    public static IMongoDatabase Database { get; set; }
+    public static readonly IMongoDatabase Database { get; set; }
     public static IMongoCollection<Account> AccountCollection { get; set; }
     public static IMongoCollection<Bank> BankCollection { get; set; }
     public static IMongoCollection<Army> ArmyCollection { get; set; }
