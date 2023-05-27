@@ -1,4 +1,5 @@
 namespace SharedClasses.Models.CountryModels;
+using SharedClasses.Models.AllianceModels;
 
 public class Country
 {
@@ -21,4 +22,6 @@ public class Country
     public int Population { get; set; }
     public int GlobalPopularity { get; set; }
     public int LocalPopularity { get; set; }
+
+
 }

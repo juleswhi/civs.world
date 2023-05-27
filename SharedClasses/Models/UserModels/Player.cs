@@ -3,8 +3,9 @@ namespace SharedClasses.Models.UserModels;
 
 public class Player
 {
-    public Player(Name name, string Password, string username)
+    public Player(Name name, string Password, string username, Guid CountryId)
     {
+        this.CountryId = CountryId;
         this.Id = Guid.NewGuid();
         this.Username = username;
         this.Name = name;
@@ -25,6 +26,22 @@ public class Player
     public List<Guid> Accounts { get; set; }
     [BsonElement]
     public Guid CountryId { get; set; }
+
+
+    public async Task<Code> JoinAlliance(string allianceName)
+    {
+        var alliance = await DataBaseClient.AllianceCollection.FindAsync(
+            Builders<Alliance>.Filter.Eq(x => x.Name, allianceName)
+        );
+        if(this is null) Console.WriteLine("This is null");
+        if(alliance is null) return Code.AccountNotFound;
+
+        Alliance targetAlliance = await alliance.FirstOrDefaultAsync();
+
+        return await targetAlliance.AddAllianceMember(this);
+
+
+    }
 
 
 
@@ -51,7 +68,7 @@ public class Player
     }
 
 
-    public static async Task<Code> CreatePlayer(Name _name, string _password, string _username)
+    public static async Task<Code> CreatePlayer(Name _name, string _password, string _username, Guid CountryId)
     {
         if (
             ((Player)DataBaseClient.PlayerCollection.Find(
@@ -62,7 +79,7 @@ public class Player
             return Code.ExistingAccount;
         }
 
-        var player = new Player(_name, _password, _username);
+        var player = new Player(_name, _password, _username, CountryId);
 
         await DataBaseClient.PlayerCollection.InsertOneAsync(player);
 
