@@ -54,9 +54,11 @@ public class Alliance
             Builders<Player>.Filter.Eq(x => x.Id, player.Id)
         );
 
-        if(foundPlayer.FirstOrDefaultAsync() is null) return Code.AccountNotFound;
+        Player player1 = await foundPlayer.FirstOrDefaultAsync();
 
-        Guid playerId = ((Player)foundPlayer).Id;
+        if(player1 is null) return Code.AccountNotFound;
+
+        Guid playerId = player1.Id;
 
         this.AllianceMembers.Add(playerId);
 

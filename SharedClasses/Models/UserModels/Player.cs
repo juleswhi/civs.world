@@ -28,7 +28,7 @@ public class Player
     public Guid CountryId { get; set; }
 
 
-    public async Task<Code> JoinAlliance(string allianceName)
+    public async Task<Code> JoinAlliance(string allianceName, Player player)
     {
         var alliance = await DataBaseClient.AllianceCollection.FindAsync(
             Builders<Alliance>.Filter.Eq(x => x.Name, allianceName)
@@ -38,7 +38,9 @@ public class Player
 
         Alliance targetAlliance = await alliance.FirstOrDefaultAsync();
 
-        return await targetAlliance.AddAllianceMember(this);
+        if(targetAlliance is null) return Code.AccountNotFound;
+
+        return await targetAlliance.AddAllianceMember(player);
 
 
     }
