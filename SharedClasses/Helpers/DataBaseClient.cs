@@ -1,7 +1,7 @@
 
 namespace SharedClasses.Helpers;
 using SharedClasses.Models.AllianceModels;
-public class DataBaseClient
+public static class DataBaseClient
 {
     static DataBaseClient()
     {
@@ -23,5 +23,9 @@ public class DataBaseClient
     public static IMongoCollection<Country> CountryCollection { get; set; }
     public static IMongoCollection<Player> PlayerCollection { get; set; }
     public static IMongoCollection<Alliance> AllianceCollection { get; set; }
-   
+    public static async Task<List<T>> FindDocuments<T>(this IMongoCollection<T> collection, FilterDefinition<T> filter)
+    {
+        var results = await collection.FindAsync(filter);
+        return results.ToList<T>();
+    }
 }

@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using WebUI.Models;
 using SharedClasses.Helpers.CountryMapSerialisation;
 using SharedClasses.Helpers;
+using MongoDB.Driver;
+using SharedClasses.Models.UserModels;
 
 
 namespace WebUI.Controllers;
@@ -18,7 +20,11 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        Console.WriteLine(Environment.GetEnvironmentVariable("MongoDBConnectionString"));
+        var players = DataBaseClient.PlayerCollection.Find(
+            Builders<Player>.Filter.Eq(x => x.Username, "John")
+        ).FirstOrDefault();
+
+        ViewBag.Player = players;
         // var client = DataBaseClient.Client;
         // var dictCreate = new PopulateMapDictionary();
         // var valuesDictionary = dictCreate.PopulateDictionary();
