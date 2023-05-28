@@ -1,8 +1,8 @@
 namespace SharedClasses.Helpers.CountryMapSerialisation;
-public static class PopulateMapDictionary
+public class PopulateMapDictionary
 {
 
-    public static Dictionary<string, Dictionary<string, object>> PopulateDictionary()
+    public Dictionary<string, Dictionary<string, object>> PopulateDictionary()
     {
         var PlayerFilter = Builders<Player>.Filter.Exists(x => x.CountryId);
         var CountryFilter = Builders<Country>.Filter.Exists(x => x.CountryCode);
