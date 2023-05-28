@@ -5,10 +5,9 @@ public static class DataBaseClient
 {
     static DataBaseClient()
     {
-        MongoClient dbClient;
         DotNetEnv.Env.Load();
-        dbClient = new MongoClient(Environment.GetEnvironmentVariable("MongoDBConnectionString"));
-        Database = dbClient.GetDatabase("UserDatabase");
+        Client = new MongoClient(Environment.GetEnvironmentVariable("MongoDBConnectionString"));
+        Database = Client.GetDatabase("UserDatabase");
         AccountCollection = Database.GetCollection<Account>("BankAccountData");
         BankCollection = Database.GetCollection<Bank>("BankData");
         ArmyCollection = Database.GetCollection<Army>("ArmyData");
@@ -16,7 +15,7 @@ public static class DataBaseClient
         PlayerCollection = Database.GetCollection<Player>("PlayerData");
         AllianceCollection = Database.GetCollection<Alliance>("AllianceData");
     }
-
+    public static IMongoClient Client { get; set; }
     public static IMongoDatabase Database { get; set; }
     public static IMongoCollection<Account> AccountCollection { get; set; }
     public static IMongoCollection<Bank> BankCollection { get; set; }
