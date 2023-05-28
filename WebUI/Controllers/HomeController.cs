@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Models;
 using SharedClasses.Helpers.CountryMapSerialisation;
+using SharedClasses.Helpers;
 
 
 namespace WebUI.Controllers;
@@ -17,6 +18,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        DotEnv.SetEnvironmentVariables();
         // var dictCreate = new PopulateMapDictionary();
         // var valuesDictionary = dictCreate.PopulateDictionary();
 
