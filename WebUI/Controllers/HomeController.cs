@@ -18,7 +18,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        Console.WriteLine(Environment.GetEnvironmentVariable("MongoDBConnectionString");
+        Console.WriteLine(Environment.GetEnvironmentVariable("MongoDBConnectionString"));
         // var client = DataBaseClient.Client;
         // var dictCreate = new PopulateMapDictionary();
         // var valuesDictionary = dictCreate.PopulateDictionary();
