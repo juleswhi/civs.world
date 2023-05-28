@@ -17,7 +17,9 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-	
+        var valuesDictionary = PopulateMapDictionary.PopulateDictionary();
+
+        
         return View();
     }
 
