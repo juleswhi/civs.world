@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Models;
+using SharedClasses.Helpers.CountryMapSerialisation;
+
 
 namespace WebUI.Controllers;
 
@@ -15,6 +17,10 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        var valuesDictionary = PopulateMapDictionary.PopulateDictionary();
+        ViewBag.valuesDictionary = valuesDictionary;
+
+        ViewBag.Hello = "Hello World!";
         return View();
     }
 
