@@ -18,9 +18,10 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var client = DataBaseClient.Client;
-        var dictCreate = new PopulateMapDictionary();
-        var valuesDictionary = dictCreate.PopulateDictionary();
+        Console.WriteLine(Environment.GetEnvironmentVariable("MongoDBConnectionString");
+        // var client = DataBaseClient.Client;
+        // var dictCreate = new PopulateMapDictionary();
+        // var valuesDictionary = dictCreate.PopulateDictionary();
 
 
         return View();
