@@ -17,8 +17,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var dictCreate = new PopulateMapDictionary();
-        var valuesDictionary = dictCreate.PopulateDictionary();
+        // var dictCreate = new PopulateMapDictionary();
+        // var valuesDictionary = dictCreate.PopulateDictionary();
 
 
         return View();
