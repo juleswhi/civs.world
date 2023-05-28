@@ -18,7 +18,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        DotEnv.SetEnvironmentVariables();
+        var client = DataBaseClient.Client;
         var dictCreate = new PopulateMapDictionary();
         var valuesDictionary = dictCreate.PopulateDictionary();
 
