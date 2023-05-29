@@ -6,7 +6,6 @@ using SharedClasses.Helpers;
 using MongoDB.Driver;
 using SharedClasses.Models.UserModels;
 
-
 namespace WebUI.Controllers;
 
 public class HomeController : Controller
