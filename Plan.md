@@ -150,4 +150,7 @@ update databse when transferring funds etc
 - JSON is used in webpage to display usernames and score
 
 
+Move hash to a separate file for the love of god
+
+
 

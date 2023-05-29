@@ -6,7 +6,9 @@ public static class DataBaseClient
     static DataBaseClient()
     {
         DotNetEnv.Env.Load();
-        Client = new MongoClient(Environment.GetEnvironmentVariable("MongoDBConnectionString"));
+        string? connectionString = Environment.GetEnvironmentVariable("MongoDBConnectionString");
+        if(connectionString is null) throw new FileNotFoundException("Cannot Find .env");
+        Client = new MongoClient(connectionString);
         Database = Client.GetDatabase("UserDatabase");
         AccountCollection = Database.GetCollection<Account>("BankAccountData");
         BankCollection = Database.GetCollection<Bank>("BankData");

@@ -19,17 +19,12 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var valuesDictionary = PopulateMapDictionary.PopulateDictionary();
-
-        ViewBag.valuesDictionary = valuesDictionary;
+      
 
         return View();
     }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+
 
  
 

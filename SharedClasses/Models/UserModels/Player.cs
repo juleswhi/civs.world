@@ -28,6 +28,7 @@ public class Player
     public Guid CountryId { get; set; }
 
 
+
     public async Task<Code> JoinAlliance(string allianceName, Player player)
     {
         var alliance = await DataBaseClient.AllianceCollection.FindAsync(
@@ -41,8 +42,6 @@ public class Player
         if(targetAlliance is null) return Code.AccountNotFound;
 
         return await targetAlliance.AddAllianceMember(player);
-
-
     }
 
 
@@ -81,7 +80,9 @@ public class Player
             return Code.ExistingAccount;
         }
 
-        var player = new Player(_name, _password, _username, CountryId);
+        string hashPassword = _password.Hash(ParseExtensions.salt);
+
+        var player = new Player(_name, hashPassword, _username, CountryId);
 
         await DataBaseClient.PlayerCollection.InsertOneAsync(player);
 

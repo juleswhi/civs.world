@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+
 namespace SharedClasses.Helpers;
 public static class ParseExtensions
 {
@@ -40,4 +42,21 @@ public static class ParseExtensions
         );
         return await account.FirstOrDefaultAsync();
     }
+
+
+    public static string Hash(this string Password, out string usedSalt)
+    {
+        var salt = BCrypt.Net.BCrypt.GenerateSalt();
+        usedSalt = (string)salt;
+        return BCrypt.Net.BCrypt.HashPassword(Password, salt);
+
+    }
+    public static string salt = "$2a$11$MgKuQuN9PrKAqfpk3wNuLO";
+    public static string Hash(this string Password, string salt)
+    {
+        return BCrypt.Net.BCrypt.HashPassword(Password, salt);
+    }
+
+
+
 }
