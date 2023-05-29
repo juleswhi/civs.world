@@ -21,6 +21,7 @@ public class SignUpController : Controller
     {
         return View();
     }
+ 
     public IActionResult SignIn()
     {
         return View();
