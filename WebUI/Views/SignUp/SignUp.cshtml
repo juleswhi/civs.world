@@ -8,13 +8,10 @@
 
 </head>
 
-
 <body>
     
-
     <center>
         <h2>Sign Up!</h2>
-
 
 <form>
     <input type="text" placeholder="Username" id="usernameInput">
@@ -25,46 +22,10 @@
     <br>
     <input type="text" placeholder="Surname" id="surnameInput">
     <br>
+    <input type="text" placeholder="Country" id="countryInput">
 
     <button>Login</button>
 
-    <br><br><br>
-
-
-    <table id="CountryGrid" width="600" align="center">
-        <tbody>
-            <tr>
-                @foreach (var country in countries)
-                {
-                   <td>
-                    <div id="countryListItem">
-                        @Html.Hidden("CountryId", country.Id)
-                        @Html.Label(country.Name)
-                        <input type="checkbox" name="countryCheckBox" id="countryCheckBox">
-                    </div>
-                   </td> 
-                }
-            </tr>
-
-
-        </tbody>
-
-    </table>
-
-    <style>
-        #countryListItem {
-            float:left;
-            font-weight: normal;
-        }
-    </style>
-
-
-
-
-
-
 </form>
-
-
-    </center>
+</center>
 </body>
