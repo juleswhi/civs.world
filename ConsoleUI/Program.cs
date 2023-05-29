@@ -13,15 +13,12 @@ foreach(var i in country)
         Console.WriteLine(i.CountryCode + " " + i.Name);
     if(i.Name.Contains("Kosovo"))
         Console.WriteLine(i.CountryCode + " " + i.Name);
+    if(i.Name.Contains("Montenegro"))
+        Console.WriteLine(i.CountryCode + " " + i.Name);
 }
 
 var rng = new Random();
 
+var montenegro = new Country("Montenegro", rng.Next(1_000, 1_000_000), "ME");
 
-
-var filter = Builders<Country>.Filter.Eq(x => x.Name, "Sudan");
-
-var update = Builders<Country>.Update.Set(x => x.Name, "S. Sudan");
-
-await DataBaseClient.CountryCollection.UpdateOneAsync(filter, update);
-
+await DataBaseClient.CountryCollection.InsertOneAsync(montenegro);
