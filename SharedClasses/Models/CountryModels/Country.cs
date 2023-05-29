@@ -34,4 +34,37 @@ public class Country
     public int LocalPopularity { get; set; }
 
 
+
+
+
+
+
+    public static List<Country?> GetAllAvailableCountries()
+    {
+        // Query databas
+        // Filter countries occupied by players
+        // return all non occupied
+
+        var CountryFilter = Builders<Country>.Filter.Exists(x => x.Id);
+        var Countries = DataBaseClient.CountryCollection.Find(CountryFilter).ToList();
+
+        var PlayerFilter = Builders<Player>.Filter.Exists(x => x.CountryId);
+        var Players = DataBaseClient.PlayerCollection.Find(PlayerFilter).ToList();
+
+        var UnoccupiedCountries = Enumerable.Range(0, Countries.Count())
+                .Select(x => {
+
+                    foreach(var player in Players)
+                    {
+                        if(player.CountryId == Countries[x].Id)
+                            return null; 
+                    }
+
+                    return Countries[x];
+                }).ToList();
+
+        return UnoccupiedCountries.Where( x => x != null).ToList();
+    }
+
+
 }

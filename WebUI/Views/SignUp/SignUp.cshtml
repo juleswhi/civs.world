@@ -1,0 +1,34 @@
+@{
+
+}
+
+<head>
+
+</head>
+
+
+<body>
+    
+    <h1>wont look shite forever i promise</h1>
+
+    <center>
+        <h2>Sign Up!</h2>
+
+
+<form>
+    <input type="text" placeholder="Username" id="usernameInput">
+    <input type="text" placeholder="Password" id="passwordInput">
+    <input type="text" placeholder="First Name" id="firstNameInput">
+    <input type="text" placeholder="Surname" id="surnameInput">
+    <label for="countries"> Select A Country</label>
+    <input type="datalist" id="countries" name="countries">
+    <span>@Html.Raw(ViewBag.Countries)</span>
+    <input type="text" placeholder="Country" id="countryInput">
+
+    <button>Login</button>
+
+</form>
+
+
+    </center>
+</body>
