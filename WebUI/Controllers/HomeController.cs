@@ -20,11 +20,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var players = DataBaseClient.PlayerCollection.Find(
-            Builders<Player>.Filter.Eq(x => x.Username, "John")
-        ).FirstOrDefault();
-
-        ViewBag.Player = players;
+        ViewBag.Hello = "Hello World!";
         // var client = DataBaseClient.Client;
         // var dictCreate = new PopulateMapDictionary();
         // var valuesDictionary = dictCreate.PopulateDictionary();
