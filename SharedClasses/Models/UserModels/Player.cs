@@ -69,8 +69,14 @@ public class Player
     }
 
 
-    public static async Task<Code> CreatePlayer(Name _name, string _password, string _username, Guid CountryId)
+    public static async Task<Code> CreatePlayer(Name _name, string _password, string _username, string CountryName)
     {
+        var filter = Builders<Country>.Filter.Eq(x => x.Name, CountryName);
+
+        var country = DataBaseClient.CountryCollection.Find(filter).FirstOrDefault();
+
+        if(country is null) return Code.AccountNotFound;
+
         if (
             ((Player)DataBaseClient.PlayerCollection.Find(
                 Builders<Player>.Filter.Eq(x => x.Username, _username)
@@ -82,7 +88,7 @@ public class Player
 
         string hashPassword = _password.Hash(ParseExtensions.salt);
 
-        var player = new Player(_name, hashPassword, _username, CountryId);
+        var player = new Player(_name, hashPassword, _username, country.Id);
 
         await DataBaseClient.PlayerCollection.InsertOneAsync(player);
 
