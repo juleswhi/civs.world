@@ -4,62 +4,45 @@
 
 <head>
   <style>
-  .bn29 {
-  border: none;
-  padding: 0.8em 2.5em;
-  outline: none;
-  color: white;
-  font-style: 1.2em;
-  position: relative;
-  z-index: 1;
+.bn632-hover {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
   cursor: pointer;
-  background: none;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.45);
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
-.bn29:before,
-.bn29:after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 10em;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  width: 105%;
-  height: 105%;
-  content: "";
-  z-index: -2;
-  background-size: 400% 400%;
-  background: linear-gradient(
-    60deg,
-    #f79533,
-    #f37055,
-    #ef4e7b,
-    #a166ab,
-    #5073b8,
-    #1098ad,
-    #07b39b,
-    #6fba82
+.bn632-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:focus {
+  outline: none;
+}
+
+.bn632-hover.bn22 {
+  background-image: linear-gradient(
+    to right,
+    #0ba360,
+    #3cba92,
+    #30dd8a,
+    #2bb673
   );
-}
-
-.bn29:before {
-  -webkit-filter: blur(7px);
-  filter: blur(7px);
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-  -webkit-animation: pulse 10s infinite ease;
-  animation: pulse 10s infinite ease;
-}
-
-.bn29:after {
-  -webkit-filter: blur(0.3px);
-  filter: blur(0.3px);
-}
-
-.bn29:hover:before {
-  width: 115%;
-  height: 115%;
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
 </style>
 </head>
@@ -69,20 +52,26 @@
 
 <Body>
 
-<h1>
+<h1 style="font-size: 50px">
   <center>
-    CIVS
+    civs
   </center>
 </h1>
 <br><br><br>
-
+<h3>
+  <center>
+    <p>
+      A real time strategy game.
+    </p>
+  </center>
+</h3>
 
 
 <h3>
   <center>
 
     <a asp-area="" asp-controller="SignUp" asp-action="SignIn">
-    <button asp-area="" asp-controller="SignUp" asp-action="SignIn" class="bn29">
+    <button asp-area="" asp-controller="SignUp" asp-action="SignIn" class="bn632">
       Sign In
     </button>
 
