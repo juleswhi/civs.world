@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Map";
+    var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.valuesDictionary);
+}
+
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
+
+<Body>
+
+<input type="hidden", id="valuesDict", value="@jsonString">
+
+<div id="svgMap"></div>
+
+<script>
+
+
+var valuesDictionary = JSON.parse(document.getElementById('valuesDict').value);
+
+
+
+
+new svgMap({
+  targetElementID: 'svgMap',
+  colorNoData: '#000000',
+    
+  data: {
+    data: {
+      Population:
+      {
+        Population: 'Population',
+        format: 'Population of {0}'
+      },
+      Name:
+      {
+        Username: 'Username',
+        format: 'Occupied by {0}'
+      }
+    },
+    applyData: 'Population',
+    values: valuesDictionary
+  }
+});
+</script>
+
+    
+</Body>
