@@ -17,13 +17,18 @@ public static class PopulateMapDictionary
             var innerDictionary = new Dictionary<string,object>();
 
             innerDictionary.Add("Population", mapData.Population);
-
+            bool found = false;
 
             foreach(var playerData in PlayerData)
             {
                 if(playerData.CountryId == mapData.Id)
+                {
                     innerDictionary.Add("Name", playerData.Username);
+                    found = true;
+                }
             }
+            if(!found)
+                innerDictionary.Add("Name", "Not Occupied");
 
             valuesDictionary.Add(mapData.CountryCode, innerDictionary);
         }
