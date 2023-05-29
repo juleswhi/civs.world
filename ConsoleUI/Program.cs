@@ -17,12 +17,11 @@ foreach(var i in country)
 
 var rng = new Random();
 
-/*
+
 
 var filter = Builders<Country>.Filter.Eq(x => x.Name, "Sudan");
 
-var update = Builders<Country>.Update.Set(x => x.CountryCode, "SS");
+var update = Builders<Country>.Update.Set(x => x.Name, "S. Sudan");
 
 await DataBaseClient.CountryCollection.UpdateOneAsync(filter, update);
 
-*/
