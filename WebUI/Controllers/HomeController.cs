@@ -20,11 +20,9 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ViewBag.Hello = "Hello World!";
-        // var client = DataBaseClient.Client;
-        // var dictCreate = new PopulateMapDictionary();
-        // var valuesDictionary = dictCreate.PopulateDictionary();
+        var valuesDictionary = PopulateMapDictionary.PopulateDictionary();
 
+        ViewBag.valuesDictionary = valuesDictionary;
 
         return View();
     }
