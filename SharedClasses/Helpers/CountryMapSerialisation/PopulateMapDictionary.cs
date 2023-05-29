@@ -23,6 +23,8 @@ public static class PopulateMapDictionary
             {
                 if(playerData.CountryId == mapData.Id)
                     innerDictionary.Add("Name", playerData.Username);
+                else
+                    innerDictionary.Add("Name", "Not Occupied");
             }
 
             valuesDictionary.Add(mapData.CountryCode, innerDictionary);
