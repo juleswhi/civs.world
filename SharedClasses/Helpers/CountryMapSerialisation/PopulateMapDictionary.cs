@@ -21,12 +21,8 @@ public static class PopulateMapDictionary
 
             foreach(var playerData in PlayerData)
             {
-                string name = "Not Occupied";
                 if(playerData.CountryId == mapData.Id)
-                    name = playerData.Username;
-
-                innerDictionary.Add("Name", playerData.Username);
-                
+                    innerDictionary.Add("Name", playerData.Username);
             }
 
             valuesDictionary.Add(mapData.CountryCode, innerDictionary);
