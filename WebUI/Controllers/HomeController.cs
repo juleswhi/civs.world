@@ -26,7 +26,7 @@ public class HomeController : Controller
             return RedirectToAction("NewUserIndex", "Home");
         }
 
-        return RedirectToAction("Index", "Dashboard");
+        return View();
     }
 
     public IActionResult NewUserIndex()
