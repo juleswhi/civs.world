@@ -17,13 +17,11 @@ namespace WebUI.Models
         public IActionResult OnPostAsync()
         {
             Console.WriteLine("POST");
-            if(ModelState.IsValid)
-            {
+            
                 if(Authenticate(username, password))
                 {
                     return RedirectToAction("Index", "Home");
                 }
-            }
 
             return Page();
         }        
