@@ -168,4 +168,7 @@ Admin page
 
 
 
+Issue where if user tries to create an account and get a value wrong, system thinks country is taken
+
+
 
