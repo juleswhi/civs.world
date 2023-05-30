@@ -1,4 +1,6 @@
 using SharedClasses.Models.CountryModels;
+using SharedClasses.Models.UserModels;
+using SharedClasses.Helpers;
 
 namespace WebUI.Controllers;
 
@@ -12,12 +14,17 @@ public class SignUpController : Controller
         _httpContextAccessor = httpContextAccessor;
     }
 
-    public IActionResult SignIn(bool LoginFailure)
+    public IActionResult SignIn(bool LoginFailure, string Reason)
     {
-        if(LoginFailure)
+        if (LoginFailure)
+        {
             ViewBag.LoginFailure = LoginFailure;
+            ViewBag.Reason = Reason;
+
+        }
         else
             ViewBag.LoginFailure = false;
+
         return View();
     }
 
@@ -27,9 +34,9 @@ public class SignUpController : Controller
 
     public IActionResult Authenticate(string username, string password)
     {
-        if(DataBaseClient.PlayerCollection is null)
+        if (DataBaseClient.PlayerCollection is null)
             return RedirectToAction("Privacy", "Home");
-        
+
         string hashedPassword = password.Hash(ParseExtensions.salt);
 
         var user = DataBaseClient.PlayerCollection.Find(
@@ -37,10 +44,10 @@ public class SignUpController : Controller
         ).FirstOrDefault();
 
 
-        if(_httpContextAccessor.HttpContext is null)
+        if (_httpContextAccessor.HttpContext is null)
             return RedirectToAction("Privacy", "Home");
 
-        if(user != null)
+        if (user != null)
         {
             _httpContextAccessor.HttpContext.Session.SetString("Username", user.Username);
             _httpContextAccessor.HttpContext.Session.SetString("UserId", user.Id.ToString());
@@ -54,13 +61,44 @@ public class SignUpController : Controller
 
 
 
-    public IActionResult CreateAccount(string username, string password, string firstname, string surname, string country)
+    public async Task<IActionResult> CreateUser(string username, string password, string Name, string country)
     {
 
-        
+        if (username is null) return RedirectToAction("Contact", "Home");
+
+        if (password is null) return RedirectToAction("Contact", "Home");
+
+        if(Name is null) return RedirectToAction("Contact", "Home");        
+
+        string firstname = Name.Split(" ")[0];
+        string surname = Name.Split(" ")[1];
 
 
-        return RedirectToAction("Index", "Home");
+        if (firstname is null || surname is null || country is null)
+            return RedirectToAction("Contact", "Home");
+
+
+        var availableCountries = Country.GetAllAvailableCountries();
+
+        var name = new Name(firstname, surname);
+
+        var result = await Player.CreatePlayer(
+            name,
+            password,
+            username,
+            country
+        );
+
+        if(result != Code.Ok)
+        {
+            return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = result.ToString() });
+        }
+
+
+
+
+
+        return RedirectToAction("Authenticate", "SignUp", new { username = username, password = password });
     }
 
 
@@ -76,7 +114,7 @@ public class SignUpController : Controller
 
     public IActionResult Logout()
     {
-       
+
 
         var sessionId = _httpContextAccessor.HttpContext.Session.Id;
 

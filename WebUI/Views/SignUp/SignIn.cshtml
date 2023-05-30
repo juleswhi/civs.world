@@ -117,10 +117,19 @@ $('.message a').click(function(){
     
     @if (@ViewBag.LoginFailure == true)
     {
-      <p style="color: red">
+		@if(ViewBag.Reason is not null)
+		{
+			<p>
+				Could Not Create Account Because Of @ViewBag.Reason
+			</p>
+		}
+		else {
+  		    <p style="color: red">
         Username or password incorrect.
         Please try again
       </p> 
+			
+		}
     }
 <!--
 <div class="login-page">

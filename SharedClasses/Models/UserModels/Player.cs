@@ -75,7 +75,7 @@ public class Player
 
         var country = DataBaseClient.CountryCollection.Find(filter).FirstOrDefault();
 
-        if(country is null) return Code.AccountNotFound;
+        if(country is null) return Code.AlreadyOccupied;
 
         if (
             ((Player)DataBaseClient.PlayerCollection.Find(
@@ -83,7 +83,7 @@ public class Player
             ).FirstOrDefault()) is not null
         )
         {
-            return Code.ExistingAccount;
+            return Code.UsernameTaken;
         }
 
         string hashPassword = _password.Hash(ParseExtensions.salt);

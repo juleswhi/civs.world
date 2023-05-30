@@ -4,6 +4,8 @@ public enum Code
     Ok,
     AccountNotFound,
     InsufficientFunds,
-    ExistingAccount
+    ExistingAccount,
+    AlreadyOccupied,
+    UsernameTaken
 
 }
