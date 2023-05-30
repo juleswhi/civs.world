@@ -5,6 +5,7 @@
 <head>
 
 <style>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 
 body{
 	margin: 0;
@@ -101,7 +102,6 @@ button:hover{
 
 </style>
 
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <script>
@@ -139,20 +139,21 @@ $('.message a').click(function(){
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
-				<form>
+				<form asp-controller="SignUp" method="post" asp-action="CreateAccount">
 					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
+          <input type="text" name="name" placeholder="Full Name" required="" id="name">
+					<input type="text" name="txt" placeholder="User name" required="" id="username">
+					<input type="password" name="password" placeholder="Password" required="" id="password">
+          <input type="text" name="country" placeholder="Country" required="" id="country">
 					<button>Sign up</button>
 				</form>
 			</div>
 
 			<div class="login">
-				<form>
+				<form asp-controller="SignUp" method="post" asp-action="Authenticate">
 					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
+					<input type="username" name="username" placeholder="Email" required="" id="username">
+					<input type="password" name="password" placeholder="Password" required="" id="password">
 					<button>Login</button>
 				</form>
 			</div>

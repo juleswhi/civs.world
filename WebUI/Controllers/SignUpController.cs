@@ -27,16 +27,9 @@ public class SignUpController : Controller
 
     public IActionResult Authenticate(string username, string password)
     {
-
-
-
-            
         if(DataBaseClient.PlayerCollection is null)
             return RedirectToAction("Privacy", "Home");
         
-        
-
-
         string hashedPassword = password.Hash(ParseExtensions.salt);
 
         var user = DataBaseClient.PlayerCollection.Find(
@@ -57,6 +50,17 @@ public class SignUpController : Controller
         {
             return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true });
         }
+    }
+
+
+
+    public IActionResult CreateAccount(string username, string password, string firstname, string surname, string country)
+    {
+
+        
+
+
+        return RedirectToAction("Index", "Home");
     }
 
 
