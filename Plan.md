@@ -154,3 +154,9 @@ Move hash to a separate file for the love of god
 
 
 
+# => ***Sessions*** 
+  - When user logs in ask to rememeber them
+  - store user id in session
+  - if user id is null then redirect to login page
+
+
