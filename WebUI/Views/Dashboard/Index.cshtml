@@ -20,11 +20,12 @@
 <center>
 
     <input type="text" id="CountryInput" list="CountriesList">
-    <datalist id="CountriesList"></datalist>
+    <datalist id="CountriesList">
     @foreach(var Country in Countries)
     {
         <option value="@Country.Name">@Country.Name</option>
     }
+    </datalist>
     <button type="submit">Search</button>
 
 
