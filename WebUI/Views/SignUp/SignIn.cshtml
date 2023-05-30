@@ -124,11 +124,15 @@ $('.message a').click(function(){
 
 <body>
     
+    @if (@ViewBag.LoginFailure == true)
+    {
+      <p>
+        Yikes
+      </p> 
+    }
 
 <div class="login-page">
   <div class="form">
-    
-
 
     <form class="login-form" asp-controller="SignUp" method="post" asp-action="Authenticate">
       <input type="text" placeholder="username" name="username" id="username"  required />

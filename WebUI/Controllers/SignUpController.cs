@@ -4,8 +4,12 @@ namespace WebUI.Controllers;
 
 public class SignUpController : Controller
 {
-    public IActionResult SignIn()
+    public IActionResult SignIn(bool LoginFailure)
     {
+        if(LoginFailure)
+            ViewBag.LoginFailure = LoginFailure;
+        else
+            ViewBag.LoginFailure = false;
         return View();
     }
     public IActionResult Authenticate(string username, string password)
@@ -22,7 +26,7 @@ public class SignUpController : Controller
         }
         else
         {
-            return View("Error", "UserNotFound");
+            return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true });
         }
     }
     public IActionResult SignUp()
