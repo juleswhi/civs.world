@@ -3,7 +3,7 @@ namespace SharedClasses.Models.UserModels;
 
 public class Player
 {
-    public Player(Name name, string Password, string username, Guid CountryId)
+    public Player(Name name, string Password, string username, Guid? CountryId)
     {
         this.CountryId = CountryId;
         this.Id = Guid.NewGuid();
@@ -25,7 +25,7 @@ public class Player
     [BsonElement]
     public List<Guid> Accounts { get; set; }
     [BsonElement]
-    public Guid CountryId { get; set; }
+    public Guid? CountryId { get; set; }
 
 
 

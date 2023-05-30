@@ -160,3 +160,11 @@ Move hash to a separate file for the love of god
   - if user id is null then redirect to login page
 
 
+
+Admin page
+
+- Delete Data
+
+
+
+

@@ -83,7 +83,7 @@ public class SignUpController : Controller
         }
         catch(Exception err)
         {
-            return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Firstname or Surname are null"})
+            return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Firstname or Surname are null"});
         }
 
 
