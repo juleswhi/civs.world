@@ -64,18 +64,19 @@ public class SignUpController : Controller
     public async Task<IActionResult> CreateUser(string username, string password, string Name, string country)
     {
 
-        if (username is null) return RedirectToAction("Contact", "Home");
+        if (username is null) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Username is null" });
 
-        if (password is null) return RedirectToAction("Contact", "Home");
+        if (password is null) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Password Is Null" });
 
-        if(Name is null) return RedirectToAction("Contact", "Home");        
+        if(Name is null) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Name is null" }); 
+
+        if (country is null) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Country Is Null" });
+
 
         string firstname = Name.Split(" ")[0];
         string surname = Name.Split(" ")[1];
 
-
-        if (firstname is null || surname is null || country is null)
-            return RedirectToAction("Contact", "Home");
+        if(firstname is null || surname is null ) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Name Is Null" });
 
 
         var availableCountries = Country.GetAllAvailableCountries();
@@ -95,21 +96,12 @@ public class SignUpController : Controller
         }
 
 
-
-
-
         return RedirectToAction("Authenticate", "SignUp", new { username = username, password = password });
     }
 
 
 
 
-    public IActionResult SignUp()
-    {
-        ViewBag.Countries = Country.GetAllAvailableCountries();
-
-        return View();
-    }
 
 
     public IActionResult Logout()
