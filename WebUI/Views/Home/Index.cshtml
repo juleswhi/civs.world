@@ -1,4 +1,5 @@
-﻿@{
+﻿@inject IHttpContextAccessor _httpContextAccessor
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -55,7 +56,7 @@
 <br>
 <h1 style="font-size: 100px">
   <center>
-    civs
+    Civilisation Simulator
   </center>
 </h1>
 <br><br><br>
@@ -69,56 +70,40 @@
 </h3>
 
 <br><br><br>
-<h3>
-  <center>
-    <a href="#signing">
-      <button class="bn632-hover bn22">
-        Log In
-      </button>
-    </a>
 
 
-@inject IHttpContextAccessor _httpContextAccessor
+<center>
 
-@if (_httpContextAccessor.HttpContext.Session.GetString("Username") != null)
-{
-  <p>
-    Welcome @_httpContextAccessor.HttpContext.Session.GetString("Username")!
-  </p>
-}
+<a asp-controller="Dashboard" asp-action="Index">
+  <button class="bn632-hover bn22">
+    Dashboard
+  </button>
+</a>
+
+<br><br>
+
+<a asp-controller="Map" asp-action="Index">
+  <button class="bn632-hover bn22">
+    World Map
+  </button>
+</a>
 
 
-<br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
+  
+</center>
 
 
+    
 
 
 
-<section id="signing">
 
 
-    <a asp-area="" asp-controller="SignUp" asp-action="SignIn">
-    <button asp-area="" asp-controller="SignUp" asp-action="SignIn" class="bn632-hover bn22">
-      Sign In
-    </button>
-    </a>
-    <a asp-area="" asp-controller="SignUp" asp-action="SignUp">
-    <button asp-area="" asp-controller="SignUp" asp-action="SignUp" class="bn632-hover bn22">
-      Sign Up
-    </button>
-    </a>
-</section>
-<br><br><br>
-<br><br><br>
-<br><br><br>
 
-  </center>
-</h3>
+
+
+
+
 
 
     

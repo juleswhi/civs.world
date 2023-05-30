@@ -68,4 +68,13 @@ public class SignUpController : Controller
 
         return View();
     }
+
+
+    public IActionResult Logout()
+    {
+        _httpContextAccessor.HttpContext.Session.SetString("Username", null);
+        _httpContextAccessor.HttpContext.Session.SetString("UserId", null);
+
+        return RedirectToAction("Index", "Home");
+    }
 }
