@@ -9,6 +9,10 @@ public class SignUpController : Controller
 
     private readonly IHttpContextAccessor _httpContextAccessor;
 
+    public SignUpController(IHttpContextAccessor httpContextAccessor)
+    {
+        _httpContextAccessor = httpContextAccessor;
+    }
 
     public IActionResult SignIn(bool LoginFailure)
     {
@@ -26,6 +30,9 @@ public class SignUpController : Controller
     public IActionResult Authenticate(string username, string password)
     {
 
+
+
+            
         if(DataBaseClient.PlayerCollection is null)
             return RedirectToAction("Privacy", "Home");
         
@@ -37,6 +44,10 @@ public class SignUpController : Controller
         var user = DataBaseClient.PlayerCollection.Find(
             x => x.Username == username && x.Password == hashedPassword
         ).FirstOrDefault();
+
+
+        if(_httpContextAccessor.HttpContext is null)
+            return RedirectToAction("Privacy", "Home");
 
         if(user != null)
         {

@@ -12,6 +12,9 @@ builder.Services.AddSession(options => {
 });
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
