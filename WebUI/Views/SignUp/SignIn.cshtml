@@ -1,5 +1,34 @@
+@using SharedClasses.Models.CountryModels;
+@using SharedClasses.Models.UserModels;
+@using MongoDB.Driver;
+
+
 @{
   Layout = "";
+
+	var Countries = DataBaseClient.CountryCollection.Find(
+		Builders<Country>.Filter.Exists(x => x.Id)
+	).ToList();
+	
+
+	var Players = DataBaseClient.PlayerCollection.Find(
+		Builders<Player>.Filter.Exists(x => x.Id)
+	).ToList();
+
+	List<Country> availableCountries = new();
+
+	foreach(var country in Countries)
+	{
+		bool CountryAvailable = true;
+		foreach(var player in Players)
+		{
+			if(player.CountryId == country.Id) CountryAvailable = false;
+
+		}
+		if(CountryAvailable) availableCountries.Add(country);
+	}
+
+
 }
 
 <head>
@@ -158,7 +187,15 @@ $('.message a').click(function(){
           			<input type="text" name="name" placeholder="Full Name" required id="Name">
 					<input type="text" name="username" placeholder="User name" required id="Username">
 					<input type="password" name="password" placeholder="Password" required id="password">
-                    <input type="text" name="country" placeholder="Country" required id="country">
+                    <input type="text" name="country" placeholder="Country" required id="country" list="CountriesList">
+
+					<datalist id="CountriesList">
+						@foreach (var country in availableCountries)
+						{
+							<option value="@country.Name">@country.Name</option>
+						}
+					</datalist>
+
 					<button>Sign up</button>
 				</form>
 			</div>
