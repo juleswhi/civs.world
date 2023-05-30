@@ -18,6 +18,7 @@
 
 
 <center>
+    <form id="CountryInputForm" asp-controller="CountryProfile" asp-action="Index">
     <label for="CountryInput">
         Search For a Country
     </label>
@@ -28,7 +29,8 @@
         <option value="@Country.Name">@Country.Name</option>
     }
     </datalist>
-    <button type="submit">Search</button>
+    <button>Search</button>
+    </form>
 
 
 </center>
