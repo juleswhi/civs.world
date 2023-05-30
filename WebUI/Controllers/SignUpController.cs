@@ -1,9 +1,15 @@
+using Microsoft.AspNetCore.CookiePolicy;
+
 using SharedClasses.Models.CountryModels;
 
 namespace WebUI.Controllers;
 
 public class SignUpController : Controller
 {
+
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+
     public IActionResult SignIn(bool LoginFailure)
     {
         if(LoginFailure)
@@ -12,6 +18,11 @@ public class SignUpController : Controller
             ViewBag.LoginFailure = false;
         return View();
     }
+
+
+
+
+
     public IActionResult Authenticate(string username, string password)
     {
         string hashedPassword = password.Hash(ParseExtensions.salt);
@@ -22,6 +33,9 @@ public class SignUpController : Controller
 
         if(user != null)
         {
+
+            _httpContextAccessor.HttpContext.Session.SetString("Username", user.Username);
+            _httpContextAccessor.HttpContext.Session.SetString("UserId", user.Id.ToString());
             return RedirectToAction("Index", "Home");
         }
         else
@@ -29,6 +43,10 @@ public class SignUpController : Controller
             return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true });
         }
     }
+
+
+
+
     public IActionResult SignUp()
     {
         ViewBag.Countries = Country.GetAllAvailableCountries();
