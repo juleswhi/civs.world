@@ -17,9 +17,10 @@
 
 <h1>
     <center>
-        @_httpContextAccessor.HttpContext.Session.GetString("Username");
+        @user.Name.FirstName
+        @user.Name.Surname
         <br><br><br>
-        @country.Name;
+        @country.Name
     </center>
 </h1>
 

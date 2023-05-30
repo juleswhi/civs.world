@@ -21,13 +21,22 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        if (_httpContextAccessor.HttpContext.Session.GetString("Username") is null)
+        if(_httpContextAccessor.HttpContext.Session.GetString("Username") is null)
         {
-            return View();
-
+            return RedirectToAction("NewUserIndex", "Home");
         }
 
         return RedirectToAction("Index", "Dashboard");
+    }
+
+    public IActionResult NewUserIndex()
+    {
+        if(_httpContextAccessor.HttpContext.Session.GetString("Username") is null)
+        {
+            return View();
+        }
+
+        return RedirectToAction("Index", "Home");
     }
 
 
