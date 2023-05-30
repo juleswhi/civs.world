@@ -171,4 +171,71 @@ Admin page
 Issue where if user tries to create an account and get a value wrong, system thinks country is taken
 
 
+TUTORIAL / DOCS?
+
+
+TO IMPLEMENT:
+
+Government types - Dictator, Monarch, Democracy
+
+Alliances gain in trust over time
+
+In game time
+
+Resources - Special Resources
+
+List of resources
+
+Resource has a universal value rating
+
+Stock market?????
+
+Invading / War?
+- Declare war
+- wartime
+- rationing?
+- ELO for ranking who wins wars?
+
+Loans??
+
+World Bank
+
+Dynamic Economy Rating
+
+Yearly Income
+
+Land
+
+what countries do you control
+
+Rename Your Country
+
+
+
+ELO - Sum of all parts of country - rank all countries
+
+
+Companies - Invest directly in companies - stock prices can effect shit?
+
+S+P 500 - already have list
+
+Sectors
+- Industrial
+- Health Care
+- Information Technology
+- Communication Services
+- Consumer Staples
+- Consumer Discretionary
+- Utilities
+- Financials
+
+
+Nukes - Very hard to unlock - lots of research
+
+Researching
+
+Skill trees
+
+
+Some technologies can only become unlocked or researched after a certain in game time
 

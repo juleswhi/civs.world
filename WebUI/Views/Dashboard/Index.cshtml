@@ -9,9 +9,26 @@
 
     var country = DataBaseClient.CountryCollection.Find(x => x.Id == user.CountryId).FirstOrDefault();
 
+    var Countries = DataBaseClient.CountryCollection.Find(
+        Builders<Country>.Filter.Exists(x => x.Id)
+    ).ToList();
+
 
 }
 
+
+<center>
+
+    <input type="text" id="CountryInput" list="CountriesList">
+    <datalist id="CountriesList"></datalist>
+    @foreach(var Country in Countries)
+    {
+        <option value="@Country.Name">@Country.Name</option>
+    }
+    <button type="submit">Search</button>
+
+
+</center>
 
 
 <h1>@user.Name.FirstName's Dashboard</h1>
