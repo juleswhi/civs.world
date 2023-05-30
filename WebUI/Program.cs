@@ -11,6 +11,7 @@ builder.Services.AddSession(options => {
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddRazorPages();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
