@@ -75,6 +75,10 @@ public class SignUpController : Controller
         _httpContextAccessor.HttpContext.Session.SetString("Username", null);
         _httpContextAccessor.HttpContext.Session.SetString("UserId", null);
 
+        var sessionId = _httpContextAccessor.HttpContext.Session.Id;
+
+        _httpContextAccessor.HttpContext.Session.Remove(sessionId);
+
         return RedirectToAction("Index", "Home");
     }
 }
