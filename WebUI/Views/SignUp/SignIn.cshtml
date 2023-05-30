@@ -1,7 +1,3 @@
-@page "/SignIn"
-@model WebUI.Models.LoginModel
-
-
 @{
 
 }
@@ -126,8 +122,9 @@ $('.message a').click(function(){
     
     @if (@ViewBag.LoginFailure == true)
     {
-      <p>
-        Yikes
+      <p style="color: red">
+        Username or password incorrect.
+        Please try again
       </p> 
     }
 
