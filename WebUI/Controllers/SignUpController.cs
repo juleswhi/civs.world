@@ -72,8 +72,7 @@ public class SignUpController : Controller
 
     public IActionResult Logout()
     {
-        _httpContextAccessor.HttpContext.Session.SetString("Username", null);
-        _httpContextAccessor.HttpContext.Session.SetString("UserId", null);
+       
 
         var sessionId = _httpContextAccessor.HttpContext.Session.Id;
 
