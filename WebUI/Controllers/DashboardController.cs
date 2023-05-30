@@ -9,6 +9,12 @@ public class DashboardController : Controller
     }
     public IActionResult Index()
     {
+        if(_httpContextAccessor.HttpContext.Session.GetString("Username") == "admin")
+        {
+            return RedirectToAction("Index", "Admin");
+        }
+
+
         if(_httpContextAccessor.HttpContext.Session.GetString("Username") is null)
             RedirectToAction("Index", "Home");
 
