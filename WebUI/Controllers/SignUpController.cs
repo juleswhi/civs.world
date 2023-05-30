@@ -61,30 +61,30 @@ public class SignUpController : Controller
 
 
 
-    public async Task<IActionResult> CreateUser(string username, string password, string Name, string country)
+    public async Task<IActionResult> CreateUser(string username, string password, string name, string country)
     {
 
         if (username is null) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Username is null" });
 
         if (password is null) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Password Is Null" });
 
-        if(Name is null) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Name is null" }); 
+        if(name is null) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Name is null" }); 
 
         if (country is null) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Country Is Null" });
 
 
-        string firstname = Name.Split(" ")[0];
-        string surname = Name.Split(" ")[1];
+        string firstname = name.Split(" ")[0];
+        string surname = name.Split(" ")[1];
 
         if(firstname is null || surname is null ) return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Name Is Null" });
 
 
         var availableCountries = Country.GetAllAvailableCountries();
 
-        var name = new Name(firstname, surname);
+        var Name = new Name(firstname, surname);
 
         var result = await Player.CreatePlayer(
-            name,
+            Name,
             password,
             username,
             country

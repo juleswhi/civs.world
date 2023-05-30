@@ -152,10 +152,10 @@ $('.message a').click(function(){
 			<div class="signup">
 				<form asp-controller="SignUp" method="post" asp-action="CreateUser">
 					<label for="chk" aria-hidden="true">Sign up</label>
-          <input type="text" name="name" placeholder="Full Name" required="" id="name">
-					<input type="text" name="txt" placeholder="User name" required="" id="username">
-					<input type="password" name="password" placeholder="Password" required="" id="password">
-          <input type="text" name="country" placeholder="Country" required="" id="country">
+          			<input type="text" name="name" placeholder="Full Name" required id="Name">
+					<input type="text" name="username" placeholder="User name" required id="Username">
+					<input type="password" name="password" placeholder="Password" required id="password">
+                    <input type="text" name="country" placeholder="Country" required id="country">
 					<button>Sign up</button>
 				</form>
 			</div>
@@ -163,8 +163,8 @@ $('.message a').click(function(){
 			<div class="login">
 				<form asp-controller="SignUp" method="post" asp-action="Authenticate">
 					<label for="chk" aria-hidden="true">Login</label>
-					<input type="username" name="username" placeholder="Username" required="" id="username">
-					<input type="password" name="password" placeholder="Password" required="" id="password">
+					<input type="username" name="username" placeholder="Username" required id="username">
+					<input type="password" name="password" placeholder="Password" required id="password">
 					<button>Login</button>
 				</form>
 			</div>
