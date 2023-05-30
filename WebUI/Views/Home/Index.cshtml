@@ -78,14 +78,6 @@
     </a>
 
 
-@inject IHttpContextAccessor _httpContextAccessor
-
-@if (_httpContextAccessor.HttpContext.Session.GetString("Username") != null)
-{
-  <p>
-    Welcome @_httpContextAccessor.HttpContext.Session.GetString("Username")!
-  </p>
-}
 
 
 <br><br><br>
