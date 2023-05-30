@@ -8,6 +8,23 @@ public class SignUpController : Controller
     {
         return View();
     }
+    public IActionResult SignIn(string username, string password)
+    {
+        string hashedPassword = password.Hash(ParseExtensions.salt);
+
+        var user = DataBaseClient.PlayerCollection.Find(
+            x => x.Username == username && x.Password == hashedPassword
+        ).FirstOrDefault();
+
+        if(user != null)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+        else
+        {
+            return View("Error", "UserNotFound");
+        }
+    }
     public IActionResult SignUp()
     {
         ViewBag.Countries = Country.GetAllAvailableCountries();
