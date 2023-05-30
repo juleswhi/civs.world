@@ -10,15 +10,16 @@ namespace WebUI.Models
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public string Username { get; set; }
+        public string username { get; set; }
         [BindProperty]
-        public string Password { get; set; }
+        public string password { get; set; }
 
         public IActionResult OnPostAsync()
         {
+            Console.WriteLine("POST");
             if(ModelState.IsValid)
             {
-                if(Authenticate(Username, Password))
+                if(Authenticate(username, password))
                 {
                     return RedirectToAction("Index", "Home");
                 }
