@@ -1,7 +1,9 @@
-@{
+@using SharedClasses.Models.CountryModels;
 
+@{
+    Country country = ViewBag.Country;
 }
 
 <h1>
-    @ViewBag.Country
+    @country.Name : @country.CountryCode
 </h1>

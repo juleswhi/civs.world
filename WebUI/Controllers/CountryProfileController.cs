@@ -11,7 +11,7 @@ public class CountryProfileController : Controller
 
         var country = DataBaseClient.CountryCollection.Find(
             Builders<Country>.Filter.Eq(x => x.Name, CountryName)
-        );
+        ).FirstOrDefault();
 
         ViewBag.Country = country;
 
