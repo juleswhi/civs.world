@@ -8,7 +8,7 @@ public class SignUpController : Controller
     {
         return View();
     }
-    public IActionResult SignIn(string username, string password)
+    public IActionResult Authenticate(string username, string password)
     {
         string hashedPassword = password.Hash(ParseExtensions.salt);
 
