@@ -1,0 +1,25 @@
+@inject IHttpContextAccessor _httpContextAccessor
+@using SharedClasses.Models.UserModels;
+@using SharedClasses.Models.CountryModels;
+@using MongoDB.Driver;
+@{
+
+    var user = DataBaseClient.PlayerCollection.Find(x => x.Username == 
+    _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
+
+    var country = DataBaseClient.CountryCollection.Find(x => x.Id == user.CountryId).FirstOrDefault();
+
+
+}
+
+
+
+
+<h1>
+    <center>
+        @_httpContextAccessor.HttpContext.Session.GetString("Username");
+        <br><br><br>
+        @country.Name;
+    </center>
+</h1>
+

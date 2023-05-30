@@ -11,22 +11,28 @@ namespace WebUI.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
     {
+        _httpContextAccessor = httpContextAccessor;
         _logger = logger;
     }
 
     public IActionResult Index()
     {
-      
+        if (_httpContextAccessor.HttpContext.Session.GetString("Username") is null)
+        {
+            return View();
 
-        return View();
+        }
+
+        return RedirectToAction("Index", "Dashboard");
     }
 
 
 
- 
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

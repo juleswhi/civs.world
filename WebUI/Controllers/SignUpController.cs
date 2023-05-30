@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.CookiePolicy;
-
 using SharedClasses.Models.CountryModels;
 
 namespace WebUI.Controllers;
@@ -53,7 +51,7 @@ public class SignUpController : Controller
         {
             _httpContextAccessor.HttpContext.Session.SetString("Username", user.Username);
             _httpContextAccessor.HttpContext.Session.SetString("UserId", user.Id.ToString());
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
         else
         {
