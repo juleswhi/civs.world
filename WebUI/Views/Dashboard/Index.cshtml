@@ -155,15 +155,25 @@ input:not(:placeholder-shown) {
 </center>
 </div>
 
-<h1>@user.Name.FirstName's Dashboard</h1>
-
+<h1 style="font-size: 100px">@user.Name.FirstName's Dashboard</h1>
+<center>
 <p>
-    <a asp-controller="Dashboard" asp-action="UserDetails">
+    <a asp-controller="Dashboard" asp-action="CountrySettings">
         <button class="button-30">
-            @user.Username's Details
+            Country Settings
+        </button>
+    </a>
+    <a asp-controller="Dashboard" asp-action="Research">
+        <button class="button-30">
+            Research
+        </button>
+    </a>
+    <a asp-controller="Dashboard" asp-action="Banking">
+        <button class="button-30">
+            Banking
         </button>
     </a>
 </p>
-
+</center>
 <br><br>
 

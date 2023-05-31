@@ -26,4 +26,16 @@ public class DashboardController : Controller
     {
         return View();
     }
+    public IActionResult Research()
+    {
+        return View();
+    }
+    public IActionResult Banking()
+    {
+        return View();
+    }
+    public IActionResult CountrySettings()
+    {
+        return View();
+    }
 }
