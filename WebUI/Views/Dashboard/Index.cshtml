@@ -13,40 +13,49 @@
         Builders<Country>.Filter.Exists(x => x.Id)
     ).ToList();
 
+    Layout = "";
+
 
 }
 
+<head>
+    <style>
+
+        div.sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color: green;
+            padding: 40px;
+            font-size: 25px;
+        }
+
+
+    </style>
+</head>
+
+
+<div>
 
 <center>
     <form id="CountryInputForm" asp-controller="CountryProfile" asp-action="Index">
-    <label for="CountryInput">
-        Search For a Country
-    </label>
-    <input type="text" id="CountryName" name="CountryName" list="CountriesList">
-    <datalist id="CountriesList">
-    @foreach(var Country in Countries)
-    {
-        <option value="@Country.Name">@Country.Name</option>
-    }
-    </datalist>
-    <button>Search</button>
+
+        <input type="text" id="CountryName" name="CountryName" list="CountriesList">
+        <datalist id="CountriesList">
+        @foreach(var Country in Countries)
+        {
+            <option value="@Country.Name">@Country.Name</option>
+        }
+        </datalist>
+        <button>Search</button>
+
     </form>
 
 
 </center>
-
+</div>
 
 <h1>@user.Name.FirstName's Dashboard</h1>
 
 <br><br>
-<p>
-    All your details and shit will go here 
-</p>
 
-
-<br><br>
-
-
-<p>
-   @country.Name has a population of @country.Population
-</p>
