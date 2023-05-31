@@ -39,6 +39,11 @@ public class HomeController : Controller
         return RedirectToAction("Index", "Home");
     }
 
+    public IActionResult Blank()
+    {
+        return View();
+    }
+
 
 
 
