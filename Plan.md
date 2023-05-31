@@ -239,3 +239,20 @@ Skill trees
 
 Some technologies can only become unlocked or researched after a certain in game time
 
+View for managing controlled countries
+
+
+
+
+
+
+
+UPDATED PLAN FOR SHIT:
+
+
+- Each country has their own skill tree
+- Each node of a skill tree requires the player to "Research A Topic" or "Spend Money" or "Get A Speical Resource"
+- At the end of a skill tree, you can get a cookie
+- cookies can be used in a black market to buy special stuff "nukes"
+- SPIES
+

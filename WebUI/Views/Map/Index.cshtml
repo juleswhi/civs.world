@@ -23,7 +23,10 @@ new svgMap({
   colorNoData: '#000000',
   colorMax: '#00cc00',
   colorMin: '#99ff99',
-    
+  onRegionClick: function(event, code)
+  {
+    console.log(code);
+  },
   data: {
     data: {
       Population:
