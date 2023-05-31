@@ -96,7 +96,7 @@ button{
 	justify-content: center;
 	display: block;
 	color: #fff;
-	background: #0ba360;
+	background: #r
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
@@ -107,7 +107,7 @@ button{
 	cursor: pointer;
 }
 button:hover{
-	background: #0ba360;
+	background: #2f4f4f;
 }
 .login{
 	height: 460px;
@@ -117,7 +117,7 @@ button:hover{
 	transition: .8s ease-in-out;
 }
 .login label{
-	color: #0ba360;
+	color: #2f4f4f;
 	transform: scale(.6);
 }
 
@@ -162,25 +162,46 @@ $('.message a').click(function(){
 			
 		}
     }
-<!--
-<div class="login-page">
-  <div class="form">
 
-    <form class="login-form" asp-controller="SignUp" method="post" asp-action="Authenticate">
-      <input type="text" placeholder="username" name="username" id="username"  required />
-      <input type="password" placeholder="password" name="password" id="password"   required />
-      <input type="submit" value="login"> 
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
-    </form>
-  </div>
-</div>
--->
+
+
+
+
 
 
 <div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
-
 			<div class="signup">
+
+
+<form asp-controller="SignUp" method="post" asp-action="Authenticate">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="username" name="username" placeholder="Username" required id="username">
+					<input type="password" name="password" placeholder="Password" required id="password">
+					<button>Login</button>
+				</form>
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+
+
+			</div>
+
+			<div class="login">
+
+
+
 				<form asp-controller="SignUp" method="post" asp-action="CreateUser">
 					<label for="chk" aria-hidden="true">Sign up</label>
           			<input type="text" name="name" placeholder="Full Name" required id="Name">
@@ -197,15 +218,10 @@ $('.message a').click(function(){
 
 					<button>Sign up</button>
 				</form>
-			</div>
 
-			<div class="login">
-				<form asp-controller="SignUp" method="post" asp-action="Authenticate">
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="username" name="username" placeholder="Username" required id="username">
-					<input type="password" name="password" placeholder="Password" required id="password">
-					<button>Login</button>
-				</form>
+
+
+
 			</div>
 	</div>
 
