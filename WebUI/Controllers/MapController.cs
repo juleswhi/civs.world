@@ -12,4 +12,18 @@ public class MapController : Controller
 
         return View();
     }
+
+    public IActionResult Personal()
+    {
+
+
+        
+        var valuesDictionary = PopulateMapDictionary.PopulateDictionary();
+
+        ViewBag.valuesDictionary = valuesDictionary;
+
+
+
+        return View();
+    }
 }
