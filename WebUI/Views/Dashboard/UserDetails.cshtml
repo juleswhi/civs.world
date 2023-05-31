@@ -1,0 +1,23 @@
+@using SharedClasses.Models.UserModels;
+@using SharedClasses.Models.CountryModels;
+@inject IHttpContextAccessor _httpContextAccessor
+
+@{
+
+    var player = DataBaseClient.PlayerCollection.Find(x => 
+        x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username"))
+        .FirstOrDefault();
+
+    var country = DataBaseClient.CountryCollection.Find(x =>
+        x.Id == player.CountryId 
+    ).FirstOrDefault();
+
+}
+
+<h2>
+    First Name: @player.Name.FirstName
+    Surname: @player.Name.Surname
+    <br>
+    Username: @player.Username
+    Countries Occupied: @country.Name
+</h2>

@@ -20,4 +20,10 @@ public class DashboardController : Controller
 
         return View();
     }
+
+
+    public IActionResult UserDetails()
+    {
+        return View();
+    }
 }

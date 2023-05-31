@@ -26,6 +26,7 @@ public class Player
     public List<Guid> Accounts { get; set; }
     [BsonElement]
     public Guid? CountryId { get; set; }
+    public List<Guid> CountryIds { get; set; }
 
 
 

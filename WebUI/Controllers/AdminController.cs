@@ -21,4 +21,11 @@ public class AdminController : Controller
 
         return View();
     }
+
+    public IActionResult Login()
+    {
+
+        return RedirectToAction("Authenticate", "SignUp", new { username = "JohnDoe", password = "doe"});
+
+    }
 }
