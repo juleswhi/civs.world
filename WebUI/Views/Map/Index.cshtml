@@ -39,14 +39,14 @@
 var values = {
   @foreach(var country in countries)
   {
-    @: "@country.Code": "@country.Country",
+    @: "@country.Code": "@country.Username",
   }
 };
 
 var scale = {
   @foreach (var country in countries)
   {
-    @: "@country.Country": "@country.Color", 
+    @: "@country.Username": "@country.Color", 
   }
 }
 

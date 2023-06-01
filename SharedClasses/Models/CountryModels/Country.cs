@@ -86,6 +86,7 @@ public class Country
         foreach(var country in countries)
         {
             string Colour = "#eeeeee";
+            string Username = "Not Occupied";
             foreach(var player in players)
             {
                 foreach(var playerCountry in player.CountryIds)
@@ -93,6 +94,7 @@ public class Country
                     if(playerCountry == country.Id)
                     {
                         Colour = player.Colour;
+                        Username = player.Username;
                     }
                 }
             }
@@ -103,7 +105,8 @@ public class Country
                 new CountryWithColor{
                     Country = country.Name,
                     Color = country.Colour,
-                    Code = country.CountryCode
+                    Code = country.CountryCode,
+                    Username = Username
                 }
             );
 
