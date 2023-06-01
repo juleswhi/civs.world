@@ -3,11 +3,10 @@ namespace SharedClasses.Models.UserModels;
 
 public class Player
 {
-    public Player(Name name, string Password, string username, Guid CountryId)
+    public Player(Name name, string Password, string username, Guid CountryId, string colour, List<Guid> countryIds)
     {
-        this.Colour = String.Format("#{0:X6}", new Random((int)DateTime.Now.Ticks).Next(0x1000000));
-        this.CountryIds = new();
-        CountryIds.Add(CountryId);
+        this.Colour = colour;
+        this.CountryIds = countryIds;
         this.CountryId = CountryId;
         this.Id = Guid.NewGuid();
         this.Username = username;
@@ -76,6 +75,8 @@ public class Player
     }
 
 
+
+
     public static async Task<Code> CreatePlayer(Name _name, string _password, string _username, string CountryName)
     {
         var filter = Builders<Country>.Filter.Eq(x => x.Name, CountryName);
@@ -93,9 +94,13 @@ public class Player
             return Code.UsernameTaken;
         }
 
+        List<Guid> CountryGuids = new();
+
+        CountryGuids.Add(country.Id);
+
         string hashPassword = _password.Hash(ParseExtensions.salt);
 
-        var player = new Player(_name, hashPassword, _username, country.Id);
+        var player = new Player(_name, hashPassword, _username, country.Id, String.Format("#{0:X6}", new Random((int)DateTime.Now.Ticks).Next(0x1000000)), CountryGuids);
 
         await DataBaseClient.PlayerCollection.InsertOneAsync(player);
 
