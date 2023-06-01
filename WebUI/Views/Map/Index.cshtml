@@ -22,15 +22,25 @@
 <Body>
 
 <input type="hidden", id="valuesDict", value="@jsonString">
-
-<div id="world-map" style="width: 600px; height:400px"></div>
+<center>
+  <div id="world-map" style="width: 1200px; height:800"></div>
+</center>
 
 
 <script>
 console.log("Hello There");
 
 var valuesDictionary = JSON.parse(document.getElementById('valuesDict').value);
-$('#world-map').vectorMap({map: 'world_mill'});
+$('#world-map').vectorMap({
+    map: 'world_mill',
+    backgroundColor: '2f4f4f',
+    zoomAnimate: true,
+    regionsSelectable: true,
+    onRegionClick: function(e, code)
+    {
+      console.log(code);
+    }
+  });
 /*
 new svgMap({
   targetElementID: 'svgMap',
