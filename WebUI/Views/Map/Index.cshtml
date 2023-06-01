@@ -5,36 +5,7 @@
 @{
     ViewData["Title"] = "Map";
 
-    
-    List<Player> Players = ViewBag.Players;
-    List<Country> Countries = ViewBag.Countries;
-
-    List<CountryPlayer> countryPlayers = new();
-
-    foreach(var country in Countries)
-    {
-      foreach(var player in Players)
-      {
-        if(country.Id == player.CountryId)
-        {
-
-          countryPlayers.Add(
-            new CountryPlayer()
-            {
-              Color = player.Colour,
-              CountryName = country.Name,
-              CountryCode = country.CountryCode,
-              PlayerUsername = player.Username
-            }
-          );
-        }
-      }
-    }
-
-    var countryPlayerJson = Newtonsoft.Json.JsonConvert.SerializeObject(countryPlayers);
-
-
-    
+    var countriesWithColors = Country.GetCountryColour();
 
 
 }
@@ -65,45 +36,31 @@
 
 <script>
 
-var playerData = @Html.Raw(countryPlayerJson);
+var players = JSON.parse('@Html.Raw(countriesWithColors)');
+
+var values = players.map(player => {
+  return {
+    isoCode: player.Country,
+    color: player.Color
+  };
+});
 
 
-
-
-
-function findPlayerColor(countryCode, players)
-{
-  for(var i = 0; i < players; i++)
-  {
-    if(players[i].CountryCode == countryCode)
-    {
-      return players[i].Color;
-    }
-  }
-
-  return '#eeeeee';
-}
 
 $('#world-map').vectorMap({
     map: 'world_mill',
     backgroundColor: '2f4f4f',
     zoomAnimate: true,
     regionsSelectable: true,
-    color: function(countryCode, countryName)
-    {
-      return findPlayerColor(countryCode, playerData);
+    series: {
+      regions: [{
+        scale: ['#008d48'],
+        normalizeFunction: 'polynomial',
+        values: values
+      }] 
+      
     }
-    onRegionClick: function(e, code)
-    {
-      console.log(code);
-    },
-    regionStyle:
-    {
-      initial:
-      {
-        fill: '#ffffff'
-      }
-    },
+    
    
   });
 

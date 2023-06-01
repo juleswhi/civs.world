@@ -1,7 +1,6 @@
 namespace SharedClasses.Models.CountryModels;
 using MongoDB.Bson.Serialization.Attributes;
 
-[BsonIgnoreExtraElements]
 public class Country
 {
     public Country(string name, int Population, string CountryCode)
@@ -38,6 +37,8 @@ public class Country
     public double Latitude { get; set; }
     [BsonElement]
     public SkillTree? SkillTree { get; set; }
+    [BsonElement]
+    public string Colour { get; set; }
 
 
 
@@ -70,6 +71,46 @@ public class Country
                 }).ToList();
 
         return UnoccupiedCountries.Where( x => x != null).ToList();
+    }
+
+
+
+    public static List<CountryWithColor> GetCountryColour()
+    {
+        List<CountryWithColor> rCountries = new();
+
+        var players = DataBaseClient.PlayerCollection.Find(_ => true).ToList();
+
+        var countries = DataBaseClient.CountryCollection.Find(_ => true).ToList();
+
+        foreach(var country in countries)
+        {
+            string Colour = "#eeeeee";
+            foreach(var player in players)
+            {
+                foreach(var playerCountry in player.CountryIds)
+                {
+                    if(playerCountry == country.Id)
+                    {
+                        Colour = player.Colour;
+                    }
+                }
+            }
+
+            country.Colour = Colour;
+
+            rCountries.Add(
+                new CountryWithColor{
+                    Country = country.Name,
+                    Color = country.Colour
+                }
+            );
+
+        }
+
+
+
+        return rCountries;
     }
 
 
