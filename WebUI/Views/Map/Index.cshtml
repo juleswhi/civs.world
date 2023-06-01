@@ -63,12 +63,18 @@
 var playerData = @Html.Raw(Json.Serialize(playerData));
 
 var mapData = {}
-
+/*
 playerData.forEach(function (data) {
   var [countryCode, color, countryName] = data.split(":");
   mapData[countryCode] = { fill: color, name: countryName };
 });
+*/
 
+mapData = 
+{
+  fill: '#AB165E',
+  name: 'China'
+}
 
 
 $('#world-map').vectorMap({
