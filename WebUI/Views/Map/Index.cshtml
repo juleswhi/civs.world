@@ -1,35 +1,40 @@
 ﻿@using SharedClasses.Models.CountryModels;
 @using SharedClasses.Models.UserModels;
+@using WebUI.Models;
 
 @{
     ViewData["Title"] = "Map";
 
+    
+    List<Player> Players = ViewBag.Players;
+    List<Country> Countries = ViewBag.Countries;
 
-    List<Player> players = ViewBag.Players;
-    List<Country> countries = ViewBag.Countries;
-    var playerData = new List<String>();
+    List<CountryPlayer> countryPlayers = new();
 
-    foreach(var player in players)
+    foreach(var country in Countries)
     {
-
-      string countryCode = String.Empty;
-      string countryName = String.Empty;
-      string color = String.Empty;
-
-      foreach(var country in countries)
+      foreach(var player in Players)
       {
         if(country.Id == player.CountryId)
         {
-           countryCode = country.CountryCode;
-           countryName = country.Name;
+
+          countryPlayers.Add(
+            new CountryPlayer()
+            {
+              Color = player.Colour,
+              CountryName = country.Name,
+              CountryCode = country.CountryCode,
+              PlayerUsername = player.Username
+            }
+          );
         }
       }
-
-      color = player.Colour;
-
-      playerData.Add($"{countryCode}:{color}:{countryName}");
-
     }
+
+    var countryPlayerJson = Newtonsoft.Json.JsonConvert.SerializeObject(countryPlayers);
+
+
+    
 
 
 }
@@ -60,25 +65,34 @@
 
 <script>
 
-var playerData = @Html.Raw(Json.Serialize(playerData));
-
-var mapData = {}
-var colorData = {}
-
-playerData.forEach(function (data) {
-  var [countryCode, color, countryName] = data.split(":");
-  mapData[countryCode] = { fill: color, name: countryName };
-  colorData[countryCode] = { name: color };
-});
+var playerData = @Html.Raw(countryPlayerJson);
 
 
 
+
+
+function findPlayerColor(countryCode, players)
+{
+  for(var i = 0; i < players; i++)
+  {
+    if(players[i].CountryCode == countryCode)
+    {
+      return players[i].Color;
+    }
+  }
+
+  return '#eeeeee';
+}
 
 $('#world-map').vectorMap({
     map: 'world_mill',
     backgroundColor: '2f4f4f',
     zoomAnimate: true,
     regionsSelectable: true,
+    color: function(countryCode, countryName)
+    {
+      return findPlayerColor(countryCode, playerData);
+    }
     onRegionClick: function(e, code)
     {
       console.log(code);
@@ -96,8 +110,7 @@ $('#world-map').vectorMap({
         values:mapData,
         attribute: 'fill'
       }]
-    },
-    scale: colorData
+    }
   });
 
 
