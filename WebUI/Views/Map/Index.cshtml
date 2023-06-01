@@ -2,8 +2,12 @@
     ViewData["Title"] = "Map";
     var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.valuesDictionary);
 }
-
+<script src="~/JVectorMap/jquery.js"></script>
 <link rel="stylesheet" href="~/JVectorMap/jquery-jvectormap.css">
+<script src="~/JVectorMap/jquery-jvectormap.js"></script>
+<script src="~/JVectorMap/map_miller.js"></script>
+
+
 
 
 <head>
@@ -25,7 +29,7 @@
 console.log("Hello There");
 
 var valuesDictionary = JSON.parse(document.getElementById('valuesDict').value);
-
+$('#world-map').vectorMap({map: 'world_mill'});
 /*
 new svgMap({
   targetElementID: 'svgMap',
