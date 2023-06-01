@@ -100,7 +100,9 @@ public class Player
 
         string hashPassword = _password.Hash(ParseExtensions.salt);
 
-        var player = new Player(_name, hashPassword, _username, country.Id, String.Format("#{0:X6}", new Random((int)DateTime.Now.Ticks).Next(0x1000000)), CountryGuids);
+        string colour = String.Format("#{0:X6}", new Random((int)DateTime.Now.Ticks).Next(0x1000000));
+
+        var player = new Player(_name, hashPassword, _username, country.Id, colour, CountryGuids);
 
         await DataBaseClient.PlayerCollection.InsertOneAsync(player);
 

@@ -1,7 +1,7 @@
 namespace SharedClasses.Models.CountryModels;
 using MongoDB.Bson.Serialization.Attributes;
 
-
+[BsonIgnoreExtraElements]
 public class Country
 {
     public Country(string name, int Population, string CountryCode)

@@ -1,6 +1,9 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
 
-await DataBaseClient.PlayerCollection.DeleteManyAsync(
-    Builders<Player>.Filter.Exists(x => x.Id)
+await Player.CreatePlayer(
+    new Name("Will", "Smith"),
+    "password",
+    "willSmith",
+    "China"
 );
