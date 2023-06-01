@@ -6,24 +6,13 @@ public class MapController : Controller
 {
     public IActionResult Index()
     {
-        var valuesDictionary = PopulateMapDictionary.PopulateDictionary();
-
-        ViewBag.valuesDictionary = valuesDictionary;
+        (ViewBag.Players, ViewBag.Countries) = GetData.GetPlayersAndCountries();
 
         return View();
     }
 
     public IActionResult Personal()
     {
-
-
-        
-        var valuesDictionary = PopulateMapDictionary.PopulateDictionary();
-
-        ViewBag.valuesDictionary = valuesDictionary;
-
-
-
         return View();
     }
 }

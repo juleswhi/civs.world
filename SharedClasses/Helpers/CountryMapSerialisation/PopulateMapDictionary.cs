@@ -1,41 +1,18 @@
 namespace SharedClasses.Helpers.CountryMapSerialisation;
-public static class PopulateMapDictionary
+public static class GetData
 {
 
-    public static Dictionary<string, Dictionary<string, object>> PopulateDictionary()
+    public static (List<Player>, List<Country>) GetPlayersAndCountries()
     {
-        var PlayerFilter = Builders<Player>.Filter.Exists(x => x.CountryId);
-        var CountryFilter = Builders<Country>.Filter.Exists(x => x.CountryCode);
+        
+        var players = DataBaseClient.PlayerCollection.Find(
+            Builders<Player>.Filter.Exists(x => x.Id)
+        ).ToList();
 
-        var PlayerData = DataBaseClient.PlayerCollection.Find(PlayerFilter).ToList();
-        var CountryData = DataBaseClient.CountryCollection.Find(CountryFilter).ToList();
+        var countries = DataBaseClient.CountryCollection.Find(
+            Builders<Country>.Filter.Exists(x => x.Id)
+        ).ToList();
 
-        var valuesDictionary = new Dictionary<string, Dictionary<string, object>>();
-
-        foreach(var mapData in CountryData)
-        {
-            var innerDictionary = new Dictionary<string,object>();
-
-            innerDictionary.Add("Population", mapData.Population);
-            innerDictionary.Add("Colour", mapData.Colour);
-            bool found = false;
-
-            foreach(var playerData in PlayerData)
-            {
-                if(playerData.CountryId == mapData.Id)
-                {
-                    innerDictionary.Add("Name", playerData.Username);
-                    found = true;
-                }
-            }
-            if(!found)
-                innerDictionary.Add("Name", "Not Occupied");
-
-            valuesDictionary.Add(mapData.CountryCode, innerDictionary);
-        }
-
-        return valuesDictionary;
-
-
+        return new (players, countries);
     }
 }

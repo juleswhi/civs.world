@@ -37,9 +37,7 @@ public class Country
     [BsonElement]
     public double Latitude { get; set; }
     [BsonElement]
-    public SkillTree SkillTree { get; set; }
-    [BsonElement]
-    public string Colour { get; set; }
+    public SkillTree? SkillTree { get; set; }
 
 
 

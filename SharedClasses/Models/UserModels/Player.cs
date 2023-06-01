@@ -3,8 +3,11 @@ namespace SharedClasses.Models.UserModels;
 
 public class Player
 {
-    public Player(Name name, string Password, string username, Guid? CountryId)
+    public Player(Name name, string Password, string username, Guid CountryId)
     {
+        this.Colour = String.Format("#{0:X6}", new Random((int)DateTime.Now.Ticks).Next(0x1000000));
+        this.CountryIds = new();
+        CountryIds.Add(CountryId);
         this.CountryId = CountryId;
         this.Id = Guid.NewGuid();
         this.Username = username;
@@ -25,8 +28,11 @@ public class Player
     [BsonElement]
     public List<Guid> Accounts { get; set; }
     [BsonElement]
-    public Guid? CountryId { get; set; }
+    public Guid CountryId { get; set; }
+    [BsonElement]
     public List<Guid> CountryIds { get; set; }
+    [BsonElement]
+    public string Colour { get; set; }
 
 
 

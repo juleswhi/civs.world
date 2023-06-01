@@ -1,7 +1,45 @@
-﻿@{
+﻿@using SharedClasses.Models.CountryModels;
+@using SharedClasses.Models.UserModels;
+
+@{
     ViewData["Title"] = "Map";
-    var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.valuesDictionary);
+
+
+    List<Player> players = ViewBag.Players;
+    List<Country> countries = ViewBag.Countries;
+    var playerData = new List<String>();
+
+    foreach(var player in players)
+    {
+
+      string countryCode = String.Empty;
+      string countryName = String.Empty;
+      string color = String.Empty;
+
+      foreach(var country in countries)
+      {
+        if(country.Id == player.CountryId)
+        {
+           countryCode = country.CountryCode;
+           countryName = country.Name;  
+        }
+      }
+
+      color = player.Colour;
+
+      playerData.Add($"{countryCode}:{color}:{countryName}");
+
+    }
+
+
 }
+
+
+
+
+
+
+
 <script src="~/JVectorMap/jquery.js"></script>
 <link rel="stylesheet" href="~/JVectorMap/jquery-jvectormap.css">
 <script src="~/JVectorMap/jvectormap.min.js"></script>
@@ -9,28 +47,30 @@
 <script src="~/JVectorMap/map_miller.js"></script>
 
 
-
-
-<head>
-  <style>
-    body
-    {
-        background-color: darkslategray;
-    }
-  </style>
-</head>
 <Body>
-
-<input type="hidden", id="valuesDict", value="@jsonString">
 <center>
   <div id="world-map" style="width: 1200px; height:700px"></div>
 </center>
 
+<script>
+
+  
+</script>
+
 
 <script>
-console.log("Hello There");
 
-var valuesDictionary = JSON.parse(document.getElementById('valuesDict').value);
+var playerData = @Html.Raw(Json.Serialize(playerData));
+
+var mapData = {}
+
+playerData.forEach(function (data) {
+  var [countryCode, color, countryName] = data.split(":");
+  mapData[countryCode] = { fill: color, name: countryName };
+});
+
+
+
 $('#world-map').vectorMap({
     map: 'world_mill',
     backgroundColor: '2f4f4f',
@@ -39,32 +79,25 @@ $('#world-map').vectorMap({
     onRegionClick: function(e, code)
     {
       console.log(code);
-    }
-  });
-/*
-new svgMap({
-  targetElementID: 'svgMap',
-  colorNoData: '#000000',
-  colorMax: '#00cc00',
-  colorMin: '#99ff99',
-  data: {
-    data: {
-      Population:
+    },
+    regionStyle:
+    {
+      initial:
       {
-        Population: 'Population',
-        format: 'Population of {0}'
-      },
-      Name:
-      {
-        Username: 'Username',
-        format: 'Occupied by {0}'
+        fill: '#ffffff'
       }
     },
-    applyData: 'Population',
-    values: valuesDictionary
-  }
-});
-*/
+    series:
+    {
+      regions: [{
+        values:mapData,
+        attribute: 'fill'
+      }]
+    }
+  });
+
+
+
 </script>
 
     
