@@ -9,9 +9,7 @@ public class MapController : Controller
     {
         var countries = Country.GetCountryColour();
 
-        string JsonValues = JsonConvert.SerializeObject(countries, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-
-        ViewBag.Countries = JsonValues;
+        ViewBag.Countries = countries;
 
 
         return View();
