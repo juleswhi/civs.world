@@ -5,7 +5,7 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.min.css"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.min.css"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.min.css">
 
 <head>
@@ -28,12 +28,11 @@ console.log("Hello There");
 
 var valuesDictionary = JSON.parse(document.getElementById('valuesDict').value);
 
+$('#world-map').vectorMap({
+  map: 'world_mill'
+})
 
-https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.min.css'
-  }
-)
-
-<!--
+/*
 new svgMap({
   targetElementID: 'svgMap',
   colorNoData: '#000000',
@@ -56,7 +55,7 @@ new svgMap({
     values: valuesDictionary
   }
 });
--->
+*/
 </script>
 
     
