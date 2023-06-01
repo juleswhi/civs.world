@@ -17,6 +17,7 @@ public static class PopulateMapDictionary
             var innerDictionary = new Dictionary<string,object>();
 
             innerDictionary.Add("Population", mapData.Population);
+            innerDictionary.Add("Colour", mapData.Colour);
             bool found = false;
 
             foreach(var playerData in PlayerData)

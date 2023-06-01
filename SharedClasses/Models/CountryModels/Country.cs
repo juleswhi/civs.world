@@ -32,6 +32,14 @@ public class Country
     public int GlobalPopularity { get; set; }
     [BsonElement]
     public int LocalPopularity { get; set; }
+    [BsonElement]
+    public double Longitude { get; set; }
+    [BsonElement]
+    public double Latitude { get; set; }
+    [BsonElement]
+    public SkillTree SkillTree { get; set; }
+    [BsonElement]
+    public string Colour { get; set; }
 
 
 

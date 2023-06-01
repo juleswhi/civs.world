@@ -8,5 +8,6 @@ global using SharedClasses.Models.CountryModels;
 global using SharedClasses.Models.UserModels;
 global using SharedClasses.Models.AllianceModels;
 global using SharedClasses.Helpers.CountryMapSerialisation;
+global using SharedClasses.Models.SkillTreeModels;
 
 global using SharedClasses.Helpers;
