@@ -217,10 +217,14 @@ console.log("Hello There");
 
 var valuesDictionary = JSON.parse(document.getElementById('valuesDict').value);
 
+$(function(){
+      $('#world-map').vectorMap({map: 'world_mill'});
+    });
+
 $('#world-map').vectorMap({
   map: 'world_mill',
   series: {
-    data: {
+    regions: {
 
      
     }
