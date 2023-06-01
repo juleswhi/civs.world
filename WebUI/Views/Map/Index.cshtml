@@ -7,7 +7,7 @@
 
     var jsonValues = ViewBag.Countries;
 
-
+    List<CountryWithColor> countries = ViewBag.Counties;
 
 }
 
@@ -37,9 +37,19 @@
 
 <script>
 
-var jsonValues = @Html.Raw(jsonValues);
-var values = JSON.parse(jsonValues);
+var values = {
+  @foreach(var country in countries)
+  {
+    @: "@country.Code": "@country.Country",
+  }
+};
 
+var scale = {
+  @foreach (var country in countries)
+  {
+    @: "@country.Country": "@country.Color", 
+  }
+}
 
 
 
@@ -49,13 +59,13 @@ $('#world-map').vectorMap({
     zoomAnimate: true,
     regionsSelectable: true,
     series: {
-      regions: values.map(function(country)
-      {
-        return country.Code;
-      }),
-      regionLabel: function(name, code) {
-        return name;
-      }
+      regions: [{
+        values: values,
+        scale: scale
+      }]
+    },
+    onRegionTipShow: function(event, label, code) {
+      label.html(label.html() + ': ' + values[code]);
     }
   });
 
