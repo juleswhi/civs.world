@@ -208,7 +208,7 @@ jQuery.fn.vectorMap('addMap', 'world_mill',{"insets": [{"width": 900, "top": 0, 
 
 <input type="hidden", id="valuesDict", value="@jsonString">
 
-<div id="svgMap"></div>
+<div id="world-map"></div>
 
 <div id="countryName"></div>
 
@@ -216,6 +216,17 @@ jQuery.fn.vectorMap('addMap', 'world_mill',{"insets": [{"width": 900, "top": 0, 
 console.log("Hello There");
 
 var valuesDictionary = JSON.parse(document.getElementById('valuesDict').value);
+
+$('#world-map').vectorMap({
+  map: 'world_mill',
+  series: {
+    data: {
+
+     
+    }
+  }
+})
+
 
 new svgMap({
   targetElementID: 'svgMap',
