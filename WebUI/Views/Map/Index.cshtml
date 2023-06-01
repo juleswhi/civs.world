@@ -5,7 +5,8 @@
 @{
     ViewData["Title"] = "Map";
 
-    var countriesWithColors = Country.GetCountryColour();
+    var jsonValues = ViewBag.Countries;
+
 
 
 }
@@ -36,14 +37,9 @@
 
 <script>
 
-var players = JSON.parse('@Html.Raw(countriesWithColors)');
+var jsonValues = @Html.Raw(jsonValues);
+var values = JSON.parse(jsonValues);
 
-var values = players.map(player => {
-  return {
-    isoCode: player.Country,
-    color: player.Color
-  };
-});
 
 
 
@@ -53,15 +49,14 @@ $('#world-map').vectorMap({
     zoomAnimate: true,
     regionsSelectable: true,
     series: {
-      regions: [{
-        scale: ['#008d48'],
-        normalizeFunction: 'polynomial',
-        values: values
-      }] 
-      
+      regions: values.map(function(country)
+      {
+        return country.Code;
+      }),
+      regionLabel: function(name, code) {
+        return name;
+      }
     }
-    
-   
   });
 
 

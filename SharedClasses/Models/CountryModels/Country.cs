@@ -102,7 +102,8 @@ public class Country
             rCountries.Add(
                 new CountryWithColor{
                     Country = country.Name,
-                    Color = country.Colour
+                    Color = country.Colour,
+                    Code = country.CountryCode
                 }
             );
 
