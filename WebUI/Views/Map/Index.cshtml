@@ -27,7 +27,7 @@ document.getElementById("CountryName").style.display="none"
 function SubmitForm(countryName) {
     if(countryName = "") return;
     let form = document.getElementById('CountryForm')
-    form.AddEventListener("submit", (e) => {
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
         let countryName = document.getElementById('CountryName');
         countryName.value = countryName;
