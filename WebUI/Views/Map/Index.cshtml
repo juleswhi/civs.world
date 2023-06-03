@@ -4,11 +4,7 @@
 
 @{
     ViewData["Title"] = "Map";
-    
-    
-
     List<CountryWithColor> countries = ViewBag.Countries;
-
 }
 
 <script src="~/JVectorMap/jquery.js"></script>
@@ -20,27 +16,21 @@
 <center>
   <div id="world-map" style="width: 1200px; height:700px"></div>
   <form id="CountryForm" asp-controller="CountryProfile" asp-action="Index">
-
-      <input id="CountryName" name="CountryName">  </input>
-
+      <input id="CountryName" name="CountryName"></input>
   </form>
 </center>
 <script>
 
-document.getElementById("CountryName").style.display="none";
-
+document.getElementById("CountryName").style.display="none"
 function SubmitForm(countryName) {
-
     if(countryName = "") return;
     let form = document.getElementById('CountryForm')
     form.AddEventListener("submit", (e) => {
-
         e.preventDefault();
         let countryName = document.getElementById('CountryName')
         countryName.value = countryName
         form.submit()
     })
-
 }
 
 
@@ -85,7 +75,8 @@ $('#world-map').vectorMap({
 
 
 
-</script>
+# </script>
+
 
     
 </Body>
