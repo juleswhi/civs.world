@@ -12,13 +12,15 @@
 <script src="~/JVectorMap/jvectormap.min.js"></script>
 <script src="~/JVectorMap/map_miller.js"></script>
 
-<Body>
+<body>
 <center>
   <div id="world-map" style="width: 1200px; height:700px"></div>
-  <form id="CountryForm" asp-controller="CountryProfile" asp-action="Index">
-      <input id="CountryName" name="CountryName"></input>
-  </form>
 </center>
+
+
+<form id="CountryForm" asp-controller="CountryProfile" asp-action="Index">
+    <input id="CountryName" name="CountryName"></input>
+</form>
 <script>
 
 document.getElementById("CountryName").style.display="none"
@@ -27,10 +29,10 @@ function SubmitForm(countryName) {
     let form = document.getElementById('CountryForm')
     form.AddEventListener("submit", (e) => {
         e.preventDefault();
-        let countryName = document.getElementById('CountryName')
-        countryName.value = countryName
-        form.submit()
-    })
+        let countryName = document.getElementById('CountryName');
+        countryName.value = countryName;
+        form.submit();
+    });
 }
 
 
@@ -73,6 +75,6 @@ $('#world-map').vectorMap({
     }
   });
 
-
+</script>
     
-</Body>
+</body>
