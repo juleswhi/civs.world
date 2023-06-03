@@ -10,30 +10,15 @@
 
 }
 
-
-
-
-
-
-
 <script src="~/JVectorMap/jquery.js"></script>
 <link rel="stylesheet" href="~/JVectorMap/jquery-jvectormap.css">
 <script src="~/JVectorMap/jvectormap.min.js"></script>
-
 <script src="~/JVectorMap/map_miller.js"></script>
-
 
 <Body>
 <center>
   <div id="world-map" style="width: 1200px; height:700px"></div>
 </center>
-
-<script>
-
-  
-</script>
-
-
 <script>
 
 var values = {
@@ -57,6 +42,8 @@ $('#world-map').vectorMap({
     backgroundColor: '2f4f4f',
     zoomAnimate: true,
     regionsSelectable: true,
+    regionsSelectableOne: true,
+    markersSelectable: true,
     series: {
       regions: [{
         values: values,
@@ -65,6 +52,11 @@ $('#world-map').vectorMap({
     },
     onRegionTipShow: function(event, label, code) {
       label.html(label.html() + ': ' + values[code]);
+    },
+    onRegionClick: function(e, code) {
+
+            console.log(code);
+
     }
   });
 

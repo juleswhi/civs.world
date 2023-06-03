@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using SharedClasses.Models.CountryModels;
 namespace WebUI.Controllers;
 
@@ -10,7 +9,6 @@ public class MapController : Controller
         var countries = Country.GetCountryColour();
 
         ViewBag.Countries = countries;
-
 
         return View();
     }
