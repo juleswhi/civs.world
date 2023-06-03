@@ -13,8 +13,4 @@ public class MapController : Controller
         return View();
     }
 
-    public IActionResult Personal()
-    {
-        return View();
-    }
 }
