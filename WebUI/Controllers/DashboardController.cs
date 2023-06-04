@@ -46,9 +46,16 @@ public class DashboardController : Controller
         return View();
     }
 
-    public (Player, Army) getPlayer() {
 
-        
+
+    public Code CreateArmy() {
+
+        return Code.Ok;
+    }
+
+
+
+    public (Player, Army) getPlayer() {
         var player = DataBaseClient.PlayerCollection.Find(
                 x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")
                 ).FirstOrDefault();
