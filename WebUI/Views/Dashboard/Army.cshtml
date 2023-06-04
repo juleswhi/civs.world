@@ -1,0 +1,15 @@
+@ {
+    Player player;
+    Army army;
+    (player, army) = ViewBag.Details;
+}
+
+
+@if(army is null) {
+    <h1> No Army </h1>
+}
+
+
+<h1>
+    Army Management
+</h1>
