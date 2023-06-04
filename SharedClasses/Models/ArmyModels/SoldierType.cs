@@ -1,4 +1,6 @@
 namespace SharedClasses.Models.ArmyModels;
+
+
 public enum SoldierType
 {
     Basic,

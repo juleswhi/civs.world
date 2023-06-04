@@ -1,14 +1,15 @@
+using SharedClasses.Models.ArmyModels.SoldierTypes;
+
+
 namespace SharedClasses.Models.ArmyModels;
 
 public class Army
 {
-    public Army(Guid PlayerId)
+    public Army()
     {
-        this.PlayerId = PlayerId;
         this.Id = Guid.NewGuid();
-        Forces = new List<Soldier>();
+        Forces = new List<Legion<ISoldier>>();
     }
-
 
     [BsonElement]
     public Guid Id { get; set; }
@@ -17,6 +18,29 @@ public class Army
     public Guid PlayerId { get; set; }
 
     [BsonElement]
-    public IEnumerable<Soldier> Forces { get; set; }
+    public List<Legion<ISoldier>> Forces { get; set; }
 
+
+    public static void CreateArmy(Player player) {
+        var army = new Army {
+           PlayerId = player.Id 
+        };
+    }
+
+    public void CreateLegion(SoldierType soldierType) {
+
+        switch(soldierType) {
+
+            case SoldierType.Basic:
+                
+
+
+
+
+                break;
+
+            default:
+                break;
+        }
+    }
 }

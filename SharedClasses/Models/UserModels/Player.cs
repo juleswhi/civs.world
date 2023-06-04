@@ -34,6 +34,20 @@ public class Player
     public string Colour { get; set; }
 
 
+    public List<LegionMarker> GetMarkers() {
+        var players = DataBaseClient.PlayerCollection.Find(_ => true);
+
+        
+
+
+        List<LegionMarker> markers = new();
+        return markers; 
+    }
+
+
+
+
+
 
     public async Task<Code> JoinAlliance(string allianceName, Player player)
     {

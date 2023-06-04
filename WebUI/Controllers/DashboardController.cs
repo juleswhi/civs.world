@@ -1,3 +1,5 @@
+using SharedClasses.Models.ArmyModels;
+
 namespace WebUI.Controllers;
 
 public class DashboardController : Controller
@@ -37,5 +39,22 @@ public class DashboardController : Controller
     public IActionResult CountrySettings()
     {
         return View();
+    }
+    public IActionResult Army()
+    {
+        ViewBag.Details = getPlayer();
+        return View();
+    }
+
+    public (Player, Army) getPlayer() {
+
+        
+        var player = DataBaseClient.PlayerCollection.Find(
+                x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")
+                ).FirstOrDefault();
+
+        var army = DataBaseClient.ArmyCollection.Find(x => x.PlayerId == player.Id).FirstOrDefault();
+
+        return (player, army);
     }
 }

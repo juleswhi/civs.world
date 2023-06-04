@@ -48,10 +48,6 @@ public class Country
 
     public static List<Country?> GetAllAvailableCountries()
     {
-        // Query databas
-        // Filter countries occupied by players
-        // return all non occupied
-
         var CountryFilter = Builders<Country>.Filter.Exists(x => x.Id);
         var Countries = DataBaseClient.CountryCollection.Find(CountryFilter).ToList();
 

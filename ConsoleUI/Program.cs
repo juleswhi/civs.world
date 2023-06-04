@@ -1,1 +1,3 @@
-﻿Console.WriteLine("Hello World");
+﻿await DataBaseClient.ArmyCollection.DeleteManyAsync(_ => true);
+
+
