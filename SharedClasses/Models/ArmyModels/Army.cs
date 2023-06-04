@@ -1,4 +1,4 @@
-using SharedClasses.Models.UserModels;
+using SharedClasses.Models.ArmyModels;
 
 namespace SharedClasses.Models.ArmyModels;
 
@@ -17,8 +17,7 @@ public class Army
     public Guid PlayerId { get; set; }
 
     [BsonElement]
-    public List<Legion> Forces { get; set; }
-
+    public IEnumerable<Legion> Forces { get; set; }
 
     public static void CreateArmy(Player player) {
         var army = new Army {
