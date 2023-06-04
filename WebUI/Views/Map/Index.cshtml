@@ -39,8 +39,44 @@ var scale = {
 }
 
 
+$(function() {
+
+    var map, 
+        markersIndex = 0,
+        markersCode = {}
+
+    map = new jvm.Map({
+
+        map:'world_mill',
+        container: $('#world-map'),
+        onMarkerTipShow: function(e, label, code) {
+            map.tip.text(markersCoords[code].lat.toFixed(2)+', '+markersCoords[code].lng.toFixed(2));
+        },
+        onMarkerClick: function(e, code) {
+            map.removeMarkers([code]);
+            map.tip.hide();
+        }
+        });
+
+    map.container.click(function(e) {
+    
+        var latLng = map.pointToLatLng(
+            e.pageX - map.container.offset().left,
+            e.pageY - map.container.offset().top
+        );
+        targetCls = $(e.target).attr('class');
+
+        if(latLng && (!targetCls || (targetCls && $(e.target).attr('class').indexOf('jvectormap-marker') === -1))) {
+            markersCoords[markerIndex] = latLng;
+            map.addMarker(markerIndex, { latLng: [latLng.lat, latLng.lng]});
+            markerIndex += 1;
+        }
+
+    })
+})
 
 
+/*
 $('#world-map').vectorMap({
     map: 'world_mill',
     backgroundColor: '2f4f4f',
@@ -52,6 +88,9 @@ $('#world-map').vectorMap({
       regions: [{
         values: values,
         scale: scale
+      }],
+      markers: [{
+          values: markers
       }]
     },
     onRegionTipShow: function(event, label, code) {
@@ -64,10 +103,15 @@ $('#world-map').vectorMap({
         form.CountryName.value= code;
         if(form.CountryName === null) return;
         form.submit();
-
+    },
+    onMarkerClick: function(e, code) {
+        map.removeMarkers([code]);
+        map.tip.hide();
     }
-  });
 
+
+  });
+*/
 </script>
     
 </body>
