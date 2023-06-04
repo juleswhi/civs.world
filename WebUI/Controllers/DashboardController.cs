@@ -42,7 +42,11 @@ public class DashboardController : Controller
     }
     public IActionResult Army()
     {
-        ViewBag.Details = getPlayer();
+        Player player;
+        Army army;
+        (player, army) = getPlayer();
+        ViewBag.Player = player;
+        ViewBag.Army = army;
         return View();
     }
 
