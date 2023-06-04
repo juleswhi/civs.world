@@ -61,7 +61,7 @@ $('#world-map').vectorMap({
         let form = document.getElementById("CountryForm");
         console.log(`form = {form}`)
         console.log(code)
-        form.CountryName = code;
+        form.CountryName.value= code;
         if(form.CountryName === null) return;
         form.submit();
 
