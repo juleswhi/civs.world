@@ -1,4 +1,3 @@
-using SharedClasses.Models.UserModels;
 namespace SharedClasses.Models.UserModels;
 
 public class Player
@@ -32,17 +31,6 @@ public class Player
     public List<Guid> CountryIds { get; set; }
     [BsonElement]
     public string Colour { get; set; }
-
-
-    public List<LegionMarker> GetMarkers() {
-        var players = DataBaseClient.PlayerCollection.Find(_ => true);
-
-        
-
-
-        List<LegionMarker> markers = new();
-        return markers; 
-    }
 
 
 

@@ -1,4 +1,4 @@
-
+using SharedClasses.Models.UserModels;
 
 namespace SharedClasses.Models.ArmyModels;
 
