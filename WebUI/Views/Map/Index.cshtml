@@ -49,7 +49,9 @@ $(function() {
     map = new jvm.Map({
 
         map:'world_mill',
+        backgroundColor: '2f4f4f',
         container: $('#world-map'),
+        zoomAnimate: true,
         onMarkerTipShow: function(e, label, code) {
             map.tip.text(markersCoords[code].lat.toFixed(2)+', '+markersCoords[code].lng.toFixed(2));
         },
@@ -57,7 +59,7 @@ $(function() {
             map.removeMarkers([code]);
             map.tip.hide();
         }
-        });
+    });
 
     map.container.click(function(e) {
     

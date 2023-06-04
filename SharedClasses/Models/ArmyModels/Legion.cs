@@ -1,6 +1,5 @@
 
 namespace SharedClasses.Models.ArmyModels;
-
 public class Legion {
 
     public Legion(Guid ArmyGuid) {

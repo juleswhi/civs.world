@@ -28,18 +28,22 @@ public class DashboardController : Controller
     {
         return View();
     }
+
     public IActionResult Research()
     {
         return View();
     }
+
     public IActionResult Banking()
     {
         return View();
     }
+
     public IActionResult CountrySettings()
     {
         return View();
     }
+
     public IActionResult Army()
     {
         Player player;
@@ -52,9 +56,22 @@ public class DashboardController : Controller
 
 
 
-    public Code CreateArmy() {
+    public IActionResult CreateArmy() {
 
-        return Code.Ok;
+        if(_httpContextAccessor.HttpContext.Session.GetString("Username") is null) {
+            return RedirectToAction("Index", "Home");
+        }
+        var player = DataBaseClient.PlayerCollection.Find(
+                x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")
+                ).FirstOrDefault();
+
+        var army = new Army {
+            PlayerId = player.Id
+        };
+        
+        DataBaseClient.ArmyCollection.InsertOne(army);
+
+        return RedirectToAction("Army", "Dashboard");
     }
 
 
