@@ -256,3 +256,17 @@ UPDATED PLAN FOR SHIT:
 - cookies can be used in a black market to buy special stuff "nukes"
 - SPIES
 
+
+economy
+ - Tap
+ - How new resources are added to the economy
+
+
+
+***INVENTORY***
+
+
+
+
+
+

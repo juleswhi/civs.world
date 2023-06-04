@@ -24,7 +24,18 @@
 </form>
 <script>
 
-// document.getElementById("CountryName").style.display="none"
+document.getElementById("CountryName").style.display="none"
+function SubmitForm(countryName) {
+    if(countryName = "") return;
+    let form = document.getElementById('CountryForm')
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let countryName = document.getElementById('CountryName');
+        countryName.value = countryName;
+        form.submit();
+    });
+}
+
 
 
 var values = {
