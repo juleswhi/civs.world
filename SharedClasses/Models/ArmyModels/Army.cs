@@ -1,4 +1,3 @@
-using SharedClasses.Models.ArmyModels;
 
 namespace SharedClasses.Models.ArmyModels;
 
@@ -17,22 +16,11 @@ public class Army
     public Guid PlayerId { get; set; }
 
     [BsonElement]
-    public IEnumerable<Legion> Forces { get; set; }
+    public List<Legion> Forces { get; set; }
 
     public static void CreateArmy(Player player) {
         var army = new Army {
            PlayerId = player.Id 
         };
-    }
-
-    public void CreateLegion(SoldierType soldierType) {
-
-        switch(soldierType) {
-            case SoldierType.Basic:
-                break;
-
-            default:
-                break;
-        }
     }
 }
