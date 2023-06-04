@@ -18,9 +18,5 @@ public class Army
     [BsonElement]
     public List<Legion> Forces { get; set; }
 
-    public static void CreateArmy(Player player) {
-        var army = new Army {
-           PlayerId = player.Id 
-        };
-    }
+
 }
