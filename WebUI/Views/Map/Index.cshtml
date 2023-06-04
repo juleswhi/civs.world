@@ -24,19 +24,6 @@
 </form>
 <script>
 
-document.getElementById("CountryName").style.display="none"
-function SubmitForm(countryName) {
-    if(countryName = "") return;
-    let form = document.getElementById('CountryForm')
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        let countryName = document.getElementById('CountryName');
-        countryName.value = countryName;
-        form.submit();
-    });
-}
-
-
 
 var values = {
   @foreach(var country in countries)
@@ -73,8 +60,11 @@ $('#world-map').vectorMap({
     },
     onRegionClick: function(e, code) {
         let form = document.getElementById("CountryForm");
+        console.log(`form = {form}`)
+        console.log(code)
         form.CountryName = code;
         form.submit();
+
     }
   });
 
