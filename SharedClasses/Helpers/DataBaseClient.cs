@@ -1,4 +1,3 @@
-using SharedClasses.Models.ArmyModels.SoldierTypes;
 namespace SharedClasses.Helpers;
 using SharedClasses.Models.AllianceModels;
 public static class DataBaseClient

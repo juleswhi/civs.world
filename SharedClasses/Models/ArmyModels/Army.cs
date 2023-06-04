@@ -1,4 +1,3 @@
-using SharedClasses.Models.ArmyModels.SoldierTypes;
 
 
 namespace SharedClasses.Models.ArmyModels;
@@ -8,7 +7,7 @@ public class Army
     public Army()
     {
         this.Id = Guid.NewGuid();
-        Forces = new List<Legion<ISoldier>>();
+        Forces = new List<Legion>();
     }
 
     [BsonElement]
@@ -18,7 +17,7 @@ public class Army
     public Guid PlayerId { get; set; }
 
     [BsonElement]
-    public List<Legion<ISoldier>> Forces { get; set; }
+    public List<Legion> Forces { get; set; }
 
 
     public static void CreateArmy(Player player) {
@@ -30,13 +29,7 @@ public class Army
     public void CreateLegion(SoldierType soldierType) {
 
         switch(soldierType) {
-
             case SoldierType.Basic:
-                
-
-
-
-
                 break;
 
             default:
