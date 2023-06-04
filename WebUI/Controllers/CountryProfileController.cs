@@ -7,6 +7,7 @@ public class CountryProfileController : Controller
 {
     public IActionResult Index(string CountryName)
     {
+        if(CountryName is null) RedirectToAction("Index", "Home");
         if(CountryName.Length == 2) {
             var foundCountry = DataBaseClient.CountryCollection.Find(x => x.CountryCode == CountryName).FirstOrDefault();
             if(foundCountry is null) return RedirectToAction("Index", "Map");
