@@ -24,18 +24,7 @@
 </form>
 <script>
 
-document.getElementById("CountryName").style.display="none"
-function SubmitForm(countryName) {
-    if(countryName = "") return;
-    let form = document.getElementById('CountryForm')
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        let countryName = document.getElementById('CountryName');
-        countryName.value = countryName;
-        form.submit();
-    });
-}
-
+// document.getElementById("CountryName").style.display="none"
 
 
 var values = {
@@ -72,7 +61,9 @@ $('#world-map').vectorMap({
       label.html(label.html() + ': ' + values[code]);
     },
     onRegionClick: function(e, code) {
-      SubmitForm(code)  
+        let form = document.getElementById("CountryForm");
+        form.CountryName = code;
+        form.submit();
     }
   });
 
