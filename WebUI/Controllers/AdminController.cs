@@ -13,12 +13,6 @@ public class AdminController : Controller
 
     public IActionResult Index()
     {
-
-        if(_httpContextAccessor.HttpContext.Session.GetString("Username") != "admin")
-        {
-            return RedirectToAction("Index", "Home");
-        }
-
         return View();
     }
 
