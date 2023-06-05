@@ -63,7 +63,7 @@ public class DashboardController : Controller
 
         DataBaseClient.BankCollection.InsertOne(bank);
 
-        return RedirectToAction("Bank", "Dashboard");
+        return RedirectToAction("Banking", "Dashboard");
     }
 
 
