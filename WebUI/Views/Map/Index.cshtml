@@ -52,6 +52,15 @@ $(function() {
         backgroundColor: '2f4f4f',
         container: $('#world-map'),
         zoomAnimate: true,
+        series: {
+            regions: [{
+                values: values,
+                scale: scale
+            }],
+            markers: [{
+                values: markers
+            }]
+        },
         onMarkerTipShow: function(e, label, code) {
             map.tip.text(markersCoords[code].lat.toFixed(2)+', '+markersCoords[code].lng.toFixed(2));
         },
