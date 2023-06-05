@@ -4,7 +4,8 @@
 @inject IHttpContextAccessor _httpContextAccessor;
 
 @{
-
+    Player player = ViewBag.Player;
+    List<Bank> Banks = ViewBag.Banks;
 }
 
 <!DOCTYPE html>
@@ -16,6 +17,47 @@
     <title>Banking</title>
 </head>
 <body>
-   <h1>Banking</h1> 
+
+
+
+    <h1>Banking</h1> 
+
+
+    @if(Banks.Count() == 0) {
+        <h2>
+            No banks seem to be found :\ \n
+            Create One Here
+        </h2>
+        <form asp-controller="Dashboard" asp-action="CreateBank" id="CreateBank">
+            <input placeholder="Bank Name" id="BankName" name="BankName"></input>
+            <br>
+            <select size="2" id="BankType" name="BankType">
+                <option id="BankLocal" name="BankLocal">Local</option>
+                <option id="BankGlobal" name="BankGlobal">Global</option>
+            </select>
+            <br>
+            <input placeholder="National Or Global Bank?" id="BankType" name="BankType"></input>
+            <button>Submit</button>
+        </form>
+    } else {
+
+
+        <ul>
+
+            @foreach(var bank in Banks) {
+                <a asp-controller="Bank" asp-action="">
+                    <button>@bank.BankName</button>
+                </a>
+            }
+
+
+        </ul>
+
+
+    }
+
+
+
+
 </body>
 </html>

@@ -37,6 +37,14 @@ public class DashboardController : Controller
 
     public IActionResult Banking()
     {
+        ViewBag.Player = DataBaseClient.PlayerCollection.Find(
+                x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
+
+
+        ViewBag.Banks = DataBaseClient.BankCollection.Find(
+                _ => true).ToList();
+
+
         return View();
     }
 
@@ -75,8 +83,8 @@ public class DashboardController : Controller
             PlayerId = player.Id
         };
 
-       army.Forces = new(); 
-        
+        army.Forces = new(); 
+
         DataBaseClient.ArmyCollection.InsertOne(army);
 
         return RedirectToAction("Army", "Dashboard");

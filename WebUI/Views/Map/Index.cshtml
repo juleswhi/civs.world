@@ -6,6 +6,7 @@
     ViewData["Title"] = "Map";
     List<CountryWithColor> countries = ViewBag.Countries;
     var mapType = ViewBag.mapType;
+    var players = DataBaseClient.PlayerCollection.Find(_ => true).ToList();
 }
 
 <script src="~/JVectorMap/jquery.js"></script>
@@ -51,12 +52,16 @@ $(function() {
         backgroundColor: '2f4f4f',
         container: $('#world-map'),
         zoomAnimate: true,
+        onRegionTipShow: function(event, label, code) {
+
+            label.html(label.html() + ': ' + values[code]);
+        },
         series: {
             regions: [{
                 values: values,
                 scale: scale
             }]
-       },
+        },
         onMarkerTipShow: function(e, label, code) {
             map.tip.text(markersCoords[code].lat.toFixed(2)+', '+markersCoords[code].lng.toFixed(2));
         },

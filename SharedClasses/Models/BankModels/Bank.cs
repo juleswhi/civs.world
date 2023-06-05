@@ -20,5 +20,6 @@ public class Bank
     public List<Guid> Accounts { get; set; }
     [BsonElement]
     public Guid CountryOfOrigin { get; set; }
-
+    [BsonElement]
+    public bool GlobalOrLocal { get; set; }
 }
