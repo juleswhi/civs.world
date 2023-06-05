@@ -4,7 +4,16 @@
 @{
     Player player = ViewBag.Player;
     Army army = ViewBag.Army;
+    
+    var legions = army.Forces;
+
+    var researchedLegions = player.Researched.SoldierTypes;
 }
+
+<h1>
+    Army Management
+</h1>
+
 
 
 @if(army is null) {
@@ -14,26 +23,36 @@
             Create Army
         </button>
     </a>
-}
-
-
-<h1>
-    Army Management
-</h1>
-
+} else {
 
 
 <datalist id="LegionTypeList">
+    @foreach(var soldierType in researchedLegions) { 
+        <option value="@soldierType">@soldierType</option> 
+    }
 </datalist>
 
-
-
-
-
 <form asp-controller="Dashboard" asp-action="CreateLegion">
-    <input name="LegionType" id="LegionType" placeholder="Type of legion"></input>
-        
+    <input name="LegionType" id="LegionType" placeholder="Type of legion" list="LegionTypeList"></input>
     <button>
-        Create New Legion
     </button
 </form>
+
+<br>
+<br>
+<br>
+
+
+<ul id="legionList">
+    @foreach(var legion in legions) {
+        <li>@legion.Marker.LegionType : @legion.Marker.latLng </li>        
+    }
+</ul>
+
+}
+
+
+
+
+
+

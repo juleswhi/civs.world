@@ -109,6 +109,8 @@ public class Player
             Researched = new()
         };
 
+        player.Researched.SoldierTypes.Add(SoldierType.FootSoldier);
+
         await DataBaseClient.PlayerCollection.InsertOneAsync(player);
 
         return Code.Ok;
