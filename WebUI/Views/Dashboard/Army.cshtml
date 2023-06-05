@@ -5,7 +5,9 @@
     Player player = ViewBag.Player;
     Army army = ViewBag.Army;
     
-    var legions = army.Forces;
+    if(army is not null) {
+        var legions = army.Forces;
+    }
 
     var researchedLegions = player.Researched.SoldierTypes;
 }
