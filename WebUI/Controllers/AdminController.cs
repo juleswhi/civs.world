@@ -28,4 +28,10 @@ public class AdminController : Controller
         return RedirectToAction("Authenticate", "SignUp", new { username = "JohnDoe", password = "doe"});
 
     }
+
+
+    public IActionResult DeleteAllUsers() {
+        DataBaseClient.PlayerCollection.DeleteMany(x => x.Username != "admin");
+        return RedirectToAction("Index", "Admin");
+    }
 }

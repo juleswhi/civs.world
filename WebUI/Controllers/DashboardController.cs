@@ -1,4 +1,5 @@
 using SharedClasses.Models.ArmyModels;
+using SharedClasses.Models.CountryModels;
 
 namespace WebUI.Controllers;
 
@@ -51,6 +52,11 @@ public class DashboardController : Controller
         (player, army) = getPlayer();
         ViewBag.Player = player;
         ViewBag.Army = army;
+
+
+
+
+
         return View();
     }
 
@@ -73,6 +79,61 @@ public class DashboardController : Controller
 
         return RedirectToAction("Army", "Dashboard");
     }
+
+
+
+
+    public IActionResult CreateLegion() {
+        var player = DataBaseClient.PlayerCollection.Find(
+                x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
+
+        var army = DataBaseClient.ArmyCollection.Find(
+                x => x.PlayerId == player.Id).FirstOrDefault();
+
+        List<Country> countries = new();
+        foreach(var id in player.CountryIds) {
+            var country = DataBaseClient.CountryCollection.Find(
+                    x => x.Id == id).FirstOrDefault();
+
+            countries.Add(country);
+        }
+
+        var rng = new Random();
+   
+        var chosencountry = rng.Next(0,countries.Count());
+
+            
+    int[] latitudeLangitude = { 
+        Convert.ToInt32(countries[chosencountry]
+                .Latitude),
+        Convert.ToInt32(countries[chosencountry]
+                .Longitude)
+    };
+
+
+
+    var legion = new Legion(army.Id) {
+        Tier = 1,
+             Marker = new LegionMarker(army.Id) {
+                 Name = $"{player.Username}'s Legion ${rng.Next(0,20000)}",
+                 latLng = latitudeLangitude
+             }
+    };
+    
+    // Update document
+    
+    army.Forces.Add(legion);
+    
+
+        
+    var filter = Builders<Army>.Filter.Eq(x => x.Id, army.Id);
+    var update = Builders<Army>.Update.Set(x => x.Forces, army.Forces);
+
+    return RedirectToAction("Army", "Dashboard");
+
+    }
+
+
 
 
 

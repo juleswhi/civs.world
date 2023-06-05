@@ -31,7 +31,8 @@ public class Player
     public List<Guid> CountryIds { get; set; }
     [BsonElement]
     public string Colour { get; set; }
-
+    [BsonElement]
+    public Researched Researched { get; set; }
 
 
 
@@ -104,7 +105,9 @@ public class Player
 
         string colour = String.Format("#{0:X6}", new Random((int)DateTime.Now.Ticks).Next(0x1000000));
 
-        var player = new Player(_name, hashPassword, _username, country.Id, colour, CountryGuids);
+        var player = new Player(_name, hashPassword, _username, country.Id, colour, CountryGuids) {
+            Researched = new()
+        };
 
         await DataBaseClient.PlayerCollection.InsertOneAsync(player);
 

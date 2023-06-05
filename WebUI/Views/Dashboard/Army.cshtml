@@ -20,3 +20,24 @@
 <h1>
     Army Management
 </h1>
+
+
+
+<datalist id="LegionTypeList">
+    @foreach (var country in availableCountries)
+    {
+        <option value="@country.Name">@country.Name</option>
+    }
+</datalist>
+
+
+
+
+
+<form asp-controller="Dashboard" asp-action="CreateLegion">
+    <input name="LegionType" id="LegionType" placeholder="Type of legion"></input>
+        
+    <button>
+        Create New Legion
+    </button
+</form>
