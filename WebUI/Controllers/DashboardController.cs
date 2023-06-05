@@ -74,6 +74,8 @@ public class DashboardController : Controller
         var army = new Army {
             PlayerId = player.Id
         };
+
+       army.Forces = new(); 
         
         DataBaseClient.ArmyCollection.InsertOne(army);
 
