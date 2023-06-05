@@ -38,7 +38,6 @@ public class Player
 
 
 
-
     public async Task<Code> JoinAlliance(string allianceName, Player player)
     {
         var alliance = await DataBaseClient.AllianceCollection.FindAsync(
