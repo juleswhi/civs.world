@@ -101,6 +101,7 @@ public class Player
         List<Guid> CountryGuids = new();
 
         Researched researched = new Researched();
+        researched.SoldierTypes = new();
         researched.SoldierTypes.Add(SoldierType.FootSoldier);
         CountryGuids.Add(country.Id);
 
