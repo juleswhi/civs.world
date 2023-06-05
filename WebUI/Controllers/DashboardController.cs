@@ -53,8 +53,23 @@ public class DashboardController : Controller
     {
         return View();
     }
+    
+    public IActionResult BankSettings(string BankName) {
+
+        var bank = DataBaseClient.BankCollection.Find(_ => true)
+            .FirstOrDefault();
+        ViewBag.Bank = bank;
+        return View();
+    }
 
     public IActionResult CreateBank(string BankName, string BankType) {
+
+        var bankSearch = DataBaseClient.BankCollection.Find(
+                x => x.BankName == BankName).FirstOrDefault();
+
+        if(bankSearch is null) {
+            return RedirectToAction("Banking", "Dashboard");
+        }
 
         var player = DataBaseClient.PlayerCollection.Find(
                 x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username"))
@@ -66,9 +81,6 @@ public class DashboardController : Controller
         return RedirectToAction("Banking", "Dashboard");
     }
 
-
-
-
     public IActionResult Army()
     {
         Player player;
@@ -79,7 +91,6 @@ public class DashboardController : Controller
 
         return View();
     }
-
 
 
     public IActionResult CreateArmy() {
