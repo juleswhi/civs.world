@@ -1,4 +1,5 @@
 using SharedClasses.Models.ArmyModels;
+using SharedClasses.Models.BankModels;
 using SharedClasses.Models.CountryModels;
 
 namespace WebUI.Controllers;
@@ -53,6 +54,21 @@ public class DashboardController : Controller
         return View();
     }
 
+    public IActionResult CreateBank(string BankName, string BankType) {
+
+        var player = DataBaseClient.PlayerCollection.Find(
+                x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username"))
+            .FirstOrDefault();
+        var bank = new Bank(player.Id, BankName, BankType);
+
+        DataBaseClient.BankCollection.InsertOne(bank);
+
+        return RedirectToAction("Bank", "Dashboard");
+    }
+
+
+
+
     public IActionResult Army()
     {
         Player player;
@@ -60,10 +76,6 @@ public class DashboardController : Controller
         (player, army) = getPlayer();
         ViewBag.Player = player;
         ViewBag.Army = army;
-
-
-
-
 
         return View();
     }
