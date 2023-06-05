@@ -4,7 +4,7 @@
 @{
     Player player = ViewBag.Player;
     Army army = ViewBag.Army;
-    List<Legion> legions;
+    List<Legion> legions = new();
     if(army is not null) {
         legions = army.Forces;
     }
