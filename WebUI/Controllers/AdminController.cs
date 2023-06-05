@@ -23,9 +23,11 @@ public class AdminController : Controller
 
     }
 
-
     public IActionResult DeleteAllUsers() {
         DataBaseClient.PlayerCollection.DeleteMany(x => x.Username != "admin");
+        DataBaseClient.ArmyCollection.DeleteMany(_ => true);
+        DataBaseClient.AccountCollection.DeleteMany(_ => true);
+        DataBaseClient.BankCollection.DeleteMany(_ => true);
         return RedirectToAction("Index", "Admin");
     }
 }

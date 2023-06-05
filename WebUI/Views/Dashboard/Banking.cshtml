@@ -26,18 +26,17 @@
 
     @if(Banks.Count() == 0) {
         <h2>
-            No banks seem to be found :\ \n
+            No banks seem to be found :\
+            <br>
             Create One Here
         </h2>
         <form asp-controller="Dashboard" asp-action="CreateBank" id="CreateBank">
             <input placeholder="Bank Name" id="BankName" name="BankName"></input>
             <br>
-            <select size="2" id="BankType" name="BankType">
-                <option id="BankLocal" name="BankLocal">Local</option>
-                <option id="BankGlobal" name="BankGlobal">Global</option>
-            </select>
-            <br>
-            <input placeholder="National Or Global Bank?" id="BankType" name="BankType"></input>
+            <datalist id="bankList">
+                <option>National</option>
+                <option>Global</option>
+            <input placeholder="National Or Global Bank?" id="BankType" name="BankType" list=""></input>
             <button>Submit</button>
         </form>
     } else {
