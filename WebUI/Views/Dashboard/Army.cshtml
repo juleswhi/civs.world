@@ -4,11 +4,6 @@
 @{
     Player player = ViewBag.Player;
     Army army = ViewBag.Army;
-    List<Legion> legions = new();
-    if(army is not null) {
-        legions = army.Forces;
-    }
-
     var researchedLegions = player.Researched.SoldierTypes;
 }
 
@@ -37,6 +32,7 @@
 <form asp-controller="Dashboard" asp-action="CreateLegion">
     <input name="LegionType" id="LegionType" placeholder="Type of legion" list="LegionTypeList"></input>
     <button>
+        Create Legion
     </button
 </form>
 
@@ -46,7 +42,7 @@
 
 
 <ul id="legionList">
-    @foreach(var legion in legions) {
+    @foreach(var legion in army.Forces) {
         <li>@legion.Marker.LegionType : @legion.Marker.latLng </li>        
     }
 </ul>
