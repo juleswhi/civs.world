@@ -80,11 +80,25 @@ $(function() {
         map:'world_mill',
         backgroundColor: '2f4f4f',
         container: $('#world-map'),
+        markerStyle: {
+            initial: {
+                fill: 'grey',
+                stroke: '4f2f2f',
+                "fill-opacity": 1,
+                "stroke_width": 1,
+                "stroke_opacity": 1,
+                r: 10
+            }
+        }
         markers: markers,
         zoomAnimate: true,
         onRegionTipShow: function(event, label, code) {
 
             label.html(label.html() + ': ' + values[code]);
+        },
+        onMarkerTipShow: function(event, label, code) {
+
+            label.html(label.html() + ': ' + markers[code].latLng[0] + ' ' + markers[code].latLng[1]);
         },
         series: {
             regions: [{
@@ -92,6 +106,7 @@ $(function() {
                 scale: scale
             }],
             markers: [{
+                attribute: fill,
                 scale: markerScale
             }]
         },

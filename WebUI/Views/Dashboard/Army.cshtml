@@ -1,4 +1,3 @@
-
 @using SharedClasses.Models.UserModels;
 @using SharedClasses.Models.ArmyModels;
 
@@ -23,7 +22,6 @@
     </a>
 } else {
 
-
 <datalist id="LegionTypeList">
     @foreach(var soldierType in researchedLegions) { 
         <option value="@soldierType">@soldierType</option> 
@@ -45,7 +43,7 @@
 
 <ul id="legionList">
     @foreach(var legion in army.Forces) {
-    <li><b>@legion.Marker.Name</b>, @legion.Marker.LegionType : LAT: @legion.Marker.latLng[0], Lang: @legion.Marker.latLng[1] </li>        
+        <li>@legion.Marker.LegionType : Lat:@legion.Marker.latLng[0], Lang: @legion.Marker.latLng[1] </li>        
     }
 </ul>
 
