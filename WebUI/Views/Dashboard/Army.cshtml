@@ -31,6 +31,7 @@
 
 <form asp-controller="Dashboard" asp-action="CreateLegion">
     <input name="LegionType" id="LegionType" placeholder="Type of legion" list="LegionTypeList"></input>
+    <input name="LegionName" id="LegionName" placeholder="Name of legion"></input> 
     <button>
         Create Legion
     </button
@@ -43,7 +44,7 @@
 
 <ul id="legionList">
     @foreach(var legion in army.Forces) {
-        <li>@legion.Marker.LegionType : @legion.Marker.latLng </li>        
+        <li>@legion.Marker.LegionType : LAT:@legion.Marker.latLng[0], @legion.Marker.latLng[1] </li>        
     }
 </ul>
 
