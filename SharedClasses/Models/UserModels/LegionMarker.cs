@@ -9,4 +9,5 @@ public class LegionMarker {
     public string Name { get; set; } = String.Empty;
     public int[] latLng { get; set; } = new int[2];
     public SoldierType LegionType { get; set; }
+
 }

@@ -7,6 +7,13 @@
     List<CountryWithColor> countries = ViewBag.Countries;
     var mapType = ViewBag.mapType;
     var players = DataBaseClient.PlayerCollection.Find(_ => true).ToList();
+    var armies = DataBaseClient.ArmyCollection.Find(_ => true).ToList();
+    List<LegionMarker> markers = new();
+    foreach(var army in armies) {
+        foreach(var legion in army.Forces) {
+           markers.Add(legion.Marker); 
+        }
+    }
 }
 
 <script src="~/JVectorMap/jquery.js"></script>
@@ -40,6 +47,14 @@ var scale = {
   }
 }
 
+var markerValues = {
+    @foreach (var marker in markers) {
+        @: name:"@marker.Name", coords: [@marker.latLng[0], @marker.latLng[1]]
+    }
+}
+
+console.log(markerValues);
+
 
 $(function() {
 
@@ -60,6 +75,9 @@ $(function() {
             regions: [{
                 values: values,
                 scale: scale
+            }],
+            markers: [{
+                values: markerValues
             }]
         },
         onMarkerTipShow: function(e, label, code) {

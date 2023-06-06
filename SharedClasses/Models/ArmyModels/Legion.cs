@@ -14,6 +14,7 @@ public class Legion {
 
     [BsonElement]
     public LegionMarker Marker { get; set; }
+
 }
 
 

@@ -4,5 +4,7 @@ public enum SoldierType
 {
     FootSoldier,
     Cavalry,
-    Tank
+    Tank,
+    Null
+
 }

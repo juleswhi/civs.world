@@ -116,7 +116,7 @@ public class DashboardController : Controller
 
 
 
-    public IActionResult CreateLegion() {
+    public IActionResult CreateLegion(string LegionType, string LegionName) {
         var player = DataBaseClient.PlayerCollection.Find(
                 x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
 
@@ -135,20 +135,36 @@ public class DashboardController : Controller
    
         var chosencountry = rng.Next(0,countries.Count());
 
-            
-    int[] latitudeLangitude = { 
-        Convert.ToInt32(countries[chosencountry]
-                .Latitude),
-        Convert.ToInt32(countries[chosencountry]
-                .Longitude)
-    };
+
+        int[] latitudeLangitude = { 
+            Convert.ToInt32(countries[chosencountry]
+                    .Latitude),
+            Convert.ToInt32(countries[chosencountry]
+                    .Longitude)
+        };
+        SoldierType legionType = SoldierType.FootSoldier;
+
+        switch(LegionType) {
+            case "FootSoldier":
+                legionType = SoldierType.FootSoldier;
+                break;
+            case "Cavalry":
+                legionType = SoldierType.Cavalry;
+                break;
+            case "Tank":
+                legionType = SoldierType.Tank;
+                break;
+            default:
+                break;
+        }
 
 
 
     var legion = new Legion(army.Id) {
         Tier = 1,
              Marker = new LegionMarker(army.Id) {
-                 Name = $"{player.Username}'s Legion ${rng.Next(0,20000)}",
+                 Name = LegionName,
+                 LegionType = legionType,
                  latLng = latitudeLangitude
              }
     };
@@ -162,6 +178,9 @@ public class DashboardController : Controller
 
     DataBaseClient.ArmyCollection.UpdateOne(filter, update);
     return RedirectToAction("Army", "Dashboard");
+
+
+
 
     }
 
