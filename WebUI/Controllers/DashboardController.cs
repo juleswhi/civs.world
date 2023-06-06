@@ -152,16 +152,15 @@ public class DashboardController : Controller
                  latLng = latitudeLangitude
              }
     };
-    
-    // Update document
-    
-    army.Forces.Add(legion);
-    
 
-        
+    army.Forces.Add(legion);
+
+
+
     var filter = Builders<Army>.Filter.Eq(x => x.Id, army.Id);
     var update = Builders<Army>.Update.Set(x => x.Forces, army.Forces);
 
+    DataBaseClient.ArmyCollection.UpdateOne(filter, update);
     return RedirectToAction("Army", "Dashboard");
 
     }
