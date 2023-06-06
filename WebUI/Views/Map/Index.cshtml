@@ -62,7 +62,7 @@ var markerScale = {
 
 var markers = [
     @foreach(var marker in markers) {
-        @: { name: "@marker.Name", latLng: ["@marker.latLng[0]", "@marker.latLng[1]"], style: { stroke: 'white', fill: "@marker.Color" } },
+        @: { name: "@marker.Name", latLng: ["@marker.latLng[0]", "@marker.latLng[1]"], style: { stroke: '@marker.Color', fill: "white", "stroke-width": 3 } },
     }
 ]
 
@@ -87,7 +87,7 @@ $(function() {
                 "fill-opacity": 1,
                 "stroke_width": 1,
                 "stroke_opacity": 1,
-                r: 10
+                r: 5
             }
         },
         markers: markers,
