@@ -160,9 +160,9 @@ public class DashboardController : Controller
 
 
 
-    var legion = new Legion(army.Id) {
+    var legion = new Legion {
         Tier = 1,
-             Marker = new LegionMarker(army.Id, player.Colour) {
+             Marker = new LegionMarker() {
                  Name = LegionName,
                  LegionType = legionType,
                  latLng = latitudeLangitude
