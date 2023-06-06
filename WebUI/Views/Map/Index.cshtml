@@ -74,6 +74,7 @@ $(function() {
         map:'world_mill',
         backgroundColor: '2f4f4f',
         container: $('#world-map'),
+        markers: markerValues.map(function(h) { return {name: h.name, latLng: h.coords} }),
         zoomAnimate: true,
         onRegionTipShow: function(event, label, code) {
 
@@ -85,7 +86,6 @@ $(function() {
                 scale: scale
             }],
             markers: [{
-                values: markerValues,
                 scale: markerScale
             }]
         },
