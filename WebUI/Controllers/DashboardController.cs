@@ -135,10 +135,10 @@ public class DashboardController : Controller
    
         var chosencountry = rng.Next(0,countries.Count());
 
-
         int[] latitudeLangitude = { 
             Convert.ToInt32(countries[chosencountry]
                     .Latitude),
+
             Convert.ToInt32(countries[chosencountry]
                     .Longitude)
         };
