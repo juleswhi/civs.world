@@ -8,11 +8,9 @@
     var mapType = ViewBag.mapType;
     var players = DataBaseClient.PlayerCollection.Find(_ => true).ToList();
     var armies = DataBaseClient.ArmyCollection.Find(_ => true).ToList();
-    List<LegionMarker> markers = new();
+    List<List<LegionMarker>> markers;
     foreach(var army in armies) {
-        foreach(var legion in army.Forces) {
-           markers.Add(legion.Marker); 
-        }
+
     }
 }
 
@@ -47,19 +45,8 @@ var scale = {
   }
 }
 
-var markerValues = {
-    @foreach (var marker in markers) {
-        @: name:"@marker.Name", coords: [@marker.latLng[0], @marker.latLng[1]],
-    }
-}
 
-var markerScale = {
-    @foreach(var marker in markers) {
-        @: "@marker.Name": "@marker.Color",
-    }
-}
 
-console.log(markerValues);
 
 
 $(function() {
@@ -81,23 +68,17 @@ $(function() {
             regions: [{
                 values: values,
                 scale: scale
-            }],
-            markers: [{
-                values: markerValues,
-                scale: markerScale
             }]
         },
         onMarkerTipShow: function(e, label, code) {
             map.tip.text(markersCoords[code].lat.toFixed(2)+', '+markersCoords[code].lng.toFixed(2));
         },
-        /*
         onMarkerClick: function(e, code) {
             map.removeMarkers([code]);
             map.tip.hide();
         }
-        */
     });
-/*
+
     map.container.click(function(e) {
     
         var latLng = map.pointToLatLng(
@@ -113,7 +94,6 @@ $(function() {
         }
 
     })
-    */
 })
 
 
