@@ -91,11 +91,13 @@ $(function() {
         },
         onMarkerTipShow: function(e, label, code) {
             map.tip.text(markersCoords[code].lat.toFixed(2)+', '+markersCoords[code].lng.toFixed(2));
-        },
+        } // ,
+        /*
         onMarkerClick: function(e, code) {
             map.removeMarkers([code]);
             map.tip.hide();
         }
+        */
     });
 
     map.container.click(function(e) {
