@@ -46,6 +46,17 @@ var scale = {
   }
 }
 
+var markerValues = {
+    @foreach(var marker in markers) {
+        @: { name:"@marker.Name", coords:"@marker.latLng", status:"@marker.Name" },
+    }
+}
+
+var markerScale = {
+    @foreach(var marker in markers) {
+        @: "@marker.Name": "@marker.Color",
+    }
+}
 
 
 
@@ -69,6 +80,10 @@ $(function() {
             regions: [{
                 values: values,
                 scale: scale
+            }],
+            markers: [{
+                values: markerValues,
+                scale: markerScale
             }]
         },
         onMarkerTipShow: function(e, label, code) {
