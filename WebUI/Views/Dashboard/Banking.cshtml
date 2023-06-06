@@ -46,7 +46,7 @@
         <ul>
 
             @foreach(var bank in Banks) {
-                <form asp-controller="Bank" asp-action="BankSettings" id="BankInput">
+                <form asp-controller="Dashboard" asp-action="BankSettings" id="BankInput">
                     <input type="hidden" value="@bank.BankName" id="BankName"></input>
                     <button>@bank.BankName</button>
                 </form>
