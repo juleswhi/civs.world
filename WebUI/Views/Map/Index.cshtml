@@ -9,9 +9,11 @@
     var mapType = ViewBag.mapType;
     var players = DataBaseClient.PlayerCollection.Find(_ => true).ToList();
     var armies = DataBaseClient.ArmyCollection.Find(_ => true).ToList();
-    List<LegionMarker> markers;
+    List<LegionMarker> markers = new();
     foreach(var army in armies) {
-
+        foreach(var legion in army.Forces) {
+            markers.Add(legion.Marker);
+        }
     }
 }
 
