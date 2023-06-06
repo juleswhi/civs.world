@@ -98,7 +98,7 @@ $(function() {
         },
         onMarkerTipShow: function(event, label, code) {
 
-            label.html(label.html() + ': ' + markers[code].latLng[0] + ' ' + markers[code].latLng[1]);
+            label.html(label.html() + ': ' + code) 
         },
         series: {
             regions: [{
