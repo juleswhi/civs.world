@@ -32,7 +32,6 @@ public class Country
 
 
 
-/*
     public static List<Country?> GetAllAvailableCountries()
     {
         var CountryFilter = Builders<Country>.Filter.Exists(x => x.Id);
@@ -82,12 +81,11 @@ public class Country
                 }
             }
 
-            country.Colour = Colour;
 
             rCountries.Add(
                 new CountryWithColor{
                     Country = country.Name,
-                    Color = country.Colour,
+                    Color = Colour,
                     Code = country.CountryCode,
                     Username = Username
                 }
@@ -96,6 +94,5 @@ public class Country
         }
         return rCountries;
     }
-*/
 
 }
