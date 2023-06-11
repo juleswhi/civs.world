@@ -22,13 +22,14 @@
     </a>
 } else {
 
+
 <datalist id="LegionTypeList">
     @foreach(var soldierType in researchedLegions) { 
         <option value="@soldierType">@soldierType</option> 
     }
 </datalist>
 
-<form asp-controller="Dashboard" asp-action="CreateLegion">
+<form asp-controller="Dashboard" asp-action="SelectLocation">
     <input name="LegionType" id="LegionType" placeholder="Type of legion" list="LegionTypeList"></input>
     <input name="LegionName" id="LegionName" placeholder="Name of legion"></input> 
     <button>
@@ -43,7 +44,7 @@
 
 <ul id="legionList">
     @foreach(var legion in army.Forces) {
-        <li>@legion.Marker.LegionType : Lat:@legion.Marker.latLng[0], Lang: @legion.Marker.latLng[1] </li>        
+        <li>@legion.Marker.LegionType : LAT:@legion.Marker.latLng[0], @legion.Marker.latLng[1] </li>        
     }
 </ul>
 

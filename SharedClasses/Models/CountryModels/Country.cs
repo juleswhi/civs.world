@@ -5,14 +5,9 @@ public class Country
 {
     public Country(string name, int Population, string CountryCode)
     {
-        var rng = new Random();
         this.Name = name;
         this.Id = Guid.NewGuid();
-        this.EconomicEvaluation = rng.Next(5, 10);
-        // Fetch Real population 
         this.Population = Population;
-        this.GlobalPopularity = 25;
-        this.LocalPopularity = 35;
         this.CountryCode = CountryCode;
     }
 
@@ -24,28 +19,20 @@ public class Country
     [BsonElement]
     public string CountryCode { get; set; }
     [BsonElement]
-    public int EconomicEvaluation { get; set; }
-    [BsonElement]
     public int Population { get; set; }
-    [BsonElement]
-    public int GlobalPopularity { get; set; }
-    [BsonElement]
-    public int LocalPopularity { get; set; }
     [BsonElement]
     public double Longitude { get; set; }
     [BsonElement]
     public double Latitude { get; set; }
     [BsonElement]
     public SkillTree? SkillTree { get; set; }
-    [BsonElement]
-    public string Colour { get; set; }
 
 
 
 
 
 
-
+/*
     public static List<Country?> GetAllAvailableCountries()
     {
         var CountryFilter = Builders<Country>.Filter.Exists(x => x.Id);
@@ -109,6 +96,6 @@ public class Country
         }
         return rCountries;
     }
-
+*/
 
 }

@@ -2,6 +2,12 @@ namespace SharedClasses.Models.UserModels;
 
 public class Player
 {
+
+    public const int DEFAULT_ECONOMIC_RATING = 50;
+    public const int DEFAULT_GLOBAL_POPULARITY = 30;
+    public const int DEFAULT_LOCAL_POPULARITY = 35;
+
+
     public Player(Name name, string Password, string username, Guid CountryId, string colour, List<Guid> countryIds, Researched researched)
     {
         this.Researched = researched;
@@ -34,6 +40,12 @@ public class Player
     public string Colour { get; set; }
     [BsonElement]
     public Researched Researched { get; set; }
+    [BsonElement]
+    public int EconomicEvaluation { get; set; }
+    [BsonElement]
+    public int GlobalPopularity { get; set; }
+    [BsonElement]
+    public int LocalPopularity { get; set; }
 
 
 

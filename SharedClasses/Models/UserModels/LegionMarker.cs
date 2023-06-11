@@ -11,4 +11,5 @@ public class LegionMarker {
     public int[] latLng { get; set; } = new int[2];
     public SoldierType LegionType { get; set; }
     public string Color { get; set; }
+
 }
