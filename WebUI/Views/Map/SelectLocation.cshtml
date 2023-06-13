@@ -1,4 +1,7 @@
+@using SharedClasses.Models.CountryModels
 @{
+    string LegionName = ViewBag.LegionName;
+    string legionType = ViewBag.LegionType;
     List<CountryWithColour> Countries = ViewBag.Countries;
 }
 <head>
@@ -8,11 +11,38 @@
 <body>
 
 
+
+    <form id="MapSubmitForm" asp-controller="Dashboard" asp-action="SelectLocation">
+
+        <input id="LegionType"></input>
+        <input id="LegionName"></input>
+        <input id="PositionLat"></input>
+        <input id="PositionLang"></input>
+        
+
+    </form>
+
+
+
+
+
 <script>
 
 
-var regions = {
-    @:
+var values = {
+  @foreach(var country in Countries)
+  {
+    @: "@country.Code": "@country.Username",
+  }
+};
+
+
+var scale = {
+  @foreach (var country in Countries)
+  {
+    @: "@country.Username": "@country.Color", 
+  }
+}
 
 
 
