@@ -131,6 +131,7 @@ public class DashboardController : Controller
 
             countries.Add(country);
         }
+
         ViewBag.LegionType = LegionType;
         ViewBag.LegionName = LegionName;
         ViewBag.Player = player;
@@ -146,7 +147,7 @@ public class DashboardController : Controller
         // Put Army There
 
 
-        return RedirectToAction("SelectLocation", "Map");
+        return View(); 
     }
 
 
