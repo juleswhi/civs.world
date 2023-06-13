@@ -1,4 +1,5 @@
 using SharedClasses.Models.ArmyModels;
+
 using SharedClasses.Models.BankModels;
 using SharedClasses.Models.CountryModels;
 
@@ -63,21 +64,12 @@ public class DashboardController : Controller
     }
 
 
-
-
-
-
-
-
-
-
-
     public IActionResult CreateBank(string BankName, string BankType) {
 
         var bankSearch = DataBaseClient.BankCollection.Find(
                 x => x.BankName == BankName).FirstOrDefault();
 
-        if(bankSearch is not null) {
+        if(bankSearch is null) {
             return RedirectToAction("Banking", "Dashboard");
         }
 
@@ -139,6 +131,36 @@ public class DashboardController : Controller
 
             countries.Add(country);
         }
+        ViewBag.LegionType = LegionType;
+        ViewBag.LegionName = LegionName;
+        ViewBag.Player = player;
+        ViewBag.Army = army;
+
+        ViewBag.Countries = Country.GetColouredCountriesForPlayer(player);
+
+        
+
+        // When user creates army bring up map
+        // Create map with only countries used highlighted
+        // Click on map
+        // Put Army There
+
+
+        return RedirectToAction("SelectLocation", "Map");
+    }
+
+
+
+
+    public IActionResult CreateLegion(int[] latLang, string LegionName, string LegionType) {
+
+        var player = DataBaseClient.PlayerCollection.Find(
+                x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
+
+        var army = DataBaseClient.ArmyCollection.Find(
+                x => x.PlayerId == player.Id).FirstOrDefault();
+
+
 
         SoldierType legionType = SoldierType.FootSoldier;
 
@@ -156,34 +178,12 @@ public class DashboardController : Controller
                 break;
         }
 
-        ViewBag.LegionType = legionType;
-        ViewBag.LegionName = LegionName;
-        ViewBag.Player = player;
-        ViewBag.Army = army;
-
-
-
-        return RedirectToAction("SelectLocation", "Map");
-    }
-
-
-
-
-    public IActionResult CreateLegion(int[] latLang, string LegionName, SoldierType LegionType) {
-
-        var player = DataBaseClient.PlayerCollection.Find(
-                x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
-
-        var army = DataBaseClient.ArmyCollection.Find(
-                x => x.PlayerId == player.Id).FirstOrDefault();
-
-
 
     var legion = new Legion {
         Tier = 1,
              Marker = new LegionMarker(army.Id, player.Colour) {
                  Name = LegionName,
-                 LegionType = LegionType,
+                 LegionType = legionType,
                  latLng = latLang
              }
     };

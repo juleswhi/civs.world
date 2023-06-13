@@ -95,4 +95,41 @@ public class Country
         return rCountries;
     }
 
+
+
+    public static List<CountryWithColor> GetColouredCountriesForPlayer( Player player ) {
+
+        List<CountryWithColor> rCountries = new();
+
+        var countries = DataBaseClient.CountryCollection.Find(_ => true).ToList();
+
+        foreach(var country in countries)
+        {
+            string Colour = "#eeeeee";
+            string Username = "Not Occupied";
+            foreach(var playerCountry in player.CountryIds)
+            {
+                if(playerCountry == country.Id)
+                {
+                    Colour = player.Colour;
+                    Username = player.Username;
+                }
+            }
+
+
+            rCountries.Add(
+                    new CountryWithColor{
+                    Country = country.Name,
+                    Color = Colour,
+                    Code = country.CountryCode,
+                    Username = Username
+                    }
+                    );
+
+        }
+        return rCountries;
+
+
+    }
+
 }

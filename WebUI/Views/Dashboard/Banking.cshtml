@@ -7,6 +7,7 @@
 @{
     Player player = ViewBag.Player;
     List<Bank> Banks = ViewBag.Banks;
+    List<Account> accounts;
 }
 
 <!DOCTYPE html>
@@ -19,27 +20,30 @@
 </head>
 <body>
 
+    <h1>Current Accounts</h1>
+    
 
+    
 
     <h1>Banking</h1> 
 
 
     @if(Banks.Count() == 0) {
-        <h2>
-            No banks seem to be found :\
-            <br>
-            Create One Here
-        </h2>
-        <form asp-controller="Dashboard" asp-action="CreateBank" id="CreateBank">
-            <input placeholder="Bank Name" id="BankName" name="BankName"></input>
-            <br>
-            <datalist id="bankList">
-                <option>National</option>
-                <option>Global</option>
-            </datalist>
-            <input placeholder="National Or Global Bank?" id="BankType" name="BankType" list="bankList"></input>
-            <button>Submit</button>
-        </form>
+    <datalist id="bankList">
+        <option>National</option>
+        <option>Global</option>
+    </datalist>
+    <h2>
+        No banks seem to be found :\
+        <br>
+        Create One Here
+    </h2>
+    <form asp-controller="Dashboard" asp-action="CreateBank" id="CreateBank">
+        <input placeholder="Bank Name" id="BankName" name="BankName"></input>
+        <br>
+        <input placeholder="National Or Global Bank?" id="BankType" name="BankType" list="bankList"></input>
+        <button>Submit</button>
+    </form>
     } else {
 
 

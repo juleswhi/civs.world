@@ -15,7 +15,6 @@ public static class DataBaseClient
         CountryCollection = Database.GetCollection<Country>("CountryData");
         PlayerCollection = Database.GetCollection<Player>("PlayerData");
         AllianceCollection = Database.GetCollection<Alliance>("AllianceData");
-        Countries = Database.GetCollection<NewCountry>("Countries");
     }
     public static IMongoClient Client { get; set; }
     public static IMongoDatabase Database { get; set; }
@@ -25,7 +24,6 @@ public static class DataBaseClient
     public static IMongoCollection<Country> CountryCollection { get; set; }
     public static IMongoCollection<Player> PlayerCollection { get; set; }
     public static IMongoCollection<Alliance> AllianceCollection { get; set; }
-    public static IMongoCollection<NewCountry> Countries { get; set; }
 
     public static async Task<List<T>> FindDocuments<T>(this IMongoCollection<T> collection)
     {
