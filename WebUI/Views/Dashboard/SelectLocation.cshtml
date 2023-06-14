@@ -5,6 +5,12 @@
     List<CountryWithColor> Countries = ViewBag.Countries;
 }
 <head>
+
+<script src="~/JVectorMap/jquery.js"></script>
+<link rel="stylesheet" href="~/JVectorMap/jquery-jvectormap.css">
+<script src="~/JVectorMap/jvectormap.min.js"></script>
+<script src="~/JVectorMap/map_miller.js"></script>
+
 </head>
 
 
@@ -14,17 +20,12 @@
 
     <form id="MapSubmitForm" asp-controller="Dashboard" asp-action="SelectLocation">
 
-        <input id="LegionType"></input>
-        <input id="LegionName"></input>
-        <input id="PositionLat"></input>
-        <input id="PositionLang"></input>
+        <input id="LegionType" type="hidden"></input>
+        <input id="LegionName" type="hidden"></input>
+        <input id="PositionLat" type="hidden"></input>
+        <input id="PositionLang" type="hidden"></input>
         
-
     </form>
-
-
-
-
 
 <script>
 
