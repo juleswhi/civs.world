@@ -4,22 +4,8 @@
 
 @{
 
-    var player = DataBaseClient.PlayerCollection.Find(x => 
-        x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username"))
-        .FirstOrDefault();
+if(_httpContextAccessor.HttpContext is not null) {
 
-    var country = DataBaseClient.CountryCollection.Find(x =>
-        x.Id == player.CountryId 
-    ).FirstOrDefault();
-
+    }
 }
 
-<h2>
-    First Name: @player.Name.FirstName
-    <br>
-    Surname: @player.Name.Surname
-    <br>
-    Username: @player.Username
-    <br>
-    Countries Occupied: @country.Name
-</h2>

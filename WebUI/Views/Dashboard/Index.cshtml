@@ -3,7 +3,7 @@
 @using SharedClasses.Models.CountryModels;
 @using MongoDB.Driver;
 @{
-
+    if(_httpContextAccessor.HttpContext is null) return;
     var user = DataBaseClient.PlayerCollection.Find(x => x.Username == 
     _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
 

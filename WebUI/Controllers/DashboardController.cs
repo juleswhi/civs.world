@@ -14,6 +14,8 @@ public class DashboardController : Controller
     }
     public IActionResult Index()
     {
+        if(_httpContextAccessor.HttpContext is null) return View();
+
         if(_httpContextAccessor.HttpContext.Session.GetString("Username") == "admin")
         {
             return RedirectToAction("Index", "Admin");
@@ -39,6 +41,8 @@ public class DashboardController : Controller
 
     public IActionResult Banking()
     {
+
+        if(_httpContextAccessor.HttpContext is null) return View();
         ViewBag.Player = DataBaseClient.PlayerCollection.Find(
                 x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
 
@@ -65,6 +69,8 @@ public class DashboardController : Controller
 
 
     public IActionResult CreateBank(string BankName, string BankType) {
+
+        if(_httpContextAccessor.HttpContext is null) return View();
 
         var bankSearch = DataBaseClient.BankCollection.Find(
                 x => x.BankName == BankName).FirstOrDefault();
@@ -97,6 +103,7 @@ public class DashboardController : Controller
 
     public IActionResult CreateArmy() {
 
+        if(_httpContextAccessor.HttpContext is null) return View();
         if(_httpContextAccessor.HttpContext.Session.GetString("Username") is null) {
             return RedirectToAction("Index", "Home");
         }
@@ -118,6 +125,7 @@ public class DashboardController : Controller
 
     public IActionResult SelectLocation(string LegionType, string LegionName) {
         
+        if(_httpContextAccessor.HttpContext is null) return View();
         var player = DataBaseClient.PlayerCollection.Find(
                 x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
 
@@ -155,6 +163,7 @@ public class DashboardController : Controller
 
     public IActionResult CreateLegion(int[] latLang, string LegionName, string LegionType) {
 
+        if(_httpContextAccessor.HttpContext is null) return View();
         var player = DataBaseClient.PlayerCollection.Find(
                 x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")).FirstOrDefault();
 
@@ -209,6 +218,8 @@ public class DashboardController : Controller
 
 
     public (Player, Army) getPlayer() {
+
+        if(_httpContextAccessor.HttpContext is null) return new();
         var player = DataBaseClient.PlayerCollection.Find(
                 x => x.Username == _httpContextAccessor.HttpContext.Session.GetString("Username")
                 ).FirstOrDefault();
