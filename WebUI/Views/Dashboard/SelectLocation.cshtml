@@ -47,7 +47,9 @@ var scale = {
 var markers = {
 
 }
+var markerScale = {
 
+}
 
 
 $(function() {
@@ -70,7 +72,6 @@ $(function() {
                 r: 5
             }
         },
-        markers: markers,
         zoomAnimate: true,
         onRegionTipShow: function(event, label, code) {
 
@@ -84,10 +85,6 @@ $(function() {
             regions: [{
                 values: values,
                 scale: scale
-            }],
-            markers: [{
-                attribute: "fill",
-                scale: markerScale
             }]
         },
         /*
