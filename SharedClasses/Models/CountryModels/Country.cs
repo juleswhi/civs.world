@@ -65,25 +65,22 @@ public class Country
 
         var countries = DataBaseClient.CountryCollection.Find(_ => true).ToList();
 
+        string Colour = "#eeeeee";
+
         foreach(var country in countries)
         {
-            string Colour = "#eeeeee";
             string Username = "Not Occupied";
+
             foreach(var player in players)
-            {
                 foreach(var playerCountry in player.CountryIds)
-                {
-                    if(playerCountry == country.Id)
-                    {
+                    if(playerCountry == country.Id) {
                         Colour = player.Colour;
                         Username = player.Username;
                     }
-                }
-            }
 
 
             rCountries.Add(
-                new CountryWithColor{
+                new CountryWithColor {
                     Country = country.Name,
                     Color = Colour,
                     Code = country.CountryCode,
@@ -106,7 +103,7 @@ public class Country
         foreach(var country in countries)
         {
             string Colour = "#eeeeee";
-            string Username = "Not Occupied";
+            string Username = "Not Owned By You!";
             foreach(var playerCountry in player.CountryIds)
             {
                 if(playerCountry == country.Id)

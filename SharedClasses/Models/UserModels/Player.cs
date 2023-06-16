@@ -19,6 +19,9 @@ public class Player
         this.Name = name;
         this.Password = Password;
         this.Accounts = new List<Guid>();
+        this.EconomicEvaluation = DEFAULT_ECONOMIC_RATING;
+        this.LocalPopularity = DEFAULT_LOCAL_POPULARITY;
+        this.GlobalPopularity = DEFAULT_GLOBAL_POPULARITY;
     }
 
 
