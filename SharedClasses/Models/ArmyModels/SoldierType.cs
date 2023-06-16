@@ -6,5 +6,4 @@ public enum SoldierType
     Cavalry,
     Tank,
     Null
-
 }

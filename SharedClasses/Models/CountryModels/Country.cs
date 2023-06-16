@@ -79,14 +79,7 @@ public class Country
                     }
 
 
-            rCountries.Add(
-                new CountryWithColor {
-                    Country = country.Name,
-                    Color = Colour,
-                    Code = country.CountryCode,
-                    Username = Username
-                }
-            );
+            rCountries.Add(new CountryWithColor(country.Name, Colour, country.CountryCode, Username));
 
         }
         return rCountries;
@@ -114,15 +107,7 @@ public class Country
             }
 
 
-            rCountries.Add(
-                    new CountryWithColor{
-                    Country = country.Name,
-                    Color = Colour,
-                    Code = country.CountryCode,
-                    Username = Username
-                    }
-                    );
-
+            rCountries.Add(new CountryWithColor (country.Name, Colour, country.CountryCode, Username));
         }
         return rCountries;
 
