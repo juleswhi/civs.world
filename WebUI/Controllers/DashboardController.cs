@@ -179,17 +179,17 @@ public class DashboardController : Controller
                 break;
         }
 
+        var Marker = new LegionMarker(army.Id, player.Colour) {
+            Name = LegionName,
+            LegionType = legionType,
+            latLng = latLang
+        };
 
-    var legion = new Legion {
-        Tier = 1,
-             Marker = new LegionMarker(army.Id, player.Colour) {
-                 Name = LegionName,
-                 LegionType = legionType,
-                 latLng = latLang
-             }
-    };
+        var legion = new Legion ( Marker ) {
+            Tier = 1,
+        };
 
-    army.Forces.Add(legion);
+        army.Forces.Add(legion);
 
 
 
