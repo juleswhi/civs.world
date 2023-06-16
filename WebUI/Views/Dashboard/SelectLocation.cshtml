@@ -44,13 +44,8 @@ var scale = {
     @: "@country.Username": "@country.Color", 
   }
 }
-var markers = {
 
-}
-var markerScale = {
-
-}
-
+<div id="world-map"></div>
 
 $(function() {
 
@@ -73,14 +68,6 @@ $(function() {
             }
         },
         zoomAnimate: true,
-        onRegionTipShow: function(event, label, code) {
-
-            label.html(label.html() + ': ' + values[code]);
-        },
-        onMarkerTipShow: function(event, label, code) {
-
-            label.html(label.html() + ': ' + markers[code].latLng[0] + ' ' + markers[code].latLng[1]);
-        },
         series: {
             regions: [{
                 values: values,
