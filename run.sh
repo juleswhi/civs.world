@@ -1,2 +1,2 @@
 git pull
-sudo dotnet run /WebUI
+sudo dotnet run --project /WebUI
