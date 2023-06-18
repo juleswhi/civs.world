@@ -29,9 +29,6 @@ public class Country
 
 
 
-
-
-
     public static List<Country?> GetAllAvailableCountries()
     {
         var CountryFilter = Builders<Country>.Filter.Exists(x => x.Id);
@@ -52,7 +49,7 @@ public class Country
                     return Countries[x];
                 }).ToList();
 
-        return UnoccupiedCountries.Where( x => x != null).ToList();
+        return UnoccupiedCountries.Where( x => x != null ).ToList();
     }
 
 

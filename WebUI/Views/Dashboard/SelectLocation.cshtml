@@ -15,19 +15,13 @@
 
 
 <body>
-
-
-
   <div id="world-map" style="width: 1200px; height:700px"></div>
     <form id="MapSubmitForm" asp-controller="Dashboard" asp-action="SelectLocation">
-
         <input id="LegionType" type="hidden"></input>
         <input id="LegionName" type="hidden"></input>
         <input id="PositionLat" type="hidden"></input>
         <input id="PositionLang" type="hidden"></input>
-        
     </form>
-
 <script>
 
 
@@ -45,7 +39,6 @@ var scale = {
     @: "@country.Username": "@country.Color", 
   }
 }
-
 
 $(function() {
 
