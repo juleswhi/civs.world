@@ -1,7 +1,5 @@
 # **https://civs.world**
 
-A C# port of CountrySimulator for Discord
-
 **What is Civs?**
 
 - Civs is a browser strategy game
