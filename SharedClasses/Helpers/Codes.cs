@@ -6,6 +6,6 @@ public enum Code
     InsufficientFunds,
     ExistingAccount,
     AlreadyOccupied,
-    UsernameTaken
-
+    UsernameTaken,
+    NotLoggedIn
 }

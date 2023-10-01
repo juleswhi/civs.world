@@ -1,10 +1,16 @@
-
 namespace SharedClasses.Models.UserModels;
 
 public class Player
 {
-    public Player(Name name, string Password, string username, Guid CountryId, string colour, List<Guid> countryIds)
+
+    public const int DEFAULT_ECONOMIC_RATING = 50;
+    public const int DEFAULT_GLOBAL_POPULARITY = 30;
+    public const int DEFAULT_LOCAL_POPULARITY = 35;
+
+
+    public Player(Name name, string Password, string username, Guid CountryId, string colour, List<Guid> countryIds, Researched researched)
     {
+        this.Researched = researched;
         this.Colour = colour;
         this.CountryIds = countryIds;
         this.CountryId = CountryId;
@@ -13,6 +19,9 @@ public class Player
         this.Name = name;
         this.Password = Password;
         this.Accounts = new List<Guid>();
+        this.EconomicEvaluation = DEFAULT_ECONOMIC_RATING;
+        this.LocalPopularity = DEFAULT_LOCAL_POPULARITY;
+        this.GlobalPopularity = DEFAULT_GLOBAL_POPULARITY;
     }
 
 
@@ -32,6 +41,15 @@ public class Player
     public List<Guid> CountryIds { get; set; }
     [BsonElement]
     public string Colour { get; set; }
+    [BsonElement]
+    public Researched Researched { get; set; }
+    [BsonElement]
+    public int EconomicEvaluation { get; set; }
+    [BsonElement]
+    public int GlobalPopularity { get; set; }
+    [BsonElement]
+    public int LocalPopularity { get; set; }
+
 
 
 
@@ -96,13 +114,16 @@ public class Player
 
         List<Guid> CountryGuids = new();
 
+        Researched researched = new Researched();
+        researched.SoldierTypes = new();
+        researched.SoldierTypes.Add(SoldierType.FootSoldier);
         CountryGuids.Add(country.Id);
 
         string hashPassword = _password.Hash(ParseExtensions.salt);
 
         string colour = String.Format("#{0:X6}", new Random((int)DateTime.Now.Ticks).Next(0x1000000));
 
-        var player = new Player(_name, hashPassword, _username, country.Id, colour, CountryGuids);
+        var player = new Player(_name, hashPassword, _username, country.Id, colour, CountryGuids, researched);
 
         await DataBaseClient.PlayerCollection.InsertOneAsync(player);
 

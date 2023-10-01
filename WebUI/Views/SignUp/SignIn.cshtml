@@ -1,4 +1,4 @@
-@using SharedClasses.Models.CountryModels;
+@using SharedClasses.Models.CountryModels; 
 @using SharedClasses.Models.UserModels;
 @using MongoDB.Driver;
 
@@ -139,6 +139,8 @@ button:hover{
 </head>
 
 <script>
+<script src="~/JVectorMap/jquery.js">
+
 $('.message a').click(function(){
    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
@@ -169,7 +171,7 @@ $('.message a').click(function(){
 
 
 
-
+    <br>
 <div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="signup">
@@ -207,7 +209,7 @@ $('.message a').click(function(){
 					<label for="chk" aria-hidden="true">Sign up</label>
           			<input type="text" name="name" placeholder="Full Name" required id="Name">
 					<input type="text" name="username" placeholder="User name" required id="Username">
-					<input type="password" name="password" placeholder="Password" required id="password">
+					<input type="password" name="password" placeholder="Password" required id="Password">
                     <input type="text" name="country" placeholder="Country" required id="country" list="CountriesList">
 
 					<datalist id="CountriesList">

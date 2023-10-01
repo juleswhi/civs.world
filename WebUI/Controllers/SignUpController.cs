@@ -34,6 +34,8 @@ public class SignUpController : Controller
 
     public IActionResult Authenticate(string username, string password)
     {
+        if(_httpContextAccessor.HttpContext is null) return View();
+
         if (DataBaseClient.PlayerCollection is null)
             return RedirectToAction("Privacy", "Home");
 
@@ -81,9 +83,9 @@ public class SignUpController : Controller
             surname = name.Split(" ")[1];
 
         }
-        catch(Exception err)
+        catch(Exception Err)
         {
-            return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = "Firstname or Surname are null"});
+            return RedirectToAction("SignIn", "SignUp", new { LoginFailure = true, Reason = Err.Message });
         }
 
 
@@ -117,7 +119,7 @@ public class SignUpController : Controller
 
     public IActionResult Logout()
     {
-
+        if(_httpContextAccessor.HttpContext is null) return RedirectToAction("Index", "Home");
 
         var sessionId = _httpContextAccessor.HttpContext.Session.Id;
 

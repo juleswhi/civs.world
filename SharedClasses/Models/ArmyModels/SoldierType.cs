@@ -1,8 +1,9 @@
 namespace SharedClasses.Models.ArmyModels;
+
 public enum SoldierType
 {
-    Basic,
+    FootSoldier,
     Cavalry,
     Tank,
-    Plane
+    Null
 }

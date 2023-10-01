@@ -1,0 +1,84 @@
+@using SharedClasses.Models.CountryModels
+@{
+    string LegionName = ViewBag.LegionName;
+    string legionType = ViewBag.LegionType;
+    List<CountryWithColor> Countries = ViewBag.Countries;
+}
+<head>
+
+<script src="~/JVectorMap/jquery.js"></script>
+<link rel="stylesheet" href="~/JVectorMap/jquery-jvectormap.css">
+<script src="~/JVectorMap/jvectormap.min.js"></script>
+<script src="~/JVectorMap/map_miller.js"></script>
+
+</head>
+
+
+<body>
+  <div id="world-map" style="width: 1200px; height:700px"></div>
+    <form id="MapSubmitForm" asp-controller="Dashboard" asp-action="SelectLocation">
+        <input id="LegionType" type="hidden"></input>
+        <input id="LegionName" type="hidden"></input>
+        <input id="PositionLat" type="hidden"></input>
+        <input id="PositionLang" type="hidden"></input>
+    </form>
+<script>
+
+
+var values = {
+  @foreach(var country in Countries)
+  {
+    @: "@country.Code": "@country.Username",
+  }
+};
+
+
+var scale = {
+  @foreach (var country in Countries)
+  {
+    @: "@country.Username": "@country.Color", 
+  }
+}
+
+$(function() {
+
+    var map, 
+        markerIndex = 0,
+        markersCoords = {}
+
+    map = new jvm.Map({
+        map:'world_mill',
+        backgroundColor: '2f4f4f',
+        container: $('#world-map'),
+        markerStyle: {
+            initial: {
+                fill: 'grey',
+                stroke: '4f2f2f',
+                "fill-opacity": 1,
+                "stroke_width": 1,
+                "stroke_opacity": 1,
+                r: 5
+            }
+        },
+        zoomAnimate: true,
+        series: {
+            regions: [{
+                values: values,
+                scale: scale
+            }]
+        },
+        /*
+        onMarkerClick: function(e, code) {
+            map.removeMarkers([code]);
+            map.tip.hide();
+        }
+        */
+    });
+
+})
+
+</script>
+
+
+
+</body>

@@ -1,0 +1,57 @@
+@using SharedClasses.Models.UserModels;
+@using SharedClasses.Models.ArmyModels;
+
+@{
+    Player player = ViewBag.Player;
+    Army army = ViewBag.Army;
+    var researchedLegions = player.Researched.SoldierTypes;
+}
+
+<h1>
+    Army Management
+</h1>
+
+
+
+@if(army is null) {
+    <h1> No Army </h1>
+    <a asp-controller="Dashboard" asp-action="CreateArmy">
+        <button>
+            Create Army
+        </button>
+    </a>
+} else {
+
+
+<datalist id="LegionTypeList">
+    @foreach(var soldierType in researchedLegions) { 
+        <option value="@soldierType">@soldierType</option> 
+    }
+</datalist>
+
+<form asp-controller="Dashboard" asp-action="SelectLocation">
+    <input name="LegionType" id="LegionType" placeholder="Type of legion" list="LegionTypeList"></input>
+    <input name="LegionName" id="LegionName" placeholder="Name of legion"></input> 
+    <button>
+        Create Legion
+    </button
+</form>
+
+<br>
+<br>
+<br>
+
+
+<ul id="legionList">
+    @foreach(var legion in army.Forces) {
+        <li>@legion.Marker.LegionType : LAT:@legion.Marker.latLng[0], @legion.Marker.latLng[1] </li>        
+    }
+</ul>
+
+}
+
+
+
+
+
+

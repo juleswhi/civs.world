@@ -1,12 +1,4 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using WebUI.Models;
-using SharedClasses.Helpers.CountryMapSerialisation;
-using SharedClasses.Helpers;
-using MongoDB.Driver;
-using SharedClasses.Models.UserModels;
-
-namespace WebUI.Controllers;
+﻿namespace WebUI.Controllers;
 
 public class HomeController : Controller
 {
@@ -21,6 +13,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        if(_httpContextAccessor.HttpContext is null) return View();
         if(_httpContextAccessor.HttpContext.Session.GetString("Username") is null)
         {
             return RedirectToAction("NewUserIndex", "Home");
@@ -31,6 +24,7 @@ public class HomeController : Controller
 
     public IActionResult NewUserIndex()
     {
+        if(_httpContextAccessor.HttpContext is null) return View();
         if(_httpContextAccessor.HttpContext.Session.GetString("Username") is null)
         {
             return View();

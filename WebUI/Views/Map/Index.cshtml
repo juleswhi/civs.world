@@ -1,13 +1,20 @@
-﻿@using SharedClasses.Models.CountryModels;
+﻿
+@using SharedClasses.Models.CountryModels;
 @using SharedClasses.Models.UserModels;
 @using WebUI.Models;
 
 @{
     ViewData["Title"] = "Map";
-
-
     List<CountryWithColor> countries = ViewBag.Countries;
-
+    var mapType = ViewBag.mapType;
+    var players = DataBaseClient.PlayerCollection.Find(_ => true).ToList();
+    var armies = DataBaseClient.ArmyCollection.Find(_ => true).ToList();
+    List<LegionMarker> markers = new();
+    foreach(var army in armies) {
+        foreach(var legion in army.Forces) {
+            markers.Add(legion.Marker);
+        }
+    }
 }
 
 <script src="~/JVectorMap/jquery.js"></script>
@@ -15,11 +22,17 @@
 <script src="~/JVectorMap/jvectormap.min.js"></script>
 <script src="~/JVectorMap/map_miller.js"></script>
 
-<Body>
+<body>
 <center>
   <div id="world-map" style="width: 1200px; height:700px"></div>
 </center>
+
+
+<form id="CountryForm" asp-controller="CountryProfile" asp-action="Index">
+    <input id="CountryName" name="CountryName" type="hidden"></input>
+</form>
 <script>
+
 
 var values = {
   @foreach(var country in countries)
@@ -35,8 +48,76 @@ var scale = {
   }
 }
 
+var markerValues = [
+    @foreach(var marker in markers) {
+        @: { name:"@marker.Name", coords:"@marker.latLng", status:"@marker.Name" },
+    }
+]
+
+var markerScale = {
+    @foreach(var marker in markers) {
+        @: "@marker.Name": "@marker.Color",
+    }
+}
+
+var markers = [
+    @foreach(var marker in markers) {
+        @: { name: "@marker.Name", latLng: ["@marker.latLng[0]", "@marker.latLng[1]"], style: { stroke: '@marker.Color', fill: "white", "stroke-width": 3 } },
+    }
+]
+
+$(function() {
+
+    var map, 
+        markerIndex = 0,
+        markersCoords = {}
+
+    map = new jvm.Map({
+        map:'world_mill',
+        backgroundColor: '2f4f4f',
+        container: $('#world-map'),
+        markerStyle: {
+            initial: {
+                fill: 'grey',
+                stroke: '4f2f2f',
+                "fill-opacity": 1,
+                "stroke_width": 1,
+                "stroke_opacity": 1,
+                r: 5
+            }
+        },
+        markers: markers,
+        zoomAnimate: true,
+        onRegionTipShow: function(event, label, code) {
+
+            label.html(label.html() + ': ' + values[code]);
+        },
+        onMarkerTipShow: function(event, label, code) {
+
+            label.html(label.html() + ': ' + markers[code].latLng[0] + ' ' + markers[code].latLng[1]);
+        },
+        series: {
+            regions: [{
+                values: values,
+                scale: scale
+            }],
+            markers: [{
+                attribute: "fill",
+                scale: markerScale
+            }]
+        },
+        /*
+        onMarkerClick: function(e, code) {
+            map.removeMarkers([code]);
+            map.tip.hide();
+        }
+        */
+    });
+
+})
 
 
+/*
 $('#world-map').vectorMap({
     map: 'world_mill',
     backgroundColor: '2f4f4f',
@@ -48,21 +129,30 @@ $('#world-map').vectorMap({
       regions: [{
         values: values,
         scale: scale
+      }],
+      markers: [{
+          values: markers
       }]
     },
     onRegionTipShow: function(event, label, code) {
       label.html(label.html() + ': ' + values[code]);
     },
     onRegionClick: function(e, code) {
-
-            console.log(code);
-
+        let form = document.getElementById("CountryForm");
+        console.log(`form = {form}`)
+        console.log(code)
+        form.CountryName.value= code;
+        if(form.CountryName === null) return;
+        form.submit();
+    },
+    onMarkerClick: function(e, code) {
+        map.removeMarkers([code]);
+        map.tip.hide();
     }
+
+
   });
-
-
-
+*/
 </script>
-
     
-</Body>
+</body>

@@ -14,6 +14,7 @@
         body
     {
         background-color: darkslategray;
+        color: white;
     }
     </style>
 </head>
@@ -39,14 +40,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        @if(_httpContextAccessor.HttpContext.Session.GetString("Username") is null)
+                        @if(_httpContextAccessor.HttpContext is null)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="SignUp" asp-action="SignIn">Login</a>
                             </li>
                         }
 
-                        @if(_httpContextAccessor.HttpContext.Session.GetString("Username") is not null)
+                        @if(_httpContextAccessor.HttpContext is not null)
                         {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Map" asp-action="Index">Map</a>

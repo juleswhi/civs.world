@@ -1,10 +1,13 @@
 @using SharedClasses.Models.CountryModels;
+@using SharedClasses.Models.BankModels;
 @using SharedClasses.Models.UserModels;
 
 @inject IHttpContextAccessor _httpContextAccessor;
 
 @{
-
+    Player player = ViewBag.Player;
+    List<Bank> Banks = ViewBag.Banks;
+    // List<Account> accounts;
 }
 
 <!DOCTYPE html>
@@ -16,6 +19,50 @@
     <title>Banking</title>
 </head>
 <body>
-   <h1>Banking</h1> 
+
+    <h1>Current Accounts</h1>
+
+    
+
+    <h1>Banking</h1> 
+
+
+    @if(Banks.Count() == 0) {
+    <datalist id="bankList">
+        <option>National</option>
+        <option>Global</option>
+    </datalist>
+    <h2>
+        No banks seem to be found :\
+        <br>
+        Create One Here
+    </h2>
+    <form asp-controller="Dashboard" asp-action="CreateBank" id="CreateBank">
+        <input placeholder="Bank Name" id="BankName" name="BankName"></input>
+        <br>
+        <input placeholder="National Or Global Bank?" id="BankType" name="BankType" list="bankList"></input>
+        <button>Submit</button>
+    </form>
+    } else {
+
+
+        <ul>
+
+            @foreach(var bank in Banks) {
+                <form asp-controller="Dashboard" asp-action="BankSettings" id="BankInput">
+                    <input type="hidden" value="@bank.BankName" id="BankName"></input>
+                    <button>@bank.BankName</button>
+                </form>
+            }
+
+
+        </ul>
+
+
+    }
+
+
+
+
 </body>
 </html>

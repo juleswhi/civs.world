@@ -13,12 +13,6 @@ public class AdminController : Controller
 
     public IActionResult Index()
     {
-
-        if(_httpContextAccessor.HttpContext.Session.GetString("Username") != "admin")
-        {
-            return RedirectToAction("Index", "Home");
-        }
-
         return View();
     }
 
@@ -27,5 +21,13 @@ public class AdminController : Controller
 
         return RedirectToAction("Authenticate", "SignUp", new { username = "JohnDoe", password = "doe"});
 
+    }
+
+    public IActionResult DeleteAllUsers() {
+        DataBaseClient.PlayerCollection.DeleteMany(x => x.Username != "admin");
+        DataBaseClient.ArmyCollection.DeleteMany(_ => true);
+        DataBaseClient.AccountCollection.DeleteMany(_ => true);
+        DataBaseClient.BankCollection.DeleteMany(_ => true);
+        return RedirectToAction("Index", "Admin");
     }
 }

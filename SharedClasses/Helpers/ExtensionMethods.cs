@@ -57,6 +57,4 @@ public static class ParseExtensions
         return BCrypt.Net.BCrypt.HashPassword(Password, salt);
     }
 
-
-
 }

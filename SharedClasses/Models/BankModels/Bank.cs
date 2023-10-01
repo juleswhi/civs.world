@@ -3,10 +3,12 @@ namespace SharedClasses.Models.BankModels;
 
 public class Bank
 {
-    public Bank(Guid CountryOfOrigin, string BankName)
+    public Bank(Guid NationOfOrigin, string BankName, string NationalOrGlobal)
     {
+        if(NationalOrGlobal == "National") GlobalOrLocal = false;
+        if(NationalOrGlobal == "Global") GlobalOrLocal = true;
         this.BankName = BankName;
-        this.CountryOfOrigin = CountryOfOrigin;
+        this.NationOfOrigin = NationOfOrigin;
         this.Id = Guid.NewGuid();
         this.Accounts = new List<Guid>();
     }
@@ -19,6 +21,8 @@ public class Bank
     [BsonElement]
     public List<Guid> Accounts { get; set; }
     [BsonElement]
-    public Guid CountryOfOrigin { get; set; }
-
+    public Guid NationOfOrigin { get; set; }
+    // True = Global, False = Local
+    [BsonElement]
+    public bool GlobalOrLocal { get; set; }
 }
