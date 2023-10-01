@@ -1,9 +1,6 @@
 <div align="center">
 
-# C.I.V.S
-#### Civs Is Vaguely Serious
-
-</div>
+# CIVS
 
 <br>
 
